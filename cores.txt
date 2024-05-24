@@ -1,0 +1,2 @@
+Principal: #26E580;
+Branco: #fff;
