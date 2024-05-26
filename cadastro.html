@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+    <header>
+        <h1>
+            S+ Learn
+        </h1>
+        <div class="conta">
+            <a href="index.php">
+                <button>
+                    Home
+                </button>
+            </a>
+        </div>
+    </header>
+    <main>
+        <form action="php/cadastro.php" method="post">
+            <h1>
+                Cadastre-se
+            </h1>
+            <Label>Nome de Usuário:</Label>
+            <input type="text" name="nome" placeholder="Digite o seu Nome" autofocus class="entrada">
+            <Label>Senha:</Label>
+            <input type="password" name="senha" placeholder="Digite o sua Senha" class="entrada">
+            <Label>Repita sua Senha:</Label>
+            <input type="password" name="senha2" placeholder="Confirme sua Senha" class="entrada">
+            <input type="submit" value="Cadastrar-se" class="entra">
+            <p>
+                Já possui uma conta? 
+                <a href="login.html">
+                    Faça Login!
+                </a>
+            </p>
+        </form>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados ©</p>
+    </footer>
+</body>
+</html>

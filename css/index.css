@@ -1,0 +1,59 @@
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+}
+header{
+    background-color: #26E580;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding-right: 2vw;
+    height: 10vh
+}
+header h1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100%;
+    margin: 0px;
+    font-size: 5vh;
+}
+.conta{
+    width: 30vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+.conta a, button{
+    font-size: 2.5vh;
+    height: 100%;
+    background-color: #26E580;
+    border: none;
+}
+.conta a button:hover{
+    background-color: #ffffff;
+    transition: ease-in 0.3s;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 85vh;
+}
+footer{
+    height: 5vh;
+    background-color: #26E580;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding-right: 1.5vw;
+    p{
+        font-size: 2.25vh;
+    }
+}
