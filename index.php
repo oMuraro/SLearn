@@ -30,6 +30,13 @@
                             </button>
                         </a>";
                 }
+            }else{
+                echo 
+                        "<a href='login.html'>
+                            <button>
+                                Cadastro/Login
+                            </button>
+                        </a>";
             }
             ?>
         </div>

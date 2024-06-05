@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/TAD.css">
+    <title>Funcionamento da Lista Duplamente Encadeada</title>
+</head>
+
+<body>
+    <header>
+        <section>
+            <p id="logo">S+ LEARN</p>
+        </section>
+    </header>
+
+    <nav>
+        <a href="tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
+        <a href="listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
+        <a href="/view/LDE/ListaDuplamente.html" class="link-header">Lista Duplamente Encadeada</a>
+    </nav>
+
+    <section class="container">
+        <section class="menu-lateral">
+            <h1>Conteúdo</h1>
+            <a href="ListaDuplamente.html" id="link-conteudo">1. Introdução</a>
+            <a href="LDEFunc.html" id="link-conteudo">2. Funcionamento</a>
+            <a href="LDEFinal.html" id="link-conteudo">3. Conclusão</a>
+        </section>
+
+        <section class="information">
+            <h1>Funcionamento da Lista Duplamente Encadeada</h1>
+            <p>Funcionamento interno da Lista Duplamente Encadeada. Veremos como os nós são estruturados e como os ponteiros são utilizados para permitir operações eficientes de inserção, remoção e navegação na lista.</p>
+
+            <h2>Estrutura dos Nós</h2>
+            <p>Cada nó em uma Lista Duplamente Dncadeada contém três campos: o valor do elemento, um ponteiro para o próximo nó e um ponteiro para o nó anterior.</p>
+
+            <h2>Inserção e Remoção</h2>
+            <p>As operações de inserção e remoção em uma lista duplamente encadeada são eficientes, especialmente quando comparadas com arrays. Isso ocorre porque não é necessário realocar todos os elementos adjacentes, como em arrays, para inserir ou remover um elemento em qualquer posição.</p>
+
+            <h2>Navegação na Lista</h2>
+            <p>Graças aos ponteiros para o nó anterior e próximo, é possível percorrer a lista tanto no sentido convencional quanto no sentido inverso, tornando-a uma estrutura de dados versátil e adaptável a diversas situações.</p>
+
+            <h2>Implementação</h2>
+            <p>Veja abaixo um exemplo simples de implementação de uma lista duplamente encadeada em C++:</p>
+
+            <section class="codigo">
+                <textarea disabled>
+#include <iostream>
+
+using namespace std;
+
+// Definição da estrutura do nó
+struct Node {
+    int data;
+    Node* prev;
+    Node* next;
+    Node(int val) : data(val), prev(nullptr), next(nullptr) {}
+};
+
+// Definição da classe ListaDuplamenteEncadeada
+class ListaDuplamenteEncadeada {
+private:
+    Node* head;
+public:
+    ListaDuplamenteEncadeada() : head(nullptr) {}
+
+    // Método para inserir no início da lista
+    void inserirInicio(int val) {
+        Node* novo = new Node(val);
+        if (!head) {
+            head = novo;
+        } else {
+            novo->next = head;
+            head->prev = novo;
+            head = novo;
+        }
+    }
+
+    // Método para imprimir a lista
+    void imprimir() {
+        Node* temp = head;
+        while (temp) {
+            cout &lt;&lt; temp->data &lt;&lt; " ";
+            temp = temp->next;
+        }
+        cout &lt;&lt; endl;
+    }
+};
+
+int main() {
+    ListaDuplamenteEncadeada lista;
+    lista.inserirInicio(3);
+    lista.inserirInicio(2);
+    lista.inserirInicio(1);
+    lista.imprimir(); // Saída: 1 2 3
+    return 0;
+}</code></pre>
+            </section>
+
+            <p>Entender o funcionamento da lista duplamente encadeada é fundamental para o desenvolvimento de aplicações eficientes e robustas. Na próxima aula, vamos concluir nossa exploração sobre essa estrutura de dados.</p>
+        </section>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
