@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/TAD.css">
+    <title>Filas - TAD</title>
+</head>
+
+<body>
+    <header>
+        <section>
+            <p id="logo">S+ LEARN</p>
+        </section>
+    </header>
+
+    <nav>
+        <a href="tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
+        <a href="listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
+        <a href="/view/LDE/ListaDuplamente.html" class="link-header">Lista Duplamente Encadeada</a>
+    </nav>
+
+    <section class="container">
+        <section class="menu-lateral">
+            <h1>Conteúdo</h1>
+            <a href="tadIntroducao.html" id="link-conteudo">1. Introdução</a>
+            <a href="tadEncapsulamento.html" id="link-conteudo">2. Encapsulamento</a>
+            <a href="tadAbstracao.html" id="link-conteudo">3. Abstração</a>
+            <a href="tadPilha.html" id="link-conteudo">4. Pilhas</a>
+            <a href="tadFilas.html" id="link-conteudo">5. Filas</a>
+            <a href="tadFilasPrioridade.html" id="link-conteudo">6. Filas de Prioridade</a>
+        </section>
+
+        <section class="information">
+            <h1>Filas (Queues) em TAD</h1>
+
+            <h2>Definição e Conceito de FIFO</h2>
+            <p><strong>Definição:</strong> Uma fila é uma estrutura de dados que segue o princípio FIFO (First In, First
+                Out), onde o primeiro elemento inserido é o primeiro a ser removido.</p>
+            <p><strong>Conceito de FIFO:</strong> Imagine uma fila em um banco. A pessoa que chega primeiro é atendida
+                primeiro. O mesmo princípio se aplica às filas em computação.</p>
+
+            <h2>Operações Principais</h2>
+            <ul>
+                <li><strong>Enqueue:</strong> Adicionar um elemento ao final da fila.</li>
+                <li><strong>Dequeue:</strong> Remover o elemento do início da fila.</li>
+                <li><strong>Front:</strong> Acessar o elemento no início da fila sem removê-lo.</li>
+                <li><strong>Rear:</strong> Acessar o elemento no final da fila sem removê-lo.</li>
+                <li><strong>IsEmpty:</strong> Verificar se a fila está vazia.</li>
+                <li><strong>Size:</strong> Retornar o número de elementos na fila.</li>
+            </ul>
+
+            <h2>Implementação</h2>
+            <h3>Usando Arrays:</h3>
+            <ul>
+                <li><strong>Vantagens:</strong> Implementação simples e eficiente se o tamanho máximo da fila for
+                    conhecido.</li>
+                <li><strong>Desvantagens:</strong> Tamanho fixo (limitação de capacidade), operações de deslocamento
+                    podem ser custosas.</li>
+            </ul>
+
+            <h3>Usando Listas Encadeadas:</h3>
+            <ul>
+                <li><strong>Vantagens:</strong> Tamanho dinâmico, sem limitação de capacidade.</li>
+                <li><strong>Desvantagens:</strong> Uso adicional de memória para ponteiros.</li>
+            </ul>
+
+            <h3>Implementação de Fila usando Array em C#</h3>
+            <section class="codigo">
+                <textarea disabled>
+                    using System;
+
+public class ArrayQueue
+{
+    private int[] queue;
+    private int front; // índice do elemento no início da fila
+    private int rear;  // índice do elemento no final da fila
+    private int capacity;
+    private int size;
+
+    public ArrayQueue(int capacity)
+    {
+        this.capacity = capacity;
+        queue = new int[capacity];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+
+    public void Enqueue(int item)
+    {
+        if (size == capacity)
+        {
+            throw new InvalidOperationException("Queue is full");
+        }
+
+        rear = (rear + 1) % capacity;
+        queue[rear] = item;
+        size++;
+    }
+
+    public int Dequeue()
+    {
+        if (size == 0)
+        {
+            throw new InvalidOperationException("Queue is empty");
+        }
+
+        int item = queue[front];
+        front = (front + 1) % capacity;
+        size--;
+        return item;
+    }
+
+    public int Front()
+    {
+        if (size == 0)
+        {
+            throw new InvalidOperationException("Queue is empty");
+        }
+
+        return queue[front];
+    }
+
+    public bool IsEmpty()
+    {
+        return size == 0;
+    }
+
+    public int Size()
+    {
+        return size;
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        ArrayQueue queue = new ArrayQueue(5);
+        queue.Enqueue(1);
+        queue.Enqueue(2);
+        queue.Enqueue(3);
+        Console.WriteLine(queue.Dequeue()); // Output: 1
+        Console.WriteLine(queue.Front());  // Output: 2
+        Console.WriteLine(queue.Size());   // Output: 2
+    }
+}
+                </textarea>
+            </section>
+
+            <h2>Aplicações de Filas</h2>
+            <ul>
+                <li><strong>Processamento de Tarefas em Lote (Batch):</strong> Por exemplo, processamento de tarefas em
+                    um servidor.</li>
+                <li><strong>Fila de Impressão:</strong> Gerenciamento de documentos a serem impressos.</li>
+                <li><strong>Fila de Mensagens em Sistemas Distribuídos:</strong> Troca de mensagens assíncronas entre
+                    sistemas.</li>
+                <li><strong>Algoritmo de Busca em Largura (BFS):</strong> Utilizado em grafos para encontrar o caminho
+                    mais curto entre dois vértices.</li>
+                <li><strong>Simulação de Eventos Discretos:</strong> Modelagem de sistemas onde eventos ocorrem em
+                    instantes discretos de tempo.</li>
+            </ul>
+
+            <h2>Exemplos de Uso em Linguagens de Programação</h2>
+            <ul>
+                <li><strong>C#:</strong> Classe Queue&lt;T&gt; do namespace System.Collections.Generic.</li>
+                <li><strong>Java:</strong> Classe Queue da biblioteca java.util.</li>
+                <li><strong>Python:</strong> Módulo queue ou implementação própria usando listas.</li>
+            </ul>
+        </section>
+    </section>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

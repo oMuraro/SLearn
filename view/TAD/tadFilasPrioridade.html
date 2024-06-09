@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/TAD.css">
+    <title>Filas de Prioridade - TAD</title>
+</head>
+
+<body>
+    <header>
+        <section>
+            <p id="logo">S+ LEARN</p>
+        </section>
+    </header>
+
+    <nav>
+        <a href="tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
+        <a href="listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
+        <a href="/view/LDE/ListaDuplamente.html" class="link-header">Lista Duplamente Encadeada</a>
+    </nav>
+
+    <section class="container">
+        <section class="menu-lateral">
+            <h1>Conteúdo</h1>
+            <a href="tadIntroducao.html" id="link-conteudo">1. Introdução</a>
+            <a href="tadEncapsulamento.html" id="link-conteudo">2. Encapsulamento</a>
+            <a href="tadAbstracao.html" id="link-conteudo">3. Abstração</a>
+            <a href="tadPilha.html" id="link-conteudo">4. Pilhas</a>
+            <a href="tadFilas.html" id="link-conteudo">5. Filas</a>
+            <a href="tadFilasPrioridade.html" id="link-conteudo">6. Filas de Prioridade</a>
+        </section>
+
+        <section class="information">
+            <h1>Filas de Prioridade em TAD</h1>
+
+            <h2>Características das Filas de Prioridade</h2>
+            <p><strong>Organização por Prioridade:</strong> Os elementos são ordenados de acordo com a
+            prioridade atribuída a cada um.</p>
+            <h2>Operações Principais:</h2>
+            <ul>
+                <li><strong>Insert:</strong> Adicionar um elemento com sua prioridade à fila de prioridade.</li>
+                <li><strong>Delete-Max/Delete-Min:</strong> Remover e retornar o elemento de maior (ou menor) prioridade da fila.</li>
+                <li><strong>Find-Max/Find-Min:</strong> Retornar o elemento de maior (ou menor) prioridade sem removê-lo da fila.</li>
+            </ul>
+            <h2>Implementações Comuns:</h2>
+            <ul>
+                <li><strong>Heap:</strong> Implementação eficiente usando árvores binárias (min-heap ou max-heap).</li>
+                <li><strong>Árvore Binária de Busca:</strong> Implementação onde a prioridade é o critério de ordenação na árvore.</li>
+            </ul>
+            <h2>Aplicações:</h2>
+            <ul>
+                <li>Algoritmos de busca e otimização, como o algoritmo de Dijkstra para caminho mínimo.</li>
+                <li>Algoritmos de compressão de dados, como o algoritmo de Huffman.</li>
+                <li>Escalonamento de processos em sistemas operacionais.</li>
+                <li>Filas de eventos em simulações.</li>
+            </ul>
+
+            <h2>Implementação em C# usando Heap (Min-Heap)</h2>
+            <section class="codigo">
+                <textarea disabled>
+                    using System;
+                    using System.Collections.Generic;
+                    
+                    public class MinPriorityQueue<T> where T : IComparable<T>
+                    {
+                        private List<T> heap; // Lista para armazenar os elementos do heap
+                    
+                        public MinPriorityQueue()
+                        {
+                            heap = new List<T>(); // Inicializa a lista do heap
+                        }
+                    
+                        // Insere um elemento na fila de prioridade
+                        public void Insert(T item)
+                        {
+                            heap.Add(item); // Adiciona o elemento à lista
+                            Swim(heap.Count - 1); // Corrige a posição do elemento recém-inserido
+                        }
+                    
+                        // Remove e retorna o elemento de menor prioridade da fila
+                        public T DeleteMin()
+                        {
+                            if (IsEmpty()) // Verifica se a fila está vazia
+                                throw new InvalidOperationException("Priority queue is empty");
+                    
+                            T min = heap[0]; // Armazena o elemento de menor prioridade
+                            Swap(0, heap.Count - 1); // Troca o elemento de menor prioridade com o último elemento
+                            heap.RemoveAt(heap.Count - 1); // Remove o elemento de menor prioridade
+                            Sink(0); // Corrige a posição do elemento que foi movido para a raiz
+                    
+                            return min; // Retorna o elemento de menor prioridade
+                        }
+                    
+                        // Retorna o elemento de menor prioridade sem removê-lo da fila
+                        public T FindMin()
+                        {
+                            if (IsEmpty()) // Verifica se a fila está vazia
+                                throw new InvalidOperationException("Priority queue is empty");
+                    
+                            return heap[0]; // Retorna o elemento de menor prioridade (na raiz do heap)
+                        }
+                    
+                        // Verifica se a fila de prioridade está vazia
+                        public bool IsEmpty()
+                        {
+                            return heap.Count == 0; // Retorna verdadeiro se a lista do heap estiver vazia
+                        }
+                    
+                        // Corrige a posição de um elemento após a inserção
+                        private void Swim(int k)
+                        {
+                            while (k > 0 && heap[k].CompareTo(heap[(k - 1) / 2]) < 0)
+                            {
+                                // Troca o elemento com seu pai enquanto ele for menor que o pai
+                                Swap(k, (k - 1) / 2);
+                                k = (k - 1) / 2;
+                            }
+                        }
+                    
+                        // Corrige a posição de um elemento após a remoção
+                        private void Sink(int k)
+                        {
+                            while (2 * k + 1 < heap.Count)
+                            {
+                                int j = 2 * k + 1;
+                                // Compara com o filho da esquerda e, se houver, com o filho da direita
+                                if (j < heap.Count - 1 && heap[j].CompareTo(heap[j + 1]) > 0)
+                                    j++;
+                                // Se o elemento for menor ou igual ao menor filho, para
+                                if (heap[k].CompareTo(heap[j]) <= 0)
+                                    break;
+                                // Senão, troca o elemento com o menor filho
+                                Swap(k, j);
+                                k = j;
+                            }
+                        }
+                    
+                        // Troca dois elementos na lista do heap
+                        private void Swap(int i, int j)
+                        {
+                            T temp = heap[i];
+                            heap[i] = heap[j];
+                            heap[j] = temp;
+                        }
+                    }
+                    
+                    public class Program
+                    {
+                        public static void Main()
+                        {
+                            // Exemplo de uso da fila de prioridade mínima
+                            MinPriorityQueue<int> pq = new MinPriorityQueue<int>();
+                            pq.Insert(5);
+                            pq.Insert(2);
+                            pq.Insert(7);
+                            pq.Insert(1);
+                            Console.WriteLine(pq.FindMin());   // Output: 1
+                            Console.WriteLine(pq.DeleteMin()); // Output: 1
+                        }
+                    }
+        </textarea>
+            </section>
+
+            <h2>Considerações Finais</h2>
+            <p>
+                O uso de filas de prioridade é essencial em diversas aplicações onde é necessário ordenar e
+                processar elementos com base em suas prioridades.
+                As implementações eficientes garantem um desempenho adequado para lidar com grandes conjuntos de
+                dados.
+            </p>
+        </section>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
