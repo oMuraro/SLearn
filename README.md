@@ -2,11 +2,11 @@
  O SLearn é um sistema feito em grupo para a aquisição de nota parcial na matéria de Estrutura de Dados do curso DS-AMS da Fatec de Presidente Prudente.<br/>
 
 # Do que se trata?
- O SLearn é um sistema simples com conteúdos educativos sobre: "Listas de Encadeadas", e "Tipos Abstratos de ados"\**
- As listas encadeadas contém duas versões: A simples, e a Dupla\**
+ O SLearn é um sistema simples com conteúdos educativos sobre: "Listas de Encadeadas", e "Tipos Abstratos de Dados"<br/>
+ As listas encadeadas contém duas versões: A simples, e a Dupla<br/>
 
 # Como Instalar e Utilizar?
- A instalação é Super simples, para os que já sabem usar o Git e GitHub, sigam com o passo a passo 1, caso não saiba utilizar, vá para o passo a passo 2.\**
+ A instalação é Super simples, para os que já sabem usar o Git e GitHub, sigam com o passo a passo 1, caso não saiba utilizar, vá para o passo a passo 2.<br/>
 
 # 1 - Instalando com o Git
  Bom, se você já sabe como usar o Git, então já deve possuí-lo em sua máquina, logo, pulando o processo de instalação do Git.<br/>
