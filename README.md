@@ -10,17 +10,17 @@
 
 # 1 - Instalando com o Git
  Bom, se você já sabe como usar o Git, então já deve possuí-lo em sua máquina, logo, pulando o processo de instalação do Git.<br/>
- Passo 1 - Copie o link do repositório.\**
- Passo 2 - Dê um Git clone Dentro de sua Máquina dentro da pasta htdocs, ou dentro da sua pasta que emule apache.\**
- Passo 3 - Abra o navegador\**
- Passo 4 - Insira o Banco de Dados no seu Phpmyadmin.\**
- Passo 5 - Abra o caminho: 127.0.0.1/Slearn-Main (complete o caminho de acordo com o seu navegador de arquivos)\**
+ Passo 1 - Copie o link do repositório.<br/>
+ Passo 2 - Dê um Git clone Dentro de sua Máquina dentro da pasta htdocs, ou dentro da sua pasta que emule apache.<br/>
+ Passo 3 - Abra o navegador<br/>
+ Passo 4 - Insira o Banco de Dados no seu Phpmyadmin.<br/>
+ Passo 5 - Abra o caminho: 127.0.0.1/Slearn-Main (complete o caminho de acordo com o seu navegador de arquivos)<br/>
 
 # 2 - Instalando Sem o Git
- Bom, Considerando que você não sabe usar o Git, existe a opção também de baixar o arquivo como pasta zipada e coloca-la no local desejado.\**
- Passo 1 - Clique em Code (botão verde acima dos arquivos no github)\**
- Passo 2 - Clique em Download ZIP.\**
- Passo 3 - Extraia os arquivos da Pasta zipada.\**
- Passo 4 - Mova esses arquivos para a pasta do seu emulador apache. (htdocs ou coisa assim)\**
- Passo 5 - Insira o Banco de Dados no seu Phpmyadmin.\**
- Passo 6 - Abra o caminho: 127.0.0.1/Slearn-Main (complete o caminho de acordo com o seu navegador de arquivos)\**
+ Bom, Considerando que você não sabe usar o Git, existe a opção também de baixar o arquivo como pasta zipada e coloca-la no local desejado.<br/>
+ Passo 1 - Clique em Code (botão verde acima dos arquivos no github)<br/>
+ Passo 2 - Clique em Download ZIP.<br/>
+ Passo 3 - Extraia os arquivos da Pasta zipada.<br/>
+ Passo 4 - Mova esses arquivos para a pasta do seu emulador apache. (htdocs ou coisa assim)<br/>
+ Passo 5 - Insira o Banco de Dados no seu Phpmyadmin.<br/>
+ Passo 6 - Abra o caminho: 127.0.0.1/Slearn-Main (complete o caminho de acordo com o seu navegador de arquivos)<br/>
