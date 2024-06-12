@@ -10,15 +10,15 @@
 
 <body>
     <header>
-        <section>
-            <p id="logo">S+ LEARN</p>
-        </section>
+        <a href="../../home.php">
+            <img class="logo" src="../../img/logo.png" alt="Logotipo">
+        </a>
     </header>
 
     <nav>
-        <a href="tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
+        <a href="../TAD/tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
         <a href="listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
-        <a href="/view/LDE/ListaDuplamente.html" class="link-header">Lista Duplamente Encadeada</a>
+        <a href="ListaDuplamente.html" class="link-header">Lista Duplamente Encadeada</a>
     </nav>
 
     <section class="container">
@@ -31,16 +31,23 @@
 
         <section class="information">
             <h1>Funcionamento da Lista Duplamente Encadeada</h1>
-            <p>Funcionamento interno da Lista Duplamente Encadeada. Veremos como os nós são estruturados e como os ponteiros são utilizados para permitir operações eficientes de inserção, remoção e navegação na lista.</p>
+            <p>Funcionamento interno da Lista Duplamente Encadeada. Veremos como os nós são estruturados e como os
+                ponteiros são utilizados para permitir operações eficientes de inserção, remoção e navegação na lista.
+            </p>
 
             <h2>Estrutura dos Nós</h2>
-            <p>Cada nó em uma Lista Duplamente Dncadeada contém três campos: o valor do elemento, um ponteiro para o próximo nó e um ponteiro para o nó anterior.</p>
+            <p>Cada nó em uma Lista Duplamente Dncadeada contém três campos: o valor do elemento, um ponteiro para o
+                próximo nó e um ponteiro para o nó anterior.</p>
 
             <h2>Inserção e Remoção</h2>
-            <p>As operações de inserção e remoção em uma lista duplamente encadeada são eficientes, especialmente quando comparadas com arrays. Isso ocorre porque não é necessário realocar todos os elementos adjacentes, como em arrays, para inserir ou remover um elemento em qualquer posição.</p>
+            <p>As operações de inserção e remoção em uma lista duplamente encadeada são eficientes, especialmente quando
+                comparadas com arrays. Isso ocorre porque não é necessário realocar todos os elementos adjacentes, como
+                em arrays, para inserir ou remover um elemento em qualquer posição.</p>
 
             <h2>Navegação na Lista</h2>
-            <p>Graças aos ponteiros para o nó anterior e próximo, é possível percorrer a lista tanto no sentido convencional quanto no sentido inverso, tornando-a uma estrutura de dados versátil e adaptável a diversas situações.</p>
+            <p>Graças aos ponteiros para o nó anterior e próximo, é possível percorrer a lista tanto no sentido
+                convencional quanto no sentido inverso, tornando-a uma estrutura de dados versátil e adaptável a
+                diversas situações.</p>
 
             <h2>Implementação</h2>
             <p>Veja abaixo um exemplo simples de implementação de uma lista duplamente encadeada em C++:</p>
@@ -96,14 +103,55 @@ int main() {
     lista.inserirInicio(1);
     lista.imprimir(); // Saída: 1 2 3
     return 0;
-}</code></pre>
+}
+</textarea>
             </section>
 
-            <p>Entender o funcionamento da lista duplamente encadeada é fundamental para o desenvolvimento de aplicações eficientes e robustas. Na próxima aula, vamos concluir nossa exploração sobre essa estrutura de dados.</p>
+
+            <p style="padding-top: 10px;">Entender o funcionamento da lista duplamente encadeada é fundamental para o desenvolvimento de aplicações eficientes e robustas. Na próxima aula, vamos concluir nossa exploração sobre essa estrutura de dados.</p>
         </section>
     </section>
     <footer>
+        <section class="contatos">
+            <section class="contato-left">
+                <h2>Contato:</h2>
+                <ul>
+                    <li>Nome: Pedro Muraro</li>
+                    <li>Email: pedro@slearn.com</li>
+                    <li>Telefone: (18)83959-1928</li>
+                </ul>
+                <br>
+                <ul>
+                    <li>Nome: João Vitor</li>
+                    <li>Email: vitor@slearn.com</li>
+                    <li>Telefone: (18)72858-1678</li>
+                </ul>
+            </section>
 
+            <section class="contato-right">
+                <ul>
+                    <li>Nome: Carlos Rubira</li>
+                    <li>Email: carlos@slearn.com</li>
+                    <li>Telefone: (18)96069-1829</li>
+                </ul>
+                <br>
+                <ul>
+                    <li>Nome: João Vieira</li>
+                    <li>Email: joao@slearn.com</li>
+                    <li>Telefone: (18)82718-8294</li>
+                </ul>
+            </section>
+        </section>
+        
+        <section class="footer-parte">
+            <h2>Links Úteis:</h2>
+            <ul class="links-uteis">
+                <li><a class="about" href="#sobre">Sobre</a></li>
+                <li><a class="about" href="#suporte">Suporte</a></li>
+            </ul>
+        </section>
+
+        <p>Todos os direitos reservados ©</p>
     </footer>
 </body>
 
