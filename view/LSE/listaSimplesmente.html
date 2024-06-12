@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/TAD.css">
-    <title>Introdução - TAD</title>
+    <title>Introdução - LSE</title>
 </head>
 
 <body>
@@ -16,15 +16,15 @@
     </header>
 
     <nav>
-        <a href="tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
-        <a href="../LSE/listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
+        <a href="../TAD/tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
+        <a href="listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
         <a href="../LDE/ListaDuplamente.html" class="link-header">Lista Duplamente Encadeada</a>
     </nav>
 
     <section class="container">
         <section class="menu-lateral">
             <h1>Conteúdo</h1>
-            <a href="tadIntroducao.html" id="link-conteudo">1. Introdução</a>
+            <a href="listaSimplesmente.html" id="link-conteudo">1. Introdução</a>
             <a href="tadEncapsulamento.html" id="link-conteudo">2. Encapsulamento</a>
             <a href="tadAbstracao.html" id="link-conteudo">3. Abstração</a>
             <a href="tadPilha.html" id="link-conteudo">4. Pilhas</a>
@@ -33,31 +33,31 @@
         </section>
 
         <section class="information">
-            <h1>Tipos Abstratos de Dados (TADs)</h1>
-            <p>Os TADs são modelos matemáticos que encapsulam dados e funções para manipulá-los.
-                Eles desempenham um papel fundamental na ciência da computação e são usados para:</p>
+            <h1>Listas Simplesmente Encadeadas (LSEs)</h1>
+            <p>As Listas Simplesmente Encadeadas são estruturas de dados fundamentais na ciência da computação, empregadas para armazenar uma coleção d
+                e elementos de forma sequencial. Elas consistem em nós, onde cada nó armazena um elemento de dados e uma referência para o próximo nó na sequência.</p>
             <ul>
-                <li><strong>Simplificar a descrição de algoritmos abstratos</strong>: Os TADs permitem que os
-                    programadores se concentrem na lógica do algoritmo, isolando os detalhes de implementação.</li>
-                <li><strong>Classificar e avaliar estruturas de dados</strong>: Os TADs fornecem uma maneira padronizada
-                    de descrever e comparar diferentes estruturas de dados.</li>
-                <li><strong>Formalmente descrever sistemas de tipos em linguagens de programação</strong>: Os TADs
-                    ajudam a definir tipos de dados personalizados e suas operações.</li>
+                <li><strong>Inserir Elemento</strong>: Adiciona um novo elemento à lista.</li>
+                <li><strong>Remover Elemento</strong>:Remove um elemento específico da lista.</li>
+                <li><strong>Buscar Elemento</strong>:Procura por um elemento na lista.</li>
+                <li><strong>Acessar Elemento</strong>:Recupera um elemento em uma determinada posição na lista.</li>
+                <li><strong>Verificar Vazio</strong>: Verifica se a lista está vazia.</li>
             </ul>
 
-            <h2>Principais características dos TADs incluem:</p>
-            </h2>
+            
+            <h2>Principais Características das Listas Simplesmente Encadeadas:</p></h2>
             <ul>
-                <li><strong>Encapsulação</strong>: Um TAD esconde um modelo de dados e oferece uma interface para
-                    manipulá-lo.</li>
-                <li><strong>Implementação variada</strong>: Embora sejam entidades teóricas, os TADs podem ser
-                    implementados por tipos específicos de dados ou estruturas em várias linguagens de programação.</li>
-                <li><strong>Estratégia de "information hiding"</strong>: A implementação dos módulos TAD pode ser
-                    alterada sem afetar os programas clientes.</li>
+                <li><strong>Estrutura Encadeada Unidirecional</strong>: Cada elemento na lista possui um único ponteiro que aponta para o próximo elemento na sequência, formando uma cadeia unidirecional.</li>
+                <li><strong>Flexibilidade na Inserção e Remoção</strong>: EAs Listas Simplesmente Encadeadas permitem a inserção e remoção eficientes de elementos em qualquer posição, sem a necessidade de realocação de memória.</li>
+                <li><strong>Uso Eficiente de Memória Dinâmica</strong>: Alocam apenas a quantidade de memória necessária para cada elemento, o que as torna mais eficientes em termos de uso de memória do que estruturas de dados estáticas como arrays.</li>
+                <li><strong>Encapsulamento e Modularidade</strong>:Os detalhes de implementação da lista são encapsulados, permitindo que os programadores se concentrem na interface pública da lista, facilitando a manutenção e reutilização do código.</li>
+                <li><strong>Simplicidade na Manipulação:</strong>:A manipulação de elementos em uma Lista Simplesmente Encadeada é geralmente mais simples do que em outras estruturas de dados, devido à sua natureza linear e à facilidade de alteração da ordem dos elementos.</li>
             </ul>
 
+
+           
             <section class="video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/06PJrmeG784?si=wgKzieZLSTShG94c"
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Uk8v7gB2rHk?si=S7TRUx8hTp_GHcoK"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
