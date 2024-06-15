@@ -60,76 +60,76 @@
 
             <section class="codigo">
                 <textarea disabled>
-using System;
+    using System;
 
-public class Pilha
-{
-    // Dados encapsulados
-    private int[] itens;
-    private int topo;
-    private int max;
-
-    // Construtor
-    public Pilha(int tamanho)
+    public class Pilha
     {
-        itens = new int[tamanho];
-        topo = -1;
-        max = tamanho;
-    }
+        // Dados encapsulados
+        private int[] itens;
+        private int topo;
+        private int max;
 
-    // Interface pública: método para verificar se a pilha está vazia
-    public bool EstaVazia()
-    {
-        return topo == -1;
-    }
-
-    // Interface pública: método para verificar se a pilha está cheia
-    public bool EstaCheia()
-    {
-        return topo == max - 1;
-    }
-
-    // Interface pública: método para empilhar um valor
-    public void Empilhar(int valor)
-    {
-        if (!EstaCheia())
+        // Construtor
+        public Pilha(int tamanho)
         {
-            itens[++topo] = valor;
+            itens = new int[tamanho];
+            topo = -1;
+            max = tamanho;
         }
-        else
+
+        // Interface pública: método para verificar se a pilha está vazia
+        public bool EstaVazia()
         {
-            Console.WriteLine("Pilha cheia");
+            return topo == -1;
+        }
+
+        // Interface pública: método para verificar se a pilha está cheia
+        public bool EstaCheia()
+        {
+            return topo == max - 1;
+        }
+
+        // Interface pública: método para empilhar um valor
+        public void Empilhar(int valor)
+        {
+            if (!EstaCheia())
+            {
+                itens[++topo] = valor;
+            }
+            else
+            {
+                Console.WriteLine("Pilha cheia");
+            }
+        }
+
+        // Interface pública: método para desempilhar um valor
+        public int Desempilhar()
+        {
+            if (!EstaVazia())
+            {
+                return itens[topo--];
+            }
+            else
+            {
+                Console.WriteLine("Pilha vazia");
+                return -1;
+            }
         }
     }
 
-    // Interface pública: método para desempilhar um valor
-    public int Desempilhar()
+    class Programa
     {
-        if (!EstaVazia())
+        static void Main()
         {
-            return itens[topo--];
-        }
-        else
-        {
-            Console.WriteLine("Pilha vazia");
-            return -1;
+            Pilha pilha = new Pilha(5);
+
+            pilha.Empilhar(10);
+            pilha.Empilhar(20);
+
+            Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
+            Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
         }
     }
-}
-
-class Programa
-{
-    static void Main()
-    {
-        Pilha pilha = new Pilha(5);
-
-        pilha.Empilhar(10);
-        pilha.Empilhar(20);
-
-        Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
-        Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
-    }
-}
             </textarea>
             </section>
             <h2>Explicação da Abstração no Exemplo</h2>

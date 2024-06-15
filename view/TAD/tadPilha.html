@@ -70,67 +70,67 @@
             <h3>Implementação Básica em C# (usando <code>List&lt;T&gt;</code>)</h3>
             <section class="codigo">
                 <textarea disabled>
-using System;
-using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 
-public class Stack&lt;T&gt;
-{
-    private List&lt;T&gt; items = new List&lt;T&gt;();
-
-    public void Push(T item)
+    public class Stack&lt;T&gt;
     {
-        items.Add(item);
-    }
+        private List&lt;T&gt; items = new List&lt;T&gt;();
 
-    public T Pop()
-    {
-        if (!IsEmpty())
+        public void Push(T item)
         {
-            T item = items[items.Count - 1];
-            items.RemoveAt(items.Count - 1);
-            return item;
+            items.Add(item);
         }
-        else
+
+        public T Pop()
         {
-            throw new InvalidOperationException("Pop from empty stack");
+            if (!IsEmpty())
+            {
+                T item = items[items.Count - 1];
+                items.RemoveAt(items.Count - 1);
+                return item;
+            }
+            else
+            {
+                throw new InvalidOperationException("Pop from empty stack");
+            }
         }
-    }
 
-    public T Top()
-    {
-        if (!IsEmpty())
+        public T Top()
         {
-            return items[items.Count - 1];
+            if (!IsEmpty())
+            {
+                return items[items.Count - 1];
+            }
+            else
+            {
+                throw new InvalidOperationException("Top from empty stack");
+            }
         }
-        else
+
+        public bool IsEmpty()
         {
-            throw new InvalidOperationException("Top from empty stack");
+            return items.Count == 0;
+        }
+
+        public int Size()
+        {
+            return items.Count;
         }
     }
 
-    public bool IsEmpty()
+    public class Program
     {
-        return items.Count == 0;
+        public static void Main()
+        {
+            Stack&lt;int&gt; stack = new Stack&lt;int&gt;();
+            stack.Push(1);
+            tack.Push(2);
+            Console.WriteLine(stack.Top());  // Output: 2
+            Console.WriteLine(stack.Pop());  // Output: 2
+            Console.WriteLine(stack.Size()); // Output: 1
+        }
     }
-
-    public int Size()
-    {
-        return items.Count;
-    }
-}
-
-public class Program
-{
-    public static void Main()
-    {
-        Stack&lt;int&gt; stack = new Stack&lt;int&gt;();
-        stack.Push(1);
-        stack.Push(2);
-        Console.WriteLine(stack.Top());  // Output: 2
-        Console.WriteLine(stack.Pop());  // Output: 2
-        Console.WriteLine(stack.Size()); // Output: 1
-    }
-}
 </textarea>
             </section>
 

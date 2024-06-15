@@ -69,84 +69,84 @@
             <h3>Implementação de Fila usando Array em C#</h3>
             <section class="codigo">
                 <textarea disabled>
-                    using System;
+    using System;
 
-public class ArrayQueue
-{
-    private int[] queue;
-    private int front; // índice do elemento no início da fila
-    private int rear;  // índice do elemento no final da fila
-    private int capacity;
-    private int size;
-
-    public ArrayQueue(int capacity)
+    public class ArrayQueue
     {
-        this.capacity = capacity;
-        queue = new int[capacity];
-        front = 0;
-        rear = -1;
-        size = 0;
-    }
+        private int[] queue;
+        private int front; // índice do elemento no início da fila
+        private int rear;  // índice do elemento no final da fila
+        private int capacity;
+        private int size;
 
-    public void Enqueue(int item)
-    {
-        if (size == capacity)
+        public ArrayQueue(int capacity)
         {
-            throw new InvalidOperationException("Queue is full");
+            this.capacity = capacity;
+            queue = new int[capacity];
+            front = 0;
+            rear = -1;
+            size = 0;
         }
 
-        rear = (rear + 1) % capacity;
-        queue[rear] = item;
-        size++;
-    }
-
-    public int Dequeue()
-    {
-        if (size == 0)
+        public void Enqueue(int item)
         {
-            throw new InvalidOperationException("Queue is empty");
+            if (size == capacity)
+            {
+                throw new InvalidOperationException("Queue is full");
+            }
+
+            rear = (rear + 1) % capacity;
+            queue[rear] = item;
+            size++;
         }
 
-        int item = queue[front];
-        front = (front + 1) % capacity;
-        size--;
-        return item;
-    }
-
-    public int Front()
-    {
-        if (size == 0)
+        public int Dequeue()
         {
-            throw new InvalidOperationException("Queue is empty");
+            if (size == 0)
+            {
+                throw new InvalidOperationException("Queue is empty");
+            }
+
+            int item = queue[front];
+            front = (front + 1) % capacity;
+            size--;
+            return item;
         }
 
-        return queue[front];
+        public int Front()
+        {
+            if (size == 0)
+            {
+                throw new InvalidOperationException("Queue is empty");
+            }
+
+            return queue[front];
+        }
+
+        public bool IsEmpty()
+        {
+            return size == 0;
+        }
+
+        public int Size()
+        {
+            return size;
+        }
     }
 
-    public bool IsEmpty()
+    public class Program
     {
-        return size == 0;
+        public static void Main()
+        {
+            ArrayQueue queue = new ArrayQueue(5);
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            Console.WriteLine(queue.Dequeue()); // Output: 1
+            Console.WriteLine(queue.Front());  // Output: 2
+            Console.WriteLine(queue.Size());   // Output: 2
+        }
     }
-
-    public int Size()
-    {
-        return size;
-    }
-}
-
-public class Program
-{
-    public static void Main()
-    {
-        ArrayQueue queue = new ArrayQueue(5);
-        queue.Enqueue(1);
-        queue.Enqueue(2);
-        queue.Enqueue(3);
-        Console.WriteLine(queue.Dequeue()); // Output: 1
-        Console.WriteLine(queue.Front());  // Output: 2
-        Console.WriteLine(queue.Size());   // Output: 2
-    }
-}
                 </textarea>
             </section>
 

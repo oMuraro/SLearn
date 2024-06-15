@@ -178,7 +178,7 @@ nav {
 
             >textarea {
                 width: 35vw;
-                height: 100vh;
+                field-sizing: content;
                 padding: 5px;
                 background-color: black;
                 color: #26E580;
