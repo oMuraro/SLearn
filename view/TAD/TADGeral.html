@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos Abstratos de Dados</title>
+    <link rel="stylesheet" href="../../css/TAD.css">
+</head>
+<body>
+    <header>
+        <a href="../../home.php">
+            <img class="logo" src="../../img/logo.png" alt="Logotipo">
+        </a>
+    </header>
+
+    <nav>
+        <a href="../TAD/TADGeral.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
+        <a href="../LSE/LSEGeral.html" class="link-header">Lista Simplesmente Encadeada</a>
+        <a href="../LDE/LDEGeral.html" class="link-header">Lista Duplamente Encadeada</a>
+    </nav>
+    <main>
+        <section class="menu-lateral">
+            <h1>Conteúdo</h1>
+            <a href="#introTAD" id="link-conteudo">1. Introdução</a>
+            <a href="#encapsulamentoTAD" id="link-conteudo">2. Encapsulamento</a>
+            <a href="#abstracaoTAD" id="link-conteudo">3. Abstração</a>
+            <a href="#pilhasTAD" id="link-conteudo">4. Pilhas</a>
+            <a href="#filasTAD" id="link-conteudo">5. Filas</a>
+            <a href="#prioridadeTAD" id="link-conteudo">6. Filas de Prioridade</a>
+        </section>
+
+        <section class="information">
+            <h1 id="introTAD">Tipos Abstratos de Dados (TADs)</h1>
+            <p>Os TADs são modelos matemáticos que encapsulam dados e funções para manipulá-los.
+                Eles desempenham um papel fundamental na ciência da computação e são usados para:</p>
+            <ul>
+                <li><strong>Simplificar a descrição de algoritmos abstratos</strong>: Os TADs permitem que os
+                    programadores se concentrem na lógica do algoritmo, isolando os detalhes de implementação.</li>
+                <li><strong>Classificar e avaliar estruturas de dados</strong>: Os TADs fornecem uma maneira padronizada
+                    de descrever e comparar diferentes estruturas de dados.</li>
+                <li><strong>Formalmente descrever sistemas de tipos em linguagens de programação</strong>: Os TADs
+                    ajudam a definir tipos de dados personalizados e suas operações.</li>
+            </ul>
+
+            <h2>Principais características dos TADs incluem:</p>
+            </h2>
+            <ul>
+                <li><strong>Encapsulação</strong>: Um TAD esconde um modelo de dados e oferece uma interface para
+                    manipulá-lo.</li>
+                <li><strong>Implementação variada</strong>: Embora sejam entidades teóricas, os TADs podem ser
+                    implementados por tipos específicos de dados ou estruturas em várias linguagens de programação.</li>
+                <li><strong>Estratégia de "information hiding"</strong>: A implementação dos módulos TAD pode ser
+                    alterada sem afetar os programas clientes.</li>
+            </ul>
+
+            <section class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/06PJrmeG784?si=wgKzieZLSTShG94c"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+            <h1 id="encapsulamentoTAD">Encapsulamento em TAD</h1>
+            <p>O encapsulamento é um dos pilares da programação orientada a objetos e também é um conceito fundamental
+                em TADs (Tipos Abstratos de Dados). Ele se refere à prática de esconder os detalhes internos de uma
+                estrutura de dados ou objeto, expondo apenas uma interface pública para interagir com esses dados ou
+                objetos. O objetivo do encapsulamento é aumentar a modularidade e a segurança do código, facilitando a
+                manutenção e evolução do software.</p>
+
+            <h2>Encapsulamento em TADs</h2>
+            <p>Nos TADs, o encapsulamento significa que a implementação dos dados e as operações sobre esses dados são
+                escondidas dos usuários do TAD. Os usuários interagem com o TAD apenas através de funções ou métodos
+                definidos na interface pública. Isso permite que a implementação interna dos dados possa ser alterada
+                sem afetar o código que utiliza o TAD, desde que a interface pública permaneça a mesma.</p>
+
+            <h3>Benefícios do Encapsulamento</h3>
+            <ul>
+                <li><strong>Modularidade</strong>: O código é dividido em partes independentes, o que facilita a
+                    manutenção e a compreensão.</li>
+                <li><strong>Proteção</strong>: Os dados são protegidos de acesso e modificação não intencionais ou
+                    inadequados.</li>
+                <li><strong>Facilidade de Alteração</strong>: Mudanças na implementação interna podem ser feitas sem
+                    impactar o código externo que depende do TAD.</li>
+                <li><strong>Reusabilidade</strong>: Componentes encapsulados podem ser reutilizados em diferentes
+                    contextos ou projetos.</li>
+            </ul>
+
+            <h2>Exemplo de Encapsulamento em C#</h2>
+            <p>Vamos revisitar o exemplo da pilha (Stack) em C# para entender como o encapsulamento é aplicado.</p>
+
+            <section class="codigo">
+
+                <textarea disabled>
+    using System;
+    
+    public class Pilha
+    {
+        private int[] itens;  // Dados encapsulados
+        private int topo;     // Estado encapsulado
+        private int max;
+    
+        // Construtor
+        public Pilha(int tamanho)
+        {
+            itens = new int[tamanho];
+            topo = -1;
+            max = tamanho;
+        }
+    
+        // Método público para verificar se a pilha está vazia
+        public bool EstaVazia()
+        {
+            return topo == -1;
+        }
+    
+        // Método público para verificar se a pilha está cheia
+        public bool EstaCheia()
+        {
+            return topo == max - 1;
+        }
+    
+        // Método público para empilhar um valor
+        public void Empilhar(int valor)
+        {
+            if (!EstaCheia())
+            {
+                itens[++topo] = valor;
+            }
+            else
+            {
+                Console.WriteLine("Pilha cheia");
+            }
+        }
+    
+        // Método público para desempilhar um valor
+        public int Desempilhar()
+        {
+            if (!EstaVazia())
+            {
+                return itens[topo--];
+            }
+            else
+            {
+                Console.WriteLine("Pilha vazia");
+                return -1;
+            }
+        }
+    }
+    
+    class Programa
+    {
+        static void Main()
+        {
+            Pilha pilha = new Pilha(5);
+    
+            pilha.Empilhar(10);
+            pilha.Empilhar(20);
+    
+            Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
+            Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
+        }
+    }
+        </textarea>
+            </section>
+
+            <h2>Explicação do Encapsulamento no Exemplo</h2>
+            <span>
+                <p>1. <strong>Dados Encapsulados</strong>: As variáveis <code>itens</code>, <code>topo</code> e
+                    <code>max</code> são privadas (<code>private</code>), o que significa que elas não podem ser
+                    acessadas diretamente fora da classe <code>Pilha</code>.
+                </p>
+            </span>
+            <span>
+                <p>2. <strong>Interface Pública</strong>: Os métodos <code>EstaVazia</code>, <code>EstaCheia</code>,
+                    <code>Empilhar</code> e <code>Desempilhar</code> são públicos (<code>public</code>), permitindo que
+                    os usuários da classe <code>Pilha</code> interajam com a pilha sem precisar conhecer a implementação
+                    interna.
+                </p>
+            </span>
+            <span>
+                <p>3. <strong>Proteção dos Dados</strong>: Ao tornar os dados internos privados, o encapsulamento
+                    protege esses dados de serem acessados ou modificados diretamente de fora da classe, prevenindo
+                    manipulações inadequadas.</p>
+            </span>
+            <span>
+                <p>O encapsulamento, portanto, melhora a robustez e a modularidade do código, facilitando a manutenção e
+                    evolução do software.</p>
+            </span>
+            <h1 id="abstracaoTAD">Abstração em TAD</h1>
+            <p>A abstração em Tipos Abstratos de Dados (TAD) é um conceito fundamental na ciência da computação que se
+                refere ao processo de definir uma estrutura de dados em termos de suas operações e comportamento, sem
+                especificar os detalhes de implementação. A ideia é fornecer uma interface clara e consistente para o
+                uso da estrutura de dados, enquanto os detalhes internos sobre como essa estrutura é representada e
+                manipulada são ocultados dos usuários.</p>
+
+            <h2>Conceitos Principais de Abstração em TAD</h2>
+            <ul>
+                <li><strong>Interface Pública</strong>: A interface de um TAD define quais operações podem ser
+                    realizadas sobre a estrutura de dados. Isso inclui funções ou métodos para inserir, remover,
+                    atualizar e consultar elementos, entre outras operações.</li>
+                <li><strong>Implementação Oculta</strong>: Os detalhes de como as operações são realizadas e como os
+                    dados são armazenados são escondidos dos usuários da estrutura de dados. Isso permite que a
+                    implementação possa ser alterada sem impactar o código que utiliza o TAD, desde que a interface
+                    pública permaneça a mesma.</li>
+                <li><strong>Segurança e Modulação</strong>: Ao esconder os detalhes de implementação, a abstração
+                    protege os dados contra acessos indevidos e manipulações incorretas. Além disso, facilita a
+                    manutenção e evolução do software, já que mudanças internas não afetam a interface pública.</li>
+            </ul>
+
+            <h2>Exemplo de Abstração em C#</h2>
+            <p>Vamos usar a pilha (Stack) como exemplo para ilustrar a abstração em TAD. Abaixo está uma implementação
+                em C# que demonstra esses conceitos:</p>
+
+            <section class="codigo">
+                <textarea disabled>
+    using System;
+
+    public class Pilha
+    {
+        // Dados encapsulados
+        private int[] itens;
+        private int topo;
+        private int max;
+
+        // Construtor
+        public Pilha(int tamanho)
+        {
+            itens = new int[tamanho];
+            topo = -1;
+            max = tamanho;
+        }
+
+        // Interface pública: método para verificar se a pilha está vazia
+        public bool EstaVazia()
+        {
+            return topo == -1;
+        }
+
+        // Interface pública: método para verificar se a pilha está cheia
+        public bool EstaCheia()
+        {
+            return topo == max - 1;
+        }
+
+        // Interface pública: método para empilhar um valor
+        public void Empilhar(int valor)
+        {
+            if (!EstaCheia())
+            {
+                itens[++topo] = valor;
+            }
+            else
+            {
+                Console.WriteLine("Pilha cheia");
+            }
+        }
+
+        // Interface pública: método para desempilhar um valor
+        public int Desempilhar()
+        {
+            if (!EstaVazia())
+            {
+                return itens[topo--];
+            }
+            else
+            {
+                Console.WriteLine("Pilha vazia");
+                return -1;
+            }
+        }
+    }
+
+    class Programa
+    {
+        static void Main()
+        {
+            Pilha pilha = new Pilha(5);
+
+            pilha.Empilhar(10);
+            pilha.Empilhar(20);
+
+            Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
+            Console.WriteLine("Desempilhado: " + pilha.Desempilhar());
+        }
+    }
+            </textarea>
+            </section>
+            <h2>Explicação da Abstração no Exemplo</h2>
+            <span>
+                <p>1. <strong>Interface Pública</strong>: Os métodos <code>EstaVazia</code>, <code>EstaCheia</code>,
+                    <code>Empilhar</code> e <code>Desempilhar</code> são parte da interface pública. Eles definem como
+                    os
+                    usuários da classe <code>Pilha</code> podem interagir com a pilha.
+                </p>
+            </span>
+            <span>
+                <p>2. <strong>Implementação Oculta</strong>: As variáveis <code>itens</code>, <code>topo</code> e
+                    <code>max</code> são privadas (<code>private</code>). Os usuários da classe <code>Pilha</code> não
+                    precisam saber como esses dados são armazenados ou manipulados internamente; eles apenas utilizam os
+                    métodos públicos para interagir com a pilha.
+                </p>
+            </span>
+            <span>
+                <p>3. <strong>Segurança e Modulação</strong>: O encapsulamento dos dados protege contra acessos não
+                    intencionais e manipulações incorretas. Se for necessário mudar a forma como os dados são
+                    armazenados
+                    (por exemplo, usando uma lista ligada em vez de um array), isso pode ser feito sem alterar a
+                    interface
+                    pública, minimizando o impacto no restante do código que usa a pilha.</p>
+            </span>
+
+            <h2>Benefícios da Abstração</h2>
+            <ul>
+                <li><strong>Simplicidade</strong>: A abstração permite que os desenvolvedores foquem no "o que" uma
+                    estrutura de dados faz, em vez de "como" ela faz.</li>
+                <li><strong>Flexibilidade</strong>: Permite mudanças na implementação sem impactar o código cliente,
+                    desde que a interface permaneça a mesma.</li>
+                <li><strong>Reusabilidade</strong>: Componentes abstratos são mais fáceis de reutilizar em diferentes
+                    contextos, pois expõem apenas o necessário para o uso.</li>
+            </ul>
+
+            <p>A abstração, portanto, é uma técnica essencial para criar software robusto, modular e fácil de manter.
+            </p>
+            <section class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2-nHNivx6bA?si=fcWbDXWOMrqWDtst"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+            <h1 id="pilhasTAD">Pilhas (Stacks) em TAD</h1>
+            <h2>Definição e Conceito de LIFO</h2>
+            <p>
+                <strong>Definição</strong>: Uma pilha é uma estrutura de dados que segue o princípio LIFO (Last In,
+                First Out), onde o último elemento inserido é o primeiro a ser removido.
+            </p>
+            <p>
+                <strong>Conceito de LIFO</strong>: Imagine uma pilha de pratos. Você só pode pegar o prato que está no
+                topo da pilha, ou seja, o último que foi colocado. O mesmo conceito se aplica às pilhas em computação.
+            </p>
+
+            <h2>Operações Principais</h2>
+            <ul>
+                <li><strong>Push</strong>: Adicionar um elemento ao topo da pilha.</li>
+                <li><strong>Pop</strong>: Remover o elemento do topo da pilha.</li>
+                <li><strong>Top/Peek</strong>: Acessar o elemento no topo da pilha sem removê-lo.</li>
+                <li><strong>IsEmpty</strong>: Verificar se a pilha está vazia.</li>
+                <li><strong>Size</strong>: Retornar o número de elementos na pilha.</li>
+            </ul>
+
+            <h2>Implementação</h2>
+            <h3>Usando Arrays</h3>
+            <ul>
+                <li><strong>Vantagens</strong>: Simples de implementar, acesso rápido ao topo.</li>
+                <li><strong>Desvantagens</strong>: Tamanho fixo (limitação de capacidade), operações de
+                    redimensionamento podem ser custosas.</li>
+            </ul>
+
+            <h3>Usando Listas Encadeadas</h3>
+            <ul>
+                <li><strong>Vantagens</strong>: Tamanho dinâmico, sem limitação de capacidade.</li>
+                <li><strong>Desvantagens</strong>: Uso adicional de memória para ponteiros.</li>
+            </ul>
+
+            <h3>Implementação Básica em C# (usando <code>List&lt;T&gt;</code>)</h3>
+            <section class="codigo">
+                <textarea disabled>
+    using System;
+    using System.Collections.Generic;
+
+    public class Stack&lt;T&gt;
+    {
+        private List&lt;T&gt; items = new List&lt;T&gt;();
+
+        public void Push(T item)
+        {
+            items.Add(item);
+        }
+
+        public T Pop()
+        {
+            if (!IsEmpty())
+            {
+                T item = items[items.Count - 1];
+                items.RemoveAt(items.Count - 1);
+                return item;
+            }
+            else
+            {
+                throw new InvalidOperationException("Pop from empty stack");
+            }
+        }
+
+        public T Top()
+        {
+            if (!IsEmpty())
+            {
+                return items[items.Count - 1];
+            }
+            else
+            {
+                throw new InvalidOperationException("Top from empty stack");
+            }
+        }
+
+        public bool IsEmpty()
+        {
+            return items.Count == 0;
+        }
+
+        public int Size()
+        {
+            return items.Count;
+        }
+    }
+
+    public class Program
+    {
+        public static void Main()
+        {
+            Stack&lt;int&gt; stack = new Stack&lt;int&gt;();
+            stack.Push(1);
+            tack.Push(2);
+            Console.WriteLine(stack.Top());  // Output: 2
+            Console.WriteLine(stack.Pop());  // Output: 2
+            Console.WriteLine(stack.Size()); // Output: 1
+        }
+    }
+</textarea>
+            </section>
+
+
+            <h2>Aplicações de Pilhas</h2>
+            <ul>
+                <li><strong>Avaliação de Expressões</strong>: Pilhas são usadas para avaliar expressões aritméticas e
+                    lógicas (ex.: notação pós-fixa ou infixa).</li>
+                <li><strong>Backtracking</strong>: Algoritmos como resolução de labirintos utilizam pilhas para
+                    armazenar caminhos a serem explorados.</li>
+                <li><strong>Gerenciamento de Funções</strong>: Pilhas de chamadas (call stacks) são usadas para
+                    gerenciar chamadas de função e contexto em linguagens de programação.</li>
+                <li><strong>Conversão de Base</strong>: Conversão de números entre diferentes bases numéricas.</li>
+                <li><strong>Navegação na Web</strong>: Navegação entre páginas web usa pilhas para gerenciar o histórico
+                    de páginas visitadas (botões de voltar e avançar).</li>
+            </ul>
+
+            <h2>Exemplos de Uso em Linguagens de Programação</h2>
+            <ul>
+                <li><strong>C#</strong>: Classe <code>Stack&lt;T&gt;</code> do namespace
+                    <code>System.Collections.Generic</code>.</li>
+                <li><strong>Java</strong>: Classe <code>Stack</code> da biblioteca <code>java.util</code>.</li>
+                <li><strong>Python</strong>: Lista nativa pode ser usada como pilha com métodos <code>append()</code> e
+                    <code>pop()</code>.</li>
+            </ul>
+            <h1 id="filasTAD">Filas (Queues) em TAD</h1>
+
+            <h2>Definição e Conceito de FIFO</h2>
+            <p><strong>Definição:</strong> Uma fila é uma estrutura de dados que segue o princípio FIFO (First In, First
+                Out), onde o primeiro elemento inserido é o primeiro a ser removido.</p>
+            <p><strong>Conceito de FIFO:</strong> Imagine uma fila em um banco. A pessoa que chega primeiro é atendida
+                primeiro. O mesmo princípio se aplica às filas em computação.</p>
+
+            <h2>Operações Principais</h2>
+            <ul>
+                <li><strong>Enqueue:</strong> Adicionar um elemento ao final da fila.</li>
+                <li><strong>Dequeue:</strong> Remover o elemento do início da fila.</li>
+                <li><strong>Front:</strong> Acessar o elemento no início da fila sem removê-lo.</li>
+                <li><strong>Rear:</strong> Acessar o elemento no final da fila sem removê-lo.</li>
+                <li><strong>IsEmpty:</strong> Verificar se a fila está vazia.</li>
+                <li><strong>Size:</strong> Retornar o número de elementos na fila.</li>
+            </ul>
+
+            <h2>Implementação</h2>
+            <h3>Usando Arrays:</h3>
+            <ul>
+                <li><strong>Vantagens:</strong> Implementação simples e eficiente se o tamanho máximo da fila for
+                    conhecido.</li>
+                <li><strong>Desvantagens:</strong> Tamanho fixo (limitação de capacidade), operações de deslocamento
+                    podem ser custosas.</li>
+            </ul>
+
+            <h3>Usando Listas Encadeadas:</h3>
+            <ul>
+                <li><strong>Vantagens:</strong> Tamanho dinâmico, sem limitação de capacidade.</li>
+                <li><strong>Desvantagens:</strong> Uso adicional de memória para ponteiros.</li>
+            </ul>
+
+            <h3>Implementação de Fila usando Array em C#</h3>
+            <section class="codigo">
+                <textarea disabled>
+    using System;
+
+    public class ArrayQueue
+    {
+        private int[] queue;
+        private int front; // índice do elemento no início da fila
+        private int rear;  // índice do elemento no final da fila
+        private int capacity;
+        private int size;
+
+        public ArrayQueue(int capacity)
+        {
+            this.capacity = capacity;
+            queue = new int[capacity];
+            front = 0;
+            rear = -1;
+            size = 0;
+        }
+
+        public void Enqueue(int item)
+        {
+            if (size == capacity)
+            {
+                throw new InvalidOperationException("Queue is full");
+            }
+
+            rear = (rear + 1) % capacity;
+            queue[rear] = item;
+            size++;
+        }
+
+        public int Dequeue()
+        {
+            if (size == 0)
+            {
+                throw new InvalidOperationException("Queue is empty");
+            }
+
+            int item = queue[front];
+            front = (front + 1) % capacity;
+            size--;
+            return item;
+        }
+
+        public int Front()
+        {
+            if (size == 0)
+            {
+                throw new InvalidOperationException("Queue is empty");
+            }
+
+            return queue[front];
+        }
+
+        public bool IsEmpty()
+        {
+            return size == 0;
+        }
+
+        public int Size()
+        {
+            return size;
+        }
+    }
+
+    public class Program
+    {
+        public static void Main()
+        {
+            ArrayQueue queue = new ArrayQueue(5);
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            Console.WriteLine(queue.Dequeue()); // Output: 1
+            Console.WriteLine(queue.Front());  // Output: 2
+            Console.WriteLine(queue.Size());   // Output: 2
+        }
+    }
+                </textarea>
+            </section>
+
+            <h2>Aplicações de Filas</h2>
+            <ul>
+                <li><strong>Processamento de Tarefas em Lote (Batch):</strong> Por exemplo, processamento de tarefas em
+                    um servidor.</li>
+                <li><strong>Fila de Impressão:</strong> Gerenciamento de documentos a serem impressos.</li>
+                <li><strong>Fila de Mensagens em Sistemas Distribuídos:</strong> Troca de mensagens assíncronas entre
+                    sistemas.</li>
+                <li><strong>Algoritmo de Busca em Largura (BFS):</strong> Utilizado em grafos para encontrar o caminho
+                    mais curto entre dois vértices.</li>
+                <li><strong>Simulação de Eventos Discretos:</strong> Modelagem de sistemas onde eventos ocorrem em
+                    instantes discretos de tempo.</li>
+            </ul>
+
+            <h2>Exemplos de Uso em Linguagens de Programação</h2>
+            <ul>
+                <li><strong>C#:</strong> Classe Queue&lt;T&gt; do namespace System.Collections.Generic.</li>
+                <li><strong>Java:</strong> Classe Queue da biblioteca java.util.</li>
+                <li><strong>Python:</strong> Módulo queue ou implementação própria usando listas.</li>
+            </ul>
+            <section class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/nWHveXK9g_8?si=32yIRqKgOxm8SN2Z"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+            <h1 id="prioridadeTAD">Filas de Prioridade em TAD</h1>
+
+            <h2>Características das Filas de Prioridade</h2>
+            <p><strong>Organização por Prioridade:</strong> Os elementos são ordenados de acordo com a
+            prioridade atribuída a cada um.</p>
+            <h2>Operações Principais:</h2>
+            <ul>
+                <li><strong>Insert:</strong> Adicionar um elemento com sua prioridade à fila de prioridade.</li>
+                <li><strong>Delete-Max/Delete-Min:</strong> Remover e retornar o elemento de maior (ou menor) prioridade da fila.</li>
+                <li><strong>Find-Max/Find-Min:</strong> Retornar o elemento de maior (ou menor) prioridade sem removê-lo da fila.</li>
+            </ul>
+            <h2>Implementações Comuns:</h2>
+            <ul>
+                <li><strong>Heap:</strong> Implementação eficiente usando árvores binárias (min-heap ou max-heap).</li>
+                <li><strong>Árvore Binária de Busca:</strong> Implementação onde a prioridade é o critério de ordenação na árvore.</li>
+            </ul>
+            <h2>Aplicações:</h2>
+            <ul>
+                <li>Algoritmos de busca e otimização, como o algoritmo de Dijkstra para caminho mínimo.</li>
+                <li>Algoritmos de compressão de dados, como o algoritmo de Huffman.</li>
+                <li>Escalonamento de processos em sistemas operacionais.</li>
+                <li>Filas de eventos em simulações.</li>
+            </ul>
+
+            <h2>Implementação em C# usando Heap (Min-Heap)</h2>
+            <section class="codigo">
+                <textarea disabled>
+    using System;
+    using System.Collections.Generic;
+                    
+        public class MinPriorityQueue<T> where T : IComparable<T>
+        {
+            private List<T> heap; // Lista para armazenar os elementos do heap
+                    
+            public MinPriorityQueue()
+                {
+                    heap = new List<T>(); // Inicializa a lista do heap
+                }
+                    
+                // Insere um elemento na fila de prioridade
+                public void Insert(T item)
+                {
+                    heap.Add(item); // Adiciona o elemento à lista
+                    Swim(heap.Count - 1); // Corrige a posição do elemento recém-inserido
+                }
+                    
+                // Remove e retorna o elemento de menor prioridade da fila
+                public T DeleteMin()
+                {
+                    if (IsEmpty()) // Verifica se a fila está vazia
+                        throw new InvalidOperationException("Priority queue is empty");
+                    
+                    T min = heap[0]; // Armazena o elemento de menor prioridade
+                    Swap(0, heap.Count - 1); // Troca o elemento de menor prioridade com o último elemento
+                    heap.RemoveAt(heap.Count - 1); // Remove o elemento de menor prioridade
+                    Sink(0); // Corrige a posição do elemento que foi movido para a raiz
+                    
+                    return min; // Retorna o elemento de menor prioridade
+                }
+                    
+                // Retorna o elemento de menor prioridade sem removê-lo da fila
+                public T FindMin()
+                {
+                    if (IsEmpty()) // Verifica se a fila está vazia
+                        throw new InvalidOperationException("Priority queue is empty");
+                    
+                    return heap[0]; // Retorna o elemento de menor prioridade (na raiz do heap)
+                }
+                    
+                // Verifica se a fila de prioridade está vazia
+                public bool IsEmpty()
+                {
+                    return heap.Count == 0; // Retorna verdadeiro se a lista do heap estiver vazia
+                }
+                    
+                // Corrige a posição de um elemento após a inserção
+                private void Swim(int k)
+                {
+                    while (k > 0 && heap[k].CompareTo(heap[(k - 1) / 2]) < 0)
+                    {
+                        // Troca o elemento com seu pai enquanto ele for menor que o pai
+                        Swap(k, (k - 1) / 2);
+                        k = (k - 1) / 2;
+                    }
+                }
+                    
+                // Corrige a posição de um elemento após a remoção
+                private void Sink(int k)
+                {
+                    while (2 * k + 1 < heap.Count)
+                    {
+                        int j = 2 * k + 1;
+                        // Compara com o filho da esquerda e, se houver, com o filho da direita
+                        if (j < heap.Count - 1 && heap[j].CompareTo(heap[j + 1]) > 0)
+                            j++;
+                        // Se o elemento for menor ou igual ao menor filho, para
+                        if (heap[k].CompareTo(heap[j]) <= 0)
+                            break;
+                        // Senão, troca o elemento com o menor filho
+                        Swap(k, j);
+                        k = j;
+                    }
+                }
+                    
+                // Troca dois elementos na lista do heap
+                private void Swap(int i, int j)
+                {
+                    T temp = heap[i];
+                    heap[i] = heap[j];
+                    heap[j] = temp;
+                }
+            }
+                    
+            public class Program
+            {
+                public static void Main()
+                {
+                    // Exemplo de uso da fila de prioridade mínima
+                    MinPriorityQueue<int> pq = new MinPriorityQueue<int>();
+                    pq.Insert(5);
+                    pq.Insert(2);
+                    pq.Insert(7);
+                    pq.Insert(1);
+                    Console.WriteLine(pq.FindMin());   // Output: 1
+                    Console.WriteLine(pq.DeleteMin()); // Output: 1
+                }
+            }
+        </textarea>
+            </section>
+
+            <h2 id="finalTAD">Considerações Finais</h2>
+            <p>
+                O uso de filas de prioridade é essencial em diversas aplicações onde é necessário ordenar e
+                processar elementos com base em suas prioridades.
+                As implementações eficientes garantem um desempenho adequado para lidar com grandes conjuntos de
+                dados.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <section class="contatos">
+            <section class="contato-left">
+                <h2>Contato:</h2>
+                <ul>
+                    <li>Nome: Pedro Muraro</li>
+                    <li>Email: pedro@slearn.com</li>
+                    <li>Telefone: (18)83959-1928</li>
+                </ul>
+                <br>
+                <ul>
+                    <li>Nome: João Vitor</li>
+                    <li>Email: vitor@slearn.com</li>
+                    <li>Telefone: (18)72858-1678</li>
+                </ul>
+            </section>
+
+            <section class="contato-right">
+                <ul>
+                    <li>Nome: Carlos Rubira</li>
+                    <li>Email: carlos@slearn.com</li>
+                    <li>Telefone: (18)96069-1829</li>
+                </ul>
+                <br>
+                <ul>
+                    <li>Nome: João Vieira</li>
+                    <li>Email: joao@slearn.com</li>
+                    <li>Telefone: (18)82718-8294</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="footer-parte">
+            <h2>Links Úteis:</h2>
+            <ul class="links-uteis">
+                <li><a class="about" href="#sobre">Sobre</a></li>
+                <li><a class="about" href="#suporte">Suporte</a></li>
+            </ul>
+        </section>
+
+        <p>Todos os direitos reservados ©</p>
+    </footer>
+</body>
+</html>

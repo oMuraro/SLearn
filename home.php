@@ -59,7 +59,7 @@
     </nav>
 
     <main>
-        <a href="view/TAD/tadIntroducao.html" class="sobre">
+        <a href="view/TAD/TADGeral.html" class="sobre">
             <div id="tads" class="card">
                 <img src="img/tad.png" alt="Imagem representativa de TADs">
                 <h2>O que são Tipos Abstratos de Dados?</h2>
@@ -67,7 +67,7 @@
             </div>
         </a>
 
-        <a href="#listaSimples" class="sobre">
+        <a href="view/LSE/LSEGeral.html" class="sobre">
             <div id="lista-simples" class="card">
                 <img src="img/listaSimplesmenteEncadeada.png" alt="Imagem representativa de Lista Simplesmente Encadeada">
                 <h2>Lista Simplesmente Encadeada</h2>
