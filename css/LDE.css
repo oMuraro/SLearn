@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header {
+    background-color: #26E580;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100px;
+    color: #ffffff;
+
+    .logo{
+        width: auto;
+        height: 100px;
+    }   
+}
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: #26E580;
+    display: flex;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 3px solid #fff;
+
+    .link-header {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        transition: ease-in 0.2s;
+        display: block;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link-header:hover {
+        background-color: #fff;
+        color: #26E580;
+    }
+}
+main{
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+}
+.menu-lateral {
+    width: 21%;
+    height: 100%;
+    background-color: #4D916F;
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid #fff;
+
+    >h1 {
+        margin-top: 5px;
+        margin-left: 5px;
+        font-size: 22px;
+    }
+
+    #link-conteudo {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        padding-left: 20px;
+        height: 5%;
+        display: flex;
+        align-items: center;
+        transition: ease-in 0.07s;
+    }
+
+    #link-conteudo:hover {
+        background-color: #26E580;
+    }
+
+}
+.information {
+    width: 79%;
+    height: 92.5%;
+    padding-bottom: 40px;
+    overflow-y: auto;
+
+
+    >h1 {
+        font-size: 32px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+
+    >h2 {
+        font-size: 25px;
+        padding-left: 5px;
+        padding-top: 8px;
+    }
+
+    >h3 {
+        font-size: 21px;
+        padding-left: 5px;
+        padding-top: 8px;
+    }
+
+    >p {
+        padding-left: 20px;
+    }
+
+    >ul {
+        padding-top: 5px;
+        padding-left: 40px;
+
+        >li {
+            padding-top: 3px;
+        }
+    }
+
+    >span {
+        padding-left: 20px;
+    }
+
+    .codigo {
+        padding-top: 20px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        >textarea {
+            width: 35vw;
+            field-sizing: content;
+            padding: 5px;
+            background-color: black;
+            color: #26E580;
+            resize: none;
+
+        }
+    }
+
+    .video {
+        padding-top: 25px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+footer {
+    height: 200px;
+    background-color: #26E580;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    color: #ffffff;
+    padding-top: 30px;
+
+    .contatos {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 500px;
+        height: 150px;
+
+        .contato-left {
+            display: flex;
+            flex-direction: column;
+
+            >ul {
+                list-style-type: none;
+            }
+        }
+
+        .contato-right {
+            display: flex;
+            flex-direction: column;
+
+            >ul {
+                list-style-type: none;
+            }
+        }
+    }
+
+    .footer-parte {
+        .links-uteis {
+            text-decoration: none;
+            list-style-type: none;
+
+            >ul {
+                list-style-type: none;
+            }
+
+            .about:link,
+            .about:visited {
+                color: #ffffff;
+                text-decoration: none;
+
+            }
+
+            .about:hover {
+                border-bottom: 1px solid #ffffff;
+            }
+        }
+    }
+
+    p {
+        font-size: 2.25vh;
+    }
+}

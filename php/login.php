@@ -22,7 +22,7 @@ if(isset($_POST["login"]) && isset($_POST["senha"])){
         $_SESSION["usuario"] = $row["login"];
         $_SESSION["senha"] = $row["senha"];
 
-        header("location:../");
+        header("location:../home.php");
     }else{
         header("location:../");
     }

@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if (isset($_SESSION["usuario"])) {
+        if ($_SESSION["usuario"] == "") {
+            header('location: index.html');
+        }
+    }else{
+        header('location: index.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -45,7 +55,7 @@
     <nav>
         <a href="view/TAD/tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
         <a href="listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
-        <a href="view/LDE/ListaDuplamente.html" class="link-header">Lista Duplamente Encadeada</a>
+        <a href="view/LDE/LDEGeral.html" class="link-header">Lista Duplamente Encadeada</a>
     </nav>
 
     <main>
@@ -65,7 +75,7 @@
             </div>
         </a>
 
-        <a href="view/LDE/ListaDuplamente.html" class="sobre">
+        <a href="view/LDE/LDEGeral.html" class="sobre">
             <div id="lista-dupla" class="card">
                 <img src="img/listaDuplamenteEncadeada.png" alt="Imagem representativa de Lista Duplamente Encadeada">
                 <h2>Lista Duplamente Encadeada</h2>
