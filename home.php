@@ -53,8 +53,8 @@
     </header>
 
     <nav>
-        <a href="view/TAD/tadIntroducao.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
-        <a href="listaSimplesmente.html" class="link-header">Lista Simplesmente Encadeada</a>
+        <a href="view/TAD/TADGeral.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
+        <a href="view/LSE/LSEGeral.html" class="link-header">Lista Simplesmente Encadeada</a>
         <a href="view/LDE/LDEGeral.html" class="link-header">Lista Duplamente Encadeada</a>
     </nav>
 
