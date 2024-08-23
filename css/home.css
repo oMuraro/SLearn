@@ -1,31 +1,82 @@
+@font-face {
+    font-family: 'BPdotsBold';
+    src: url(fonts/bpdots.unicasesquare-bold.otf);
+}
+
+@font-face {
+    font-family: 'KarmaticArcade';
+    src: url(fonts/ka1.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: 'KarmaticArcade';
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #7F34AE;
 }
 
 header {
-    background-color: #26E580;
+    background-color: #272727;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     height: 100px;
     color: #ffffff;
 
     .logo{
         width: auto;
-        height: 100px;
+        height: 70px;
     }
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown button {
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border: none; /* Remove bordas padrão */
+    cursor: pointer; /* Muda o cursor ao passar por cima */
+}
+
+.dropdown button:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo do menu dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9; /* Cor de fundo do menu */
+    min-width: 160px; /* Largura mínima do menu */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra do menu */
+    z-index: 1; /* Para garantir que o menu fique acima de outros elementos */
+}
+
+.dropdown-content a {
+    color: black; /* Cor do texto dos itens do menu */
+    padding: 12px 16px; /* Espaçamento interno dos itens do menu */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    display: block; /* Faz os itens do menu ocuparem a linha inteira */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse sobre os itens do menu */
+}
+
 
 nav {
     width: 100%;
     height: 50px;
-    background-color: #26E580;
+    background-color: #272727;
     display: flex;
 
     flex-direction: row;
