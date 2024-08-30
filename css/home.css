@@ -12,135 +12,83 @@
     margin: 0;
     padding: 0;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-    font-family: 'KarmaticArcade';
+    font-family: 'BPdotsBold';
 }
 
 body {
-    background-color: #7F34AE;
+    background-color: #672596;
 }
 
 header {
     background-color: #272727;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     height: 100px;
     color: #ffffff;
 
-    .logo{
+    /* .logo{
         width: auto;
         height: 70px;
+    } */
+    
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
     }
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown button {
-    background-color: #4CAF50; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho da fonte */
-    border: none; /* Remove bordas padrão */
-    cursor: pointer; /* Muda o cursor ao passar por cima */
-}
-
-.dropdown button:hover {
-    background-color: #45a049; /* Cor de fundo ao passar o mouse */
-}
-
-/* Estilo do menu dropdown */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9; /* Cor de fundo do menu */
-    min-width: 160px; /* Largura mínima do menu */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra do menu */
-    z-index: 1; /* Para garantir que o menu fique acima de outros elementos */
-}
-
-.dropdown-content a {
-    color: black; /* Cor do texto dos itens do menu */
-    padding: 12px 16px; /* Espaçamento interno dos itens do menu */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    display: block; /* Faz os itens do menu ocuparem a linha inteira */
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse sobre os itens do menu */
-}
-
-
-nav {
-    width: 100%;
-    height: 50px;
-    background-color: #272727;
-    display: flex;
-
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    border-top: 3px solid #fff;
-
-    .link-header {
-        color: #fff;
-        text-decoration: none;
-        font-size: 20px;
-        transition: ease-in 0.2s;
-        display: block;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    
+    .dropdown button {
+        background: none;
+        color: white; /* Cor do texto */
+        padding: 10px 20px; /* Espaçamento interno */
+        font-size: 16px; /* Tamanho da fonte */
+        border: none;
+        border-bottom: 2px solid #272727; /* Remove bordas padrão */
+        cursor: pointer; /* Muda o cursor ao passar por cima */
+    }
+    
+    .dropdown button:hover {
+        border-bottom: 2px solid #ffffff;
+        box-sizing: border-box;
+        /* background-color: #45a049; */
     }
 
-    .link-header:hover {
-        background-color: #fff;
-        color: #26E580;
+    .dropdown button:focus {
+        border-bottom: 2px solid #ffffff;
+        box-sizing: border-box;
+        /* background-color: #45a049; */
+    }
+    
+    /* Estilo do menu dropdown */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9; /* Cor de fundo do menu */
+        min-width: 160px; /* Largura mínima do menu */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra do menu */
+        z-index: 1; /* Para garantir que o menu fique acima de outros elementos */
+    }
+    
+    .dropdown-content a {
+        color: black; /* Cor do texto dos itens do menu */
+        padding: 12px 16px; /* Espaçamento interno dos itens do menu */
+        text-decoration: none; /* Remove o sublinhado dos links */
+        display: block; /* Faz os itens do menu ocuparem a linha inteira */
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #f1f1f1; /* Cor de fundo ao passar o mouse sobre os itens do menu */
+    }
+    
+    .profile-link{
+        width: 5vw;
+        height: 5vw;
+        background-image: url("../img/profile-icon.png");
+        background-size: cover;
     }
 }
-
-/* header {
-    width: 100%;
-    height: 100px;
-    background-color: #26E580;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-
-    #logo {
-        color: #fff;
-        font-size: 60px;
-    }
-} */
-
-
-/* .conta {
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    position: absolute;
-    transform: translateX(470%);
-}
-
-.conta a,
-button {
-    font-size: 2.5vh;
-    height: 100%;
-    background-color: #26E580;
-    border: none;
-}
-
-.conta a button:hover {
-    background-color: #ffffff;
-    transition: ease-in 0.3s;
-} */
 
 main {
     padding: 2rem;
@@ -158,7 +106,7 @@ main {
 }
 
 .card {
-    background-color: white;
+    background-color: #272727;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1rem;
@@ -186,9 +134,11 @@ main {
 }
 
 .card p {
+    color: #ffffff;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
+    font-family: sans-serif, Helvetica, Arial;
 }
 
 .card-content {
@@ -197,7 +147,7 @@ main {
     margin-left: auto;
     margin-right: auto;
     padding: 1rem;
-    background-color: white;
+    background-color: #272727;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -209,14 +159,16 @@ main {
 }
 
 .card-content p {
+    color: #ffffff;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    font-family: sans-serif, Helvetica, Arial;
 }
 
 footer {
     height: 200px;
-    background-color: #26E580;
+    background-color: #272727;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -231,10 +183,15 @@ footer {
         justify-content: space-between;
         width: 500px;
         height: 150px;
+        
 
         .contato-left {
             display: flex;
             flex-direction: column;
+
+            >h2{
+                color: #26E580;
+            }
 
             >ul {
                 list-style-type: none;
@@ -252,6 +209,11 @@ footer {
     }
 
     .footer-parte {
+
+        >h2{
+            color: #26E580;
+        }
+
         .links-uteis {
             text-decoration: none;
             list-style-type: none;

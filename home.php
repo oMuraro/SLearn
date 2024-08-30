@@ -21,15 +21,16 @@ if (isset($_SESSION["usuario"])) {
 <body>
     <header>
         <!-- <img class="logo" src="img/logo.png" alt="Logotipo"> -->
+        <h1>C#LEARN</h1>
         
 
         <div class="dropdownButtons">
             <div class="dropdown">
-                <button id="dropdownButton1">Dropdown</button>
+                <button id="dropdownButton1">Conteudos</button>
                 <div id="dropdownMenu1" class="dropdown-content">
-                    <a href="#">Item 1</a>
-                    <a href="#">Item 2</a>
-                    <a href="#">Item 3</a>
+                    <a href="view/TAD/TADGeral.html">TAD</a>
+                    <a href="view/LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
+                    <a href="view/LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
                 </div>
             </div>
 
@@ -52,15 +53,16 @@ if (isset($_SESSION["usuario"])) {
             </div>
         </div>
 
-        <button>Pagina Perfil</button>
+        <a href="#" class="profile-link"></a>
+
 
     </header>
 
-    <nav>
+    <!-- <nav>
         <a href="view/TAD/TADGeral.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
         <a href="view/LSE/LSEGeral.html" class="link-header">Lista Simplesmente Encadeada</a>
         <a href="view/LDE/LDEGeral.html" class="link-header">Lista Duplamente Encadeada</a>
-    </nav>
+    </nav> -->
 
     <main>
         <a href="view/TAD/TADGeral.html" class="sobre">
@@ -151,7 +153,7 @@ if (isset($_SESSION["usuario"])) {
         <p>Todos os direitos reservados ©</p>
     </footer>
 
-    <script>
+    <script src="scripts/dropdownBtn.js">
         document.addEventListener('DOMContentLoaded', (event) => {
             const button1 = document.getElementById('dropdownButton1');
             const menu1 = document.getElementById('dropdownMenu1');
