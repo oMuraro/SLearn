@@ -8,16 +8,35 @@
 </head>
 <body>
     <header>
-        <a href="../../home.php">
-            <img class="logo" src="../../img/logo.png" alt="Logotipo">
-        </a>
-    </header>
+        <!-- <img class="logo" src="img/logo.png" alt="Logotipo"> -->
+        <a href="../../home.php"><h1>C#LEARN</h1></a>
 
-    <nav>
-        <a href="../TAD/TADGeral.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
-        <a href="../LSE/LSEGeral.html" class="link-header">Lista Simplesmente Encadeada</a>
-        <a href="../LDE/LDEGeral.html" class="link-header">Lista Duplamente Encadeada</a>
-    </nav>
+        <div class="headerBtns">
+            <div class="dropdown">
+                <button id="dropdownButton1">Conteudos</button>
+                <div id="dropdownMenu1" class="dropdown-content">
+                    <a href="../TAD/TADGeral.html">TAD</a>
+                    <a href="../LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
+                    <a href="../LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
+                </div>
+            </div>
+
+            <button id="playBtn"></button>
+
+            <div class="dropdown">
+                <button id="dropdownButton2">Dropdown</button>
+                <div id="dropdownMenu2" class="dropdown-content">
+                    <a href="#">Item 1</a>
+                    <a href="#">Item 2</a>
+                    <a href="#">Item 3</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="profile-link"></a>
+
+
+    </header>
     <main>
         <section class="menu-lateral">
             <h1>Conteúdo</h1>
@@ -200,12 +219,12 @@
                     <li>Telefone: (18)72858-1678</li>
                 </ul>
             </section>
-
+    
             <section class="contato-right">
                 <ul>
-                    <li>Nome: Carlos Rubira</li>
-                    <li>Email: carlos@slearn.com</li>
-                    <li>Telefone: (18)96069-1829</li>
+                    <li>Nome: Caio Okubara</li>
+                    <li>Email: caio@slearn.com</li>
+                    <li>Telefone: (18)92850-1591</li>
                 </ul>
                 <br>
                 <ul>
@@ -215,7 +234,7 @@
                 </ul>
             </section>
         </section>
-
+    
         <section class="footer-parte">
             <h2>Links Úteis:</h2>
             <ul class="links-uteis">
@@ -223,8 +242,11 @@
                 <li><a class="about" href="#suporte">Suporte</a></li>
             </ul>
         </section>
-
+    
         <p>Todos os direitos reservados ©</p>
     </footer>
+
+    <script src="../../scripts/dropdownBtn.js"></script>
+
 </body>
 </html>

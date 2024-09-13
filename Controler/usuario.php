@@ -5,7 +5,7 @@ class Controlador {
     private $bancoDeDados;
 
     public function __construct() {
-        $this->bancoDeDados = new Banco("localhost", "root", "", "xhopii");
+        $this->bancoDeDados = new Banco("localhost", "root", "", "slearn");
     }
 
     public function cadastrarUsuario($usuario, $senhaUsu) {
