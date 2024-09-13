@@ -1,62 +1,146 @@
+@font-face {
+    font-family: 'BPdotsBold';
+    src: url(fonts/bpdots.unicasesquare-bold.otf);
+}
+
+@font-face {
+    font-family: 'KarmaticArcade';
+    src: url(fonts/ka1.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: sans-serif, Helvetica, Arial;
 }
+
+body {
+    background-color: #672596;
+}
+
+h1, h2, button{
+    font-family: 'BPdotsBold';
+    color: #26E580;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
 header {
-    background-color: #26E580;
+    background-color: #272727;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 100px;
-    color: #ffffff;
-
-    .logo{
-        width: auto;
-        height: 100px;
-    }   
-}
-nav {
-    width: 100%;
-    height: 50px;
-    background-color: #26E580;
-    display: flex;
-
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    border-top: 3px solid #fff;
+    height: 100px;
+    color: #ffffff;
 
-    .link-header {
-        color: #fff;
-        text-decoration: none;
-        font-size: 20px;
-        transition: ease-in 0.2s;
-        display: block;
-        width: 100%;
-        height: 100%;
+    /* .logo{
+        width: auto;
+        height: 70px;
+    } */
+
+    .headerBtns {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .link-header:hover {
-        background-color: #fff;
-        color: #26E580;
+    .dropdown {
+        position: relative;
+        display: inline-block;
     }
+
+    .dropdown button {
+        background: none;
+        color: white;
+        /* Cor do texto */
+        padding: 10px 20px;
+        /* Espaçamento interno */
+        font-size: 16px;
+        /* Tamanho da fonte */
+        border: none;
+        border-bottom: 2px solid #272727;
+        /* Remove bordas padrão */
+        cursor: pointer;
+        /* Muda o cursor ao passar por cima */
+    }
+
+    .dropdown button:hover {
+        border-bottom: 2px solid #ffffff;
+        box-sizing: border-box;
+        /* background-color: #45a049; */
+    }
+
+    .dropdown button:focus {
+        border-bottom: 2px solid #ffffff;
+        box-sizing: border-box;
+        /* background-color: #45a049; */
+    }
+
+    /* Estilo do menu dropdown */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        /* Cor de fundo do menu */
+        min-width: 160px;
+        /* Largura mínima do menu */
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        /* Sombra do menu */
+        z-index: 1;
+        /* Para garantir que o menu fique acima de outros elementos */
+    }
+
+    .dropdown-content a {
+        color: black;
+        /* Cor do texto dos itens do menu */
+        padding: 12px 16px;
+        /* Espaçamento interno dos itens do menu */
+        text-decoration: none;
+        /* Remove o sublinhado dos links */
+        display: block;
+        /* Faz os itens do menu ocuparem a linha inteira */
+        font-family: 'BPdotsBold';
+
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+        /* Cor de fundo ao passar o mouse sobre os itens do menu */
+    }
+
+    #playBtn {
+        background-color: transparent;
+        width: 50px;
+        height: 50px;
+        background-image: url("../img/playBtn.png");
+        background-size: cover;
+        border: none;
+    }
+
+    .profile-link {
+        width: 5vw;
+        height: 5vw;
+        background-image: url("../img/profile-icon.png");
+        background-size: cover;
+    }
+
 }
+
 main{
     display: flex;
     flex-direction: row;
-    height: 80vh;
+    height: 100vh;
 }
 .menu-lateral {
     width: 21%;
     height: 100%;
-    background-color: #4D916F;
+    background-color: #272727;
     display: flex;
     flex-direction: column;
-    border-top: 3px solid #fff;
 
     >h1 {
         margin-top: 5px;
@@ -73,19 +157,20 @@ main{
         display: flex;
         align-items: center;
         transition: ease-in 0.07s;
+        font-family: BpdotsBold;
     }
 
     #link-conteudo:hover {
         background-color: #26E580;
     }
-
 }
+
 .information {
     width: 79%;
     height: 92.5%;
     padding-bottom: 40px;
     overflow-y: auto;
-
+    color: #ffffff;
 
     >h1 {
         font-size: 32px;
@@ -149,7 +234,7 @@ main{
 }
 footer {
     height: 200px;
-    background-color: #26E580;
+    background-color: #272727;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -165,9 +250,14 @@ footer {
         width: 500px;
         height: 150px;
 
+
         .contato-left {
             display: flex;
             flex-direction: column;
+
+            >h2 {
+                color: #26E580;
+            }
 
             >ul {
                 list-style-type: none;
@@ -185,6 +275,11 @@ footer {
     }
 
     .footer-parte {
+
+        >h2 {
+            color: #26E580;
+        }
+
         .links-uteis {
             text-decoration: none;
             list-style-type: none;

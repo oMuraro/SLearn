@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tipos Abstratos de Dados</title>
     <link rel="stylesheet" href="../../css/TAD.css">
 </head>
+
 <body>
     <header>
+        <!-- <img class="logo" src="img/logo.png" alt="Logotipo"> -->
         <a href="../../home.php">
-            <img class="logo" src="../../img/logo.png" alt="Logotipo">
+            <h1>C#LEARN</h1>
         </a>
-    </header>
 
-    <nav>
-        <a href="../TAD/TADGeral.html" class="link-header">TAD - Tipo Abstrato de Dados</a>
-        <a href="../LSE/LSEGeral.html" class="link-header">Lista Simplesmente Encadeada</a>
-        <a href="../LDE/LDEGeral.html" class="link-header">Lista Duplamente Encadeada</a>
-    </nav>
+        <div class="headerBtns">
+            <div class="dropdown">
+                <button id="dropdownButton1">Conteudos</button>
+                <div id="dropdownMenu1" class="dropdown-content">
+                    <a href="../TAD/TADGeral.html">TAD</a>
+                    <a href="../LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
+                    <a href="../LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
+                </div>
+            </div>
+
+            <button id="playBtn"></button>
+
+            <div class="dropdown">
+                <button id="dropdownButton2">Dropdown</button>
+                <div id="dropdownMenu2" class="dropdown-content">
+                    <a href="#">Item 1</a>
+                    <a href="#">Item 2</a>
+                    <a href="#">Item 3</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="profile-link"></a>
+
+
+    </header>
     <main>
         <section class="menu-lateral">
             <h1>Conteúdo</h1>
@@ -444,10 +467,12 @@
             <h2>Exemplos de Uso em Linguagens de Programação</h2>
             <ul>
                 <li><strong>C#</strong>: Classe <code>Stack&lt;T&gt;</code> do namespace
-                    <code>System.Collections.Generic</code>.</li>
+                    <code>System.Collections.Generic</code>.
+                </li>
                 <li><strong>Java</strong>: Classe <code>Stack</code> da biblioteca <code>java.util</code>.</li>
                 <li><strong>Python</strong>: Lista nativa pode ser usada como pilha com métodos <code>append()</code> e
-                    <code>pop()</code>.</li>
+                    <code>pop()</code>.
+                </li>
             </ul>
             <h1 id="filasTAD">Filas (Queues) em TAD</h1>
 
@@ -595,17 +620,20 @@
 
             <h2>Características das Filas de Prioridade</h2>
             <p><strong>Organização por Prioridade:</strong> Os elementos são ordenados de acordo com a
-            prioridade atribuída a cada um.</p>
+                prioridade atribuída a cada um.</p>
             <h2>Operações Principais:</h2>
             <ul>
                 <li><strong>Insert:</strong> Adicionar um elemento com sua prioridade à fila de prioridade.</li>
-                <li><strong>Delete-Max/Delete-Min:</strong> Remover e retornar o elemento de maior (ou menor) prioridade da fila.</li>
-                <li><strong>Find-Max/Find-Min:</strong> Retornar o elemento de maior (ou menor) prioridade sem removê-lo da fila.</li>
+                <li><strong>Delete-Max/Delete-Min:</strong> Remover e retornar o elemento de maior (ou menor) prioridade
+                    da fila.</li>
+                <li><strong>Find-Max/Find-Min:</strong> Retornar o elemento de maior (ou menor) prioridade sem removê-lo
+                    da fila.</li>
             </ul>
             <h2>Implementações Comuns:</h2>
             <ul>
                 <li><strong>Heap:</strong> Implementação eficiente usando árvores binárias (min-heap ou max-heap).</li>
-                <li><strong>Árvore Binária de Busca:</strong> Implementação onde a prioridade é o critério de ordenação na árvore.</li>
+                <li><strong>Árvore Binária de Busca:</strong> Implementação onde a prioridade é o critério de ordenação
+                    na árvore.</li>
             </ul>
             <h2>Aplicações:</h2>
             <ul>
@@ -730,6 +758,7 @@
             </p>
         </section>
     </main>
+
     <footer>
         <section class="contatos">
             <section class="contato-left">
@@ -749,9 +778,9 @@
 
             <section class="contato-right">
                 <ul>
-                    <li>Nome: Carlos Rubira</li>
-                    <li>Email: carlos@slearn.com</li>
-                    <li>Telefone: (18)96069-1829</li>
+                    <li>Nome: Caio Okubara</li>
+                    <li>Email: caio@slearn.com</li>
+                    <li>Telefone: (18)92850-1591</li>
                 </ul>
                 <br>
                 <ul>
@@ -772,5 +801,8 @@
 
         <p>Todos os direitos reservados ©</p>
     </footer>
+
+    <script src="../../scripts/dropdownBtn.js"></script>
 </body>
+
 </html>

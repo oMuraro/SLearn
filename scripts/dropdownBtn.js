@@ -4,10 +4,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const button2 = document.getElementById('dropdownButton2');
     const menu2 = document.getElementById('dropdownMenu2');
-
-    const button3 = document.getElementById('dropdownButton3');
-    const menu3 = document.getElementById('dropdownMenu3');
-
     
 
     button1.addEventListener('click', () => {
@@ -34,20 +30,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (!event.target.matches('#dropdownButton2')) {
             if (menu2.style.display === 'block') {
                 menu2.style.display = 'none';
-            }
-        }
-    });
-
-    button3.addEventListener('click', () => {
-        // Toggle the visibility of the dropdown menu
-        menu3.style.display = menu3.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.addEventListener('click', (event) => {
-        if (!event.target.matches('#dropdownButton3')) {
-            if (menu3.style.display === 'block') {
-                menu3.style.display = 'none';
             }
         }
     });
