@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../Controler/usuario.php'); // Corrigir o caminho do controlador
+require_once('../Controler/pergunta.php'); // Corrigir o caminho do controlador
 
 $controlador = new Controlador();
 
@@ -13,7 +13,7 @@ if (!empty($_POST['Pergunta']) && !empty($_POST['Certa']) && !empty($_POST['Erra
 
     $controlador->cadastrarPergunta($Pergunta, $Certa, $Errada1, $Errada2, $Errada3);
 
-    header('Location: ../index.html');
+    header('Location: ../cadastroPergunta.html');
     exit();
 
 } else {

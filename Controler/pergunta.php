@@ -39,14 +39,14 @@ class Controlador {
         }
     }
 
-    public function cadastrarPergunta($usuario, $senhaUsu) {
+    public function cadastrarPergunta($Pergunta, $Certa, $Errada1, $Errada2, $Errada3) {
         // Sanitize input to avoid SQL injection
-        $usuario = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $usuario);
-        $senhaUsu = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $senhaUsu);
+        $Pergunta = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $Pergunta);
+        $Certa = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $Certa);
+        $Errada1 = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $Errada1);
+        $Errada2 = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $Errada2);
+        $Errada3 = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $Errada3);
 
-        // Ideally, you should hash the password before storing it
-        $senhaHash = password_hash($senhaUsu, PASSWORD_BCRYPT);
-
-        $this->bancoDeDados->cadastro($usuario, $senhaHash);
+        $this->bancoDeDados->cadastrarPergunta($Pergunta, $Certa, $Errada1, $Errada2, $Errada3);
     }
 }
