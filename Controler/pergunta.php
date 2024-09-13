@@ -8,15 +8,14 @@ class Controlador {
         $this->bancoDeDados = new Banco("localhost", "root", "", "Slearn");
     }
 
-    public function cadastrarUsuario($usuario, $senhaUsu) {
-        // Sanitize input to avoid SQL injection
-        $usuario = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $usuario);
-        $senhaUsu = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $senhaUsu);
+    public function BuscaPerguntas() {
+        
+        $sql = 'SELECT COUNT(*) as total FROM perguntas';
+        $stmt = $pdo->query($sql);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $totalPerguntas = $row['total'];
 
-        // Ideally, you should hash the password before storing it
-        $senhaHash = password_hash($senhaUsu, PASSWORD_BCRYPT);
-
-        $this->bancoDeDados->cadastro($usuario, $senhaHash);
+        $this->bancoDeDados->busca($totalPerguntas);
     }
 
     public function loginUsuario($usuario, $senhaUsu) {
@@ -38,5 +37,16 @@ class Controlador {
         } else {
             echo "Usuário não encontrado.";
         }
+    }
+
+    public function cadastrarPergunta($usuario, $senhaUsu) {
+        // Sanitize input to avoid SQL injection
+        $usuario = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $usuario);
+        $senhaUsu = mysqli_real_escape_string($this->bancoDeDados->conectBD(), $senhaUsu);
+
+        // Ideally, you should hash the password before storing it
+        $senhaHash = password_hash($senhaUsu, PASSWORD_BCRYPT);
+
+        $this->bancoDeDados->cadastro($usuario, $senhaHash);
     }
 }

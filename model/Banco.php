@@ -27,17 +27,35 @@ class Banco {
             die("Erro ao cadastrar usuário: " . mysqli_error($conect));
         }
     }
+    public function cadastrarPergunta($Pergunta, $Certa, $Errada1, $Errada2, $Errada3) {
+        $conect = $this->conectBD();
+        $perguntanova = "INSERT INTO `perguntas` (`Pergunta`, `Certa`, `Errada1`, `Errada2`, `Errada3`) VALUES ('$Pergunta', '$Certa', '$Errada1', '$Errada2', '$Errada3')";
+        if (!mysqli_query($conect, $perguntanova)) {
+            die("Erro ao cadastrar usuário: " . mysqli_error($conect));
+        }
+    }
 
     public function buscarUsuario($usuario) {
         $conect = $this->conectBD();
         $usuario = mysqli_real_escape_string($conect, $usuario);
         $consulta = "SELECT `senha` FROM `usuarios` WHERE `login` = '$usuario'";
         $resultado = mysqli_query($conect, $consulta);
-
+        
         if ($resultado) {
             return mysqli_fetch_assoc($resultado);
         } else {
             return null;
+        }
+    }
+    
+    public function getPerguntaAleatoria() {
+        $conect = $this->conectBD();
+        $perguntaRNG = 'SELECT * FROM Perguntas ORDER BY RAND()LIMIT 1;';
+        $resultado = mysqli_query($conect, $perguntaRNG);
+        if ($resultado) {
+            return mysqli_fetch_assoc($resultado);
+        } else {
+            return "cu";
         }
     }
 }

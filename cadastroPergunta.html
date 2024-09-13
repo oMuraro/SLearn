@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+    <script src="scripts/cadastroPerguntas.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" alt="Logotipo">
+        <!-- <div class="conta">
+            <a href="index.php">
+                <button>
+                    Home
+                </button>
+            </a>
+        </div> -->
+    </header>
+    <main>
+        <form action="processamento/Pergunta.php" method="post">
+            <h1>
+                Cadastrar
+            <hr/>
+            </h1>
+
+            <input type="text" name="Pergunta" placeholder="Insira a Pergunta" autofocus class="entrada" id="login">
+
+            <input type="text" name="Certa" placeholder="Insira a Resposta Certa" class="entrada" id="senha">
+
+            <input type="text" name="Errada1" placeholder="Insira uma Resposta Errada" class="entrada" id="senha2">
+
+            <input type="text" name="Errada2" placeholder="Insira uma Resposta Errada" class="entrada" id="senha2">
+
+            <input type="text" name="Errada3" placeholder="Insira uma Resposta Errada" class="entrada" id="senha2">
+
+            <section class="btns">
+                <a href="index.html"><button type="button" class="entra">Entrar</button></a>
+                <input type="submit" value="Cadastrar" class="entra">
+            </section>
+        </form>
+    </main>
+    <footer>
+        <section class="contatos">
+            <section class="contato-left">
+                <h2>Contato:</h2>
+                <ul>
+                    <li>Nome: Pedro Muraro</li>
+                    <li>Email: pedro@slearn.com</li>
+                    <li>Telefone: (18)83959-1928</li>
+                </ul>
+                <br>
+                <ul>
+                    <li>Nome: João Vitor</li>
+                    <li>Email: vitor@slearn.com</li>
+                    <li>Telefone: (18)72858-1678</li>
+                </ul>
+            </section>
+
+            <section class="contato-right">
+                <ul>
+                    <li>Nome: Carlos Rubira</li>
+                    <li>Email: carlos@slearn.com</li>
+                    <li>Telefone: (18)96069-1829</li>
+                </ul>
+                <br>
+                <ul>
+                    <li>Nome: João Vieira</li>
+                    <li>Email: joao@slearn.com</li>
+                    <li>Telefone: (18)82718-8294</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="footer-parte">
+            <h2>Links Úteis:</h2>
+            <ul class="links-uteis">
+                <li><a class="about" href="#sobre">Sobre</a></li>
+                <li><a class="about" href="#suporte">Suporte</a></li>
+            </ul>
+        </section>
+
+        <p>Todos os direitos reservados ©</p>
+    </footer>
+</body>
+
+</html>
