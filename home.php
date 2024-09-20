@@ -27,9 +27,12 @@ if (isset($_SESSION["usuario"])) {
             <div class="dropdown">
                 <button id="dropdownButton1">Conteudos</button>
                 <div id="dropdownMenu1" class="dropdown-content">
-                    <a href="view/TAD/TADGeral.html">TAD</a>
+                    <a href="view/TAD/TADGeral.html">Tipo Abstrato de Dados</a>
                     <a href="view/LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
                     <a href="view/LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
+                    <a href="view/LIFO/LIFOGeral.html">Pilhas Encadeadas</a>
+                    <a href="view/FIFO/FIFOGeral.html">Filas Encadeadas</a>
+                    <a href="view/FIFOEncadeado/FIFOEncadeadoGeral.html">Filas de Prioridades Encadeadas</a>
                 </div>
             </div>
 

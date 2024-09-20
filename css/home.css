@@ -43,63 +43,59 @@ header {
         position: relative;
         display: inline-block;
     }
-
-    .dropdown button {
-        background: none;
-        color: white;
-        /* Cor do texto */
-        padding: 10px 20px;
-        /* Espaçamento interno */
+    
+    #dropdownButton1 {
+        padding: 10px;
         font-size: 16px;
-        /* Tamanho da fonte */
-        border: none;
-        border-bottom: 2px solid #272727;
-        /* Remove bordas padrão */
         cursor: pointer;
-        /* Muda o cursor ao passar por cima */
     }
-
-    .dropdown button:hover {
-        border-bottom: 2px solid #ffffff;
-        box-sizing: border-box;
-        /* background-color: #45a049; */
-    }
-
-    .dropdown button:focus {
-        border-bottom: 2px solid #ffffff;
-        box-sizing: border-box;
-        /* background-color: #45a049; */
-    }
-
-    /* Estilo do menu dropdown */
+    
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #f9f9f9;
-        /* Cor de fundo do menu */
-        min-width: 160px;
-        /* Largura mínima do menu */
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        /* Sombra do menu */
+        /* background-color: #f9f9f9; */
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        /* Para garantir que o menu fique acima de outros elementos */
     }
-
+    
     .dropdown-content a {
-        color: black;
-        /* Cor do texto dos itens do menu */
-        padding: 12px 16px;
-        /* Espaçamento interno dos itens do menu */
-        text-decoration: none;
-        /* Remove o sublinhado dos links */
         display: block;
-        /* Faz os itens do menu ocuparem a linha inteira */
+        padding: 10px;
+        margin: 10px 0; /* Espaçamento entre as opções */
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        background-color: #ffffff;
+        color: black;
+        transform-origin: left center;
+        transition: transform 0.3s ease;
     }
-
+    
+    .dropdown-content a:nth-child(odd) {
+        transform: rotate(-5deg); /* Inclinações alternadas */
+    }
+    
+    .dropdown-content a:nth-child(even) {
+        transform: rotate(5deg);
+    }
+    
     .dropdown-content a:hover {
-        background-color: #f1f1f1;
-        /* Cor de fundo ao passar o mouse sobre os itens do menu */
+        background-color: #ddd;
     }
+    
+    #dropdownMenu1::before {
+         /* content: '';
+        position: absolute; */
+        /* top: 0;
+        left: 50%; */
+        /* transform: translateX(-50%) rotate(90deg);  */
+         width: 10px; 
+        height: 100%; 
+        z-index: 0;
+        background: url("../img/corda.png");
+    }
+    
 
     #playBtn {
         background-color: transparent;
