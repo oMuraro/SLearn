@@ -53,7 +53,7 @@ header {
     .dropdown-content {
         display: none;
         position: absolute;
-        /* background-color: #f9f9f9; */
+        background-color: transparent;
         min-width: 200px;
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1;
@@ -85,15 +85,16 @@ header {
     }
     
     #dropdownMenu1::before {
-         /* content: '';
-        position: absolute; */
-        /* top: 0;
-        left: 50%; */
-        /* transform: translateX(-50%) rotate(90deg);  */
-         width: 10px; 
+         content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg); 
+         width: 10px;
         height: 100%; 
         z-index: 0;
         background: url("../img/corda.png");
+        /* background-color: red; */
     }
     
 
