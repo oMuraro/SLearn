@@ -52,65 +52,114 @@ header {
         position: relative;
         display: inline-block;
     }
-
-    .dropdown button {
-        background: none;
-        color: white;
-        /* Cor do texto */
-        padding: 10px 20px;
-        /* Espaçamento interno */
+    
+    .dropdown-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 11vw;
+        height: 5vh;
+        padding: 10px;
         font-size: 16px;
-        /* Tamanho da fonte */
-        border: none;
-        border-bottom: 2px solid #272727;
-        /* Remove bordas padrão */
         cursor: pointer;
-        /* Muda o cursor ao passar por cima */
+        background: transparent;
+        border: none;
+        background-image: url("../img/frame2.png");
+        background-size: 11vw 5vh;
+        background-position: center;
     }
-
-    .dropdown button:hover {
-        border-bottom: 2px solid #ffffff;
-        box-sizing: border-box;
-        /* background-color: #45a049; */
-    }
-
-    .dropdown button:focus {
-        border-bottom: 2px solid #ffffff;
-        box-sizing: border-box;
-        /* background-color: #45a049; */
-    }
-
-    /* Estilo do menu dropdown */
+    
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #f9f9f9;
-        /* Cor de fundo do menu */
-        min-width: 160px;
-        /* Largura mínima do menu */
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        /* Sombra do menu */
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        /* Para garantir que o menu fique acima de outros elementos */
+        transform: translateX(-50%);
+        left: 50%;
+        text-align: center;
     }
-
+    
     .dropdown-content a {
-        color: black;
-        /* Cor do texto dos itens do menu */
-        padding: 12px 16px;
-        /* Espaçamento interno dos itens do menu */
-        text-decoration: none;
-        /* Remove o sublinhado dos links */
         display: block;
-        /* Faz os itens do menu ocuparem a linha inteira */
-    font-family: 'BPdotsBold';
+        padding: 10px;
+        margin: 11px 0; /* Espaçamento entre as opções */
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        background-color: #26E580;
+        color: #672596;
+        border: #000000 solid 3px;
+        transform-origin: left center;
+        transition: transform 0.3s ease;
 
     }
-
+    
+    .dropdown-content a:nth-child(odd) {
+        transform: rotate(-3deg); /* Inclinações alternadas */
+    }
+    
+    .dropdown-content a:nth-child(even) {
+        transform: rotate(1deg);
+        margin-bottom: 3px;
+    }
+    
     .dropdown-content a:hover {
-        background-color: #f1f1f1;
-        /* Cor de fundo ao passar o mouse sobre os itens do menu */
+        background-color: #672596;
+        color: #26E580;
     }
+    
+    .dropdown-content::before {
+         content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%); 
+         width: 3vw;
+        height: 100%; 
+        z-index: 0;
+        background-image: url("../img/corda.png");
+        background-size: contain;
+    }
+
+    .arrow1Down, .arrow1Up {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url("../img/arrow.png");
+        background-size: cover;
+        margin-left: 4px;
+        margin-top: 3px;
+    }
+    
+    .arrow1Down {
+        transform: rotate(90deg);
+    }
+    
+    .arrow1Up {
+        transform: rotate(-90deg);
+    }
+
+
+    .arrow2Down, .arrow2Up {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url("../img/arrow.png");
+        background-size: cover;
+        margin-left: 4px;
+        margin-top: 3px;
+    }
+    
+    .arrow2Down {
+        transform: rotate(90deg);
+    }
+    
+    .arrow2Up {
+        transform: rotate(-90deg);
+    }
+    
+    
 
     #playBtn {
         background-color: transparent;
@@ -119,6 +168,8 @@ header {
         background-image: url("../img/playBtn.png");
         background-size: cover;
         border: none;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 
     .profile-link {

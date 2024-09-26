@@ -25,7 +25,7 @@ if (isset($_SESSION["usuario"])) {
 
         <div class="headerBtns">
             <div class="dropdown">
-                <button id="dropdownButton1">Conteudos</button>
+                <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1" class="arrow1Down"></span></button>
                 <div id="dropdownMenu1" class="dropdown-content">
                     <a href="view/TAD/TADGeral.html">Tipo Abstrato de Dados</a>
                     <a href="view/LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
@@ -39,7 +39,7 @@ if (isset($_SESSION["usuario"])) {
             <button id="playBtn"></button>
 
             <div class="dropdown">
-                <button id="dropdownButton2">Dropdown</button>
+                <button class="dropdown-button" id="dropdownButton2">Dropdown<span id="arrow2" class="arrow2Down"></button>
                 <div id="dropdownMenu2" class="dropdown-content">
                     <a href="#">Item 1</a>
                     <a href="#">Item 2</a>
