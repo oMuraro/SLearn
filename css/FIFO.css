@@ -170,12 +170,13 @@ header {
         border: none;
         margin-left: 15px;
         margin-right: 15px;
+        cursor: pointer;
     }
 
     .profile-link {
-        width: 5vw;
-        height: 5vw;
-        background-image: url("../img/profile-icon.png");
+        width: 3vw;
+        height: 3vw;
+        background-image: url("../img/icon2.png");
         background-size: cover;
     }
 

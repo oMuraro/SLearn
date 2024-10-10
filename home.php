@@ -36,7 +36,7 @@ if (isset($_SESSION["usuario"])) {
                 </div>
             </div>
 
-            <a href="./view/quizTemplate.php">
+            <a href="./view/selectQuiz.html">
                 <button id="playBtn"></button>
             </a>
 
