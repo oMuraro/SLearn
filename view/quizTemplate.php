@@ -48,9 +48,10 @@
             <section style="width: 70vw; margin-bottom: 5vh;">
                 <h1 id="quizTitle">Tipo Abstrato de Dados</h1>
 
-                <p id="quizDescription">Quiz sobre quem foram e o que fizeram alguns dos presidentes brasileiros.</p>
+                <p id="quizDescription">Quiz para você testar seu conhecimento sobre a TADs.</p>
             </section>
 
+            
             <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
@@ -60,53 +61,105 @@
                     <section class="questionTitle">
                         <h1>Questão Exemplo</h1>
                     </section>
-
-                    <section class="questionAnswers">
-                        <button>Resposta 1</button>
-                        <button>Resposta 2</button>
-                        <button>Resposta 3</button>
-                        <button>Resposta 4</button>
-                    </section>
-
-                </section>
-            </section>
-
-            <section class="questionContainer">
-                <section class="questionStatus">
-                    <span>#1</span>
-                    <span>1 pt</span>
-                </section>
-                <section class="questionContext">
-                    <section class="questionTitle">
-                        <h1>Questão Exemplo</h1>
-                    </section>
-
+                    
                     <section class="questionAnswers">
                         <section>
                             <input type="radio" id="resp1"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp2">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp3">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
-
+                        
+                        <section>
+                            <input type="radio" id="resp4">
+                            <label for="resp4"> Resposta 4 </label>
+                        </section>
+                        
+                    </section>
+                    
+                </section>
+            </section>
+            
+            <section class="questionContainer">
+                <section class="questionStatus">
+                    <span>#1</span>
+                    <span>1 pt</span>
+                </section>
+                <section class="questionContext">
+                    <section class="questionTitle">
+                        <h1>Questão Exemplo</h1>
+                    </section>
+                    
+                    <section class="questionAnswers">
+                        <section>
+                            <input type="radio" id="resp1"> 
+                            <label for="resp1"> Resposta 1 </label>
+                        </section>
+                        
+                        <section>
+                            <input type="radio" id="resp2">
+                            <label for="resp2"> Resposta 2 </label>
+                        </section>
+                        
+                        <section>
+                            <input type="radio" id="resp3">
+                            <label for="resp3"> Resposta 3 </label>
+                        </section>
+                        
+                        <section>
+                            <input type="radio" id="resp4">
+                            <label for="resp4"> Resposta 4 </label>
+                        </section>
+                        
+                    </section>
+                    
+                </section>
+            </section>
+            
+            <section class="questionContainer">
+                <section class="questionStatus">
+                    <span>#1</span>
+                    <span>1 pt</span>
+                </section>
+                <section class="questionContext">
+                    <section class="questionTitle">
+                        <h1>Questão Exemplo</h1>
+                    </section>
+                    
+                    <section class="questionAnswers">
+                        <section>
+                            <input type="radio" id="resp1"> 
+                            <label for="resp1"> Resposta 1 </label>
+                        </section>
+                        
+                        <section>
+                            <input type="radio" id="resp2">
+                            <label for="resp2"> Resposta 2 </label>
+                        </section>
+                        
+                        <section>
+                            <input type="radio" id="resp3">
+                            <label for="resp3"> Resposta 3 </label>
+                        </section>
+                        
                         <section>
                             <input type="radio" id="resp4">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
 
                     </section>
-
+                    
                 </section>
             </section>
-
+            
             <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
@@ -116,33 +169,33 @@
                     <section class="questionTitle">
                         <h1>Questão Exemplo</h1>
                     </section>
-
+                    
                     <section class="questionAnswers">
                         <section>
                             <input type="radio" id="resp1"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp2">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp3">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp4">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
-
+                        
                     </section>
-
+                    
                 </section>
             </section>
-
+            
             <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
@@ -152,33 +205,33 @@
                     <section class="questionTitle">
                         <h1>Questão Exemplo</h1>
                     </section>
-
+                    
                     <section class="questionAnswers">
                         <section>
                             <input type="radio" id="resp1"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp2">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp3">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp4">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
 
                     </section>
-
+                    
                 </section>
             </section>
-
+            
             <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
@@ -188,33 +241,33 @@
                     <section class="questionTitle">
                         <h1>Questão Exemplo</h1>
                     </section>
-
+                    
                     <section class="questionAnswers">
                         <section>
                             <input type="radio" id="resp1"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp2">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp3">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp4">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
-
+                        
                     </section>
-
+                    
                 </section>
             </section>
-
+            
             <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
@@ -224,71 +277,54 @@
                     <section class="questionTitle">
                         <h1>Questão Exemplo</h1>
                     </section>
-
+                    
                     <section class="questionAnswers">
                         <section>
                             <input type="radio" id="resp1"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp2">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp3">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
-
+                        
                         <section>
                             <input type="radio" id="resp4">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
-
+                        
                     </section>
-
-                </section>
-            </section>
-
-            <section class="questionContainer">
-                <section class="questionStatus">
-                    <span>#1</span>
-                    <span>1 pt</span>
-                </section>
-                <section class="questionContext">
-                    <section class="questionTitle">
-                        <h1>Questão Exemplo</h1>
-                    </section>
-
-                    <section class="questionAnswers">
-                        <section>
-                            <input type="radio" id="resp1"> 
-                            <label for="resp1"> Resposta 1 </label>
-                        </section>
-
-                        <section>
-                            <input type="radio" id="resp2">
-                            <label for="resp2"> Resposta 2 </label>
-                        </section>
-
-                        <section>
-                            <input type="radio" id="resp3">
-                            <label for="resp3"> Resposta 3 </label>
-                        </section>
-
-                        <section>
-                            <input type="radio" id="resp4">
-                            <label for="resp4"> Resposta 4 </label>
-                        </section>
-
-                    </section>
-
+                    
                 </section>
             </section>
         </section>
+        <!-- <section class="questionContainer">
+            <section class="questionStatus">
+                <span>#1</span>
+                <span>1 pt</span>
+            </section>
+            <section class="questionContext">
+                <section class="questionTitle">
+                    <h1>Questão Exemplo</h1>
+                </section>
+    
+                <section class="questionAnswers">
+                    <button>Resposta 1</button>
+                    <button>Resposta 2</button>
+                    <button>Resposta 3</button>
+                    <button>Resposta 4</button>
+                </section>
+    
+            </section>
+        </section> -->
     </main>
-
+    
     <footer>
         <section class="contatos">
             <section class="contato-left">
@@ -305,7 +341,7 @@
                     <li>Telefone: (18)72858-1678</li>
                 </ul>
             </section>
-
+            
             <section class="contato-right">
                 <ul>
                     <li>Nome: Caio Okubara</li>
@@ -320,7 +356,7 @@
                 </ul>
             </section>
         </section>
-
+        
         <section class="footer-parte">
             <h2>Links Úteis:</h2>
             <ul class="links-uteis">

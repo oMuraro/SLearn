@@ -161,6 +161,7 @@ header {
         border: none;
         margin-left: 15px;
         margin-right: 15px;
+        cursor: pointer;
     }
 
     .profile-link {
