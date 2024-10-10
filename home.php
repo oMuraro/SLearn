@@ -36,7 +36,9 @@ if (isset($_SESSION["usuario"])) {
                 </div>
             </div>
 
-            <button id="playBtn"></button>
+            <a href="./view/quizCSS.php">
+                <button id="playBtn"></button>
+            </a>
 
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton2">Dropdown<span id="arrow2" class="arrow2Down"></button>
