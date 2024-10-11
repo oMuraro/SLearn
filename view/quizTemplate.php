@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+
+<?php
+$conn = new mysqli('localhost', 'root', '', 'slearn');
+
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
+
+$sqlCount = "SELECT COUNT(*) as total FROM sua_tabela";
+$resultCount = $conn->query($sqlCount);
+$rowCount = $resultCount->fetch_assoc();
+$qtd = $rowCount['total'];  
+
+$sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 10";  
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["id"] . " - Nome: " . $row["nome"] . "<br>";
+    }
+} else {
+    echo "Nenhum resultado encontrado.";
+}
+
+$conn->close();
+?>
+
+
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -64,22 +93,22 @@
                     
                     <section class="questionAnswers">
                         <section>
-                            <input type="radio" id="resp1"> 
+                            <input type="radio" id="resp1" name="resposta1"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp2">
+                            <input type="radio" id="resp2" name="resposta1">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp3">
+                            <input type="radio" id="resp3" name="resposta1">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp4">
+                            <input type="radio" id="resp4" name="resposta1">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
                         
@@ -100,22 +129,22 @@
                     
                     <section class="questionAnswers">
                         <section>
-                            <input type="radio" id="resp1"> 
+                            <input type="radio" id="resp1" name="resposta2"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp2">
+                            <input type="radio" id="resp2" name="resposta2">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp3">
+                            <input type="radio" id="resp3" name="resposta2">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp4">
+                            <input type="radio" id="resp4" name="resposta2">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
                         
@@ -136,22 +165,22 @@
                     
                     <section class="questionAnswers">
                         <section>
-                            <input type="radio" id="resp1"> 
+                            <input type="radio" id="resp1" name="resposta3"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp2">
+                            <input type="radio" id="resp2" name="resposta3">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp3">
+                            <input type="radio" id="resp3" name="resposta3">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp4">
+                            <input type="radio" id="resp4" name="resposta3">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
 
@@ -172,22 +201,22 @@
                     
                     <section class="questionAnswers">
                         <section>
-                            <input type="radio" id="resp1"> 
+                            <input type="radio" id="resp1" name="resposta4"> 
                             <label for="resp1"> Resposta 1 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp2">
+                            <input type="radio" id="resp2" name="resposta4">
                             <label for="resp2"> Resposta 2 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp3">
+                            <input type="radio" id="resp3" name="resposta4">
                             <label for="resp3"> Resposta 3 </label>
                         </section>
                         
                         <section>
-                            <input type="radio" id="resp4">
+                            <input type="radio" id="resp4" name="resposta4">
                             <label for="resp4"> Resposta 4 </label>
                         </section>
                         

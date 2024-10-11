@@ -244,6 +244,7 @@ main {
 .theme-button:hover {
     background-color: #672596;
     border-color: #26E580;
+    color: #26E580;
     transform: scale(1.05);
 }
 
