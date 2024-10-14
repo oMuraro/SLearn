@@ -194,5 +194,26 @@ class Banco {
         return null; // Retorna null se não encontrar o item
     }
 
+    public function getEquippedItemsByUserId($user_id) {
+        $conn = $this->conectBD();
+        $query = "
+            SELECT i.nome, i.foto, i.tipo 
+            FROM equipped_items ei
+            JOIN items i ON ei.item_id = i.id
+            WHERE ei.usuario_id = '" . $user_id . "'
+        ";
+
+        $result = mysqli_query($conn, $query);
+        $items = [];
+
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $items[] = $row; // Adiciona cada item ao array
+            }
+        }
+
+        return $items; // Retorna o array de itens equipados
+    }
+
 }
 ?>

@@ -1,0 +1,397 @@
+@font-face {
+    font-family: 'BPdotsBold';
+    src: url(fonts/bpdots.unicasesquare-bold.otf);
+}
+
+@font-face {
+    font-family: 'KarmaticArcade';
+    src: url(fonts/ka1.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: sans-serif, Helvetica, Arial;
+}
+
+body {
+    background-color: #672596;
+}
+
+h1,
+h2,
+button,
+input {
+    font-family: 'BPdotsBold';
+    color: #26E580;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+header {
+    background-color: #272727;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    color: #ffffff;
+
+    /* .logo{
+        width: auto;
+        height: 70px;
+    } */
+
+    .headerBtns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 11vw;
+        height: 5vh;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        background-image: url("../img/frame2.png");
+        background-size: 11vw 5vh;
+        background-position: center;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        transform: translateX(-50%);
+        left: 50%;
+        text-align: center;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+        margin: 11px 0;
+        /* Espaçamento entre as opções */
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        background-color: #26E580;
+        color: #672596;
+        border: #000000 solid 3px;
+        transform-origin: left center;
+        transition: transform 0.3s ease;
+
+    }
+
+    .dropdown-content a:nth-child(odd) {
+        transform: rotate(-3deg);
+        /* Inclinações alternadas */
+    }
+
+    .dropdown-content a:nth-child(even) {
+        transform: rotate(1deg);
+        margin-bottom: 3px;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #672596;
+        color: #26E580;
+    }
+
+    .dropdown-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3vw;
+        height: 100%;
+        z-index: 0;
+        background-image: url("../img/corda.png");
+        background-size: contain;
+    }
+
+    .arrow1Down,
+    .arrow1Up {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url("../img/arrow.png");
+        background-size: cover;
+        margin-left: 4px;
+        margin-top: 3px;
+    }
+
+    .arrow1Down {
+        transform: rotate(90deg);
+    }
+
+    .arrow1Up {
+        transform: rotate(-90deg);
+    }
+
+
+    .arrow2Down,
+    .arrow2Up {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url("../img/arrow.png");
+        background-size: cover;
+        margin-left: 4px;
+        margin-top: 3px;
+    }
+
+    .arrow2Down {
+        transform: rotate(90deg);
+    }
+
+    .arrow2Up {
+        transform: rotate(-90deg);
+    }
+
+
+
+    #playBtn {
+        background-color: transparent;
+        width: 50px;
+        height: 50px;
+        background-image: url("../img/playBtn.png");
+        background-size: cover;
+        border: none;
+        margin-left: 15px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    .profile-link {
+        width: 3vw;
+        height: 3vw;
+        background-image: url("../img/icon2.png");
+        background-size: cover;
+    }
+
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+
+    .equip-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .avatar {
+            width: 30vw;
+            height: 75vh;
+            border: 3px solid #000000;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .itemEspada {
+                position: absolute;
+                left: 5vh;
+                top: 5vh;
+                width: 7vw;
+                height: 7vw;
+            }
+
+            .itemSlot {
+                position: absolute;
+                width: 5vw;
+                height: 5vw;
+                border: 2px solid #26E580;
+                box-sizing: border-box;
+
+                > img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .skinSlot{
+                width: 10vw;
+                height: 40vh;
+                border: 3px solid #26E580;
+
+                > img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            #itemCapacete {
+                top: 2vw;
+                right: 2vw;
+            }
+
+            #itemArmadura {
+                top: 50%;
+                right: 2vw;
+            }
+
+            #itemBota{
+                bottom: 2vw;
+                right: 2vw;
+            }
+
+            #itemArma{
+                bottom: 30%;
+                left: 2vw;
+            }
+
+        }
+
+        .grid-container {
+            box-sizing: border-box;
+            padding: 1vw;
+            width: 45vw;
+            height: 75vh;
+            display: grid;
+            grid-gap: 1vh;
+            grid-template-columns: 160px 160px 160px 160px;
+            grid-template-rows: 200px 200px 200px 200px;
+            justify-content: center;
+            border: 3px solid #26E580;
+            overflow-y: scroll;
+
+            .grid-item {
+                width: auto;
+                height: auto;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                border: 3px solid #26E580;
+                background-color: #450f6b;
+
+                >img {
+                    width: 90px;
+                    height: 90px;
+                    box-sizing: border-box;
+                    border: 2px solid #26E580;
+                }
+
+                >form>input[type='submit'] {
+                    width: 5vw;
+                    height: 2.5vh;
+                    background-color: #672596;
+                    color: #26E580;
+                    outline: none;
+                    border: none;
+                    background: url(../img/frame2.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    transition: ease 0.1s;
+                    border-radius: 5px;
+                }
+
+                >form>input[type='submit']:hover {
+                    background-color: #26E580;
+                    color: #672596;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+footer {
+    height: 200px;
+    background-color: #272727;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    color: #ffffff;
+    padding-top: 30px;
+
+    .contatos {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 500px;
+        height: 150px;
+
+
+        .contato-left {
+            display: flex;
+            flex-direction: column;
+
+            >h2 {
+                color: #26E580;
+            }
+
+            >ul {
+                list-style-type: none;
+            }
+        }
+
+        .contato-right {
+            display: flex;
+            flex-direction: column;
+
+            >ul {
+                list-style-type: none;
+            }
+        }
+    }
+
+    .footer-parte {
+
+        >h2 {
+            color: #26E580;
+        }
+
+        .links-uteis {
+            text-decoration: none;
+            list-style-type: none;
+
+            >ul {
+                list-style-type: none;
+            }
+
+            .about:link,
+            .about:visited {
+                color: #ffffff;
+                text-decoration: none;
+
+            }
+
+            .about:hover {
+                border-bottom: 1px solid #ffffff;
+            }
+        }
+    }
+
+    p {
+        font-size: 2.25vh;
+    }
+}
