@@ -43,7 +43,7 @@
     </header>
 
     <main>
-
+    <form action="../processamento/ProcRespostas.php" method="post">
         
         <section class="questionColumn">
             <section style="width: 70vw; margin-bottom: 5vh;">
@@ -418,6 +418,8 @@
     
             </section>
         </section> -->
+        <input type="submit" value="enviar">
+        </form>
     </main>
     
     <footer>

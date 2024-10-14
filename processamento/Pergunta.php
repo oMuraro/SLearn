@@ -13,7 +13,7 @@ if (!empty($_POST['Pergunta']) && !empty($_POST['Certa']) && !empty($_POST['Erra
 
     $controlador->cadastrarPergunta($Pergunta, $Certa, $Errada1, $Errada2, $Errada3);
 
-    header('Location: ../cadastroPergunta.html');
+    header('Location: ../view/Pontuacao.html');
     exit();
 
 } else {

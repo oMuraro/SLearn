@@ -58,5 +58,29 @@ class Banco {
             return "cu";
         }
     }
+
+    public function buscarRespostaCerta($idPergunta) {
+        $conexao = $this->conectBD(); // Garante que a conexão seja criada ao chamar o método
+        $sql = "SELECT Certa FROM perguntas WHERE id = ?";
+        
+        // Prepara a consulta
+        $stmt = $conexao->prepare($sql);
+        if (!$stmt) {
+            die("Erro ao preparar a consulta: " . $conexao->error);
+        }
+    
+        // Vincula o parâmetro e executa a consulta
+        $stmt->bind_param("i", $idPergunta);
+        $stmt->execute();
+        $stmt->bind_result($respostaCerta);
+        $stmt->fetch();
+        $stmt->close();
+    
+        // Fecha a conexão
+        $conexao->close();
+    
+        return $respostaCerta;
+    }
+
 }
 ?>
