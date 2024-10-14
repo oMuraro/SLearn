@@ -82,5 +82,117 @@ class Banco {
         return $respostaCerta;
     }
 
+
+    
+
+    public function getItemsNotInInventoryByUserId($user_id) {
+        $conn = $this->conectBD();
+        $query = "SELECT * FROM items WHERE id NOT IN (SELECT item_id FROM inventario WHERE usuario_id = '" . $user_id . "')";
+        return mysqli_query($conn, $query);
+    }
+
+    public function getItemsInInventoryByUserId($user_id){
+        $conn = $this->conectBD();
+        $query = "SELECT * FROM items WHERE id IN (SELECT item_id FROM inventario WHERE usuario_id = '" . $user_id . "')";
+        return mysqli_query($conn, $query);
+    }
+
+    public function insertInInventory($inventario){
+        $conn = $this->conectBD();
+        $query = "INSERT INTO `inventario` (usuario_id, item_id) VALUES (" . $inventario->getUsuarioId() . ", " . $inventario->getItemId() . ")";
+        mysqli_query($conn, $query);
+    }
+
+    public function insertEquippedItem($equippedItem) {
+        $conn = $this->conectBD();
+    
+        // Certifique-se de que equippedItem é um objeto
+        if (is_object($equippedItem)) {
+            $query = "INSERT INTO `equipped_items` (usuario_id, item_id) VALUES (" . 
+                $equippedItem->getUsuarioId() . ", " . $equippedItem->getItemId() . ")";
+    
+            // Executa a query
+            mysqli_query($conn, $query);
+        } else {
+            throw new Exception("EquippedItem não é um objeto válido.");
+        }
+    }
+    
+
+    public function getEquippedItemIdByType($user_id, $item_type) {
+        $conn = $this->conectBD();
+        $query = "
+            SELECT ei.item_id FROM equipped_items ei
+            JOIN items i ON ei.item_id = i.id
+            WHERE ei.usuario_id = '" . $user_id . "' 
+            AND i.tipo = '" . $item_type . "'
+        ";
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result->num_rows > 0) {
+            $equipped_item = $result->fetch_assoc();
+            return $equipped_item['item_id'];
+        }
+        return null; // Retorna null se não encontrar item equipado
+    }
+
+    public function deleteEquippedItem($user_id, $item_id){
+        $conn = $this->conectBD();
+        $query = "DELETE FROM equipped_items WHERE usuario_id = '" . $user_id . "' AND item_id = '". $item_id . "'";
+        mysqli_query($conn, $query);
+    }
+
+    public function isItemEquipado($user_id, $item_id) {
+        $conn = $this->conectBD();
+        // Prepara a consulta para verificar se o item já foi comprado
+        $query = "SELECT * FROM equipped_items WHERE usuario_id = '" . $user_id . "' AND item_id = '" . $item_id . "'";
+        $result = mysqli_query($conn, $query);
+    
+        // Verifica se o item foi encontrado
+        if ($result->num_rows > 0) {
+            // O item já foi comprado
+            return true;
+        } else {
+            // O item não foi comprado
+            return false;
+        }
+    }
+
+    public function isItemEquipadoPorTipo($user_id, $tipo_item) {
+        $conn = $this->conectBD();
+    
+        // Prepara a consulta para verificar se há um item equipado do tipo especificado
+        $query = "
+            SELECT ei.* FROM equipped_items ei
+            JOIN items i ON ei.item_id = i.id
+            WHERE ei.usuario_id = '" . $user_id . "' 
+            AND i.tipo = '" . $tipo_item . "'
+        ";
+        
+        $result = mysqli_query($conn, $query);
+    
+        // Verifica se há um item equipado do tipo especificado
+        if ($result->num_rows > 0) {
+            // Existe um item equipado do tipo especificado
+            return true;
+        } else {
+            // Não há item equipado do tipo especificado
+            return false;
+        }
+    }
+    
+
+    public function getItemType($item_id) {
+        $conn = $this->conectBD();
+        $query = "SELECT tipo FROM items WHERE id = '" . $item_id . "'";
+        $result = mysqli_query($conn, $query);
+        if ($result->num_rows > 0) {
+            $item = $result->fetch_assoc();
+            return $item['tipo'];
+        }
+        return null; // Retorna null se não encontrar o item
+    }
+
 }
 ?>

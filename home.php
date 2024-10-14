@@ -41,11 +41,11 @@ if (isset($_SESSION["usuario"])) {
             </a>
 
             <div class="dropdown">
-                <button class="dropdown-button" id="dropdownButton2">Dropdown<span id="arrow2" class="arrow2Down"></button>
+                <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2" class="arrow2Down"></button>
                 <div id="dropdownMenu2" class="dropdown-content">
-                    <a href="#">Item 1</a>
-                    <a href="#">Item 2</a>
-                    <a href="#">Item 3</a>
+                    <a href="./view/shop/shop.php">Loja</a>
+                    <a href="./view/shop/inventory.php">Inventario</a>
+                    <!-- <a href="#">Item 3</a> -->
                 </div>
             </div>
         </div>
