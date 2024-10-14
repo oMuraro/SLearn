@@ -1,33 +1,4 @@
 <!DOCTYPE html>
-
-<?php
-$conn = new mysqli('localhost', 'root', '', 'slearn');
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-$sqlCount = "SELECT COUNT(*) as total FROM sua_tabela";
-$resultCount = $conn->query($sqlCount);
-$rowCount = $resultCount->fetch_assoc();
-$qtd = $rowCount['total'];  
-
-$sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 10";  
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        echo "ID: " . $row["id"] . " - Nome: " . $row["nome"] . "<br>";
-    }
-} else {
-    echo "Nenhum resultado encontrado.";
-}
-
-$conn->close();
-?>
-
-
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -41,6 +12,7 @@ $conn->close();
         <a href="../home.php">
             <h1>C#LEARN</h1>
         </a>
+
 
         <div class="headerBtns">
             <div class="dropdown">
@@ -67,7 +39,7 @@ $conn->close();
             </div>
         </div>
 
-        <a href="#" class="profile-link"></a>
+        <a href="../conta.php" class="profile-link"></a>
     </header>
 
     <main>
@@ -80,8 +52,102 @@ $conn->close();
                 <p id="quizDescription">Quiz para você testar seu conhecimento sobre a TADs.</p>
             </section>
 
+            <?php
+            $conn = new mysqli('localhost', 'root', '', 'slearn');
+
+            if ($conn->connect_error) {
+                die("Falha na conexão: " . $conn->connect_error);
+            }
+
+            $sqlCount = "SELECT COUNT(*) as total FROM perguntas";
+            $resultCount = $conn->query($sqlCount);
+            $rowCount = $resultCount->fetch_assoc();
+            $qtd = $rowCount['total'];  
+
+            $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 10";  
+            $result = $conn->query($sql);
             
-            <section class="questionContainer">
+            $nPergunta = 1;
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $id = $row['id'];
+                    $pergunta = $row["Pergunta"];
+                    echo "
+                        <section class='questionContainer'>
+                            <input type='hidden' value='".$row['id']."' name='pergunta".$nPergunta."'>
+                            <section class='questionStatus'>
+                                <span>#".$nPergunta."</span>
+                                <span>1 pt</span>
+                            </section>
+                            <section class='questionContext'>
+                                <section class='questionTitle'>
+                                    <h1>".$row['Pergunta']."</h1>
+                                </section>
+                                
+                                <section class='questionAnswers'>
+                        ";
+                    $Busca = "SELECT Certa, Errada1, Errada2, Errada3 FROM perguntas WHERE id = $id";  // Substitua 'perguntas' pelo nome da sua tabela e 'id' pelo critério desejado
+                    $resultResp = $conn->query($Busca);
+                    if ($resultResp->num_rows > 0) {
+                        // Recupera a linha com as respostas
+                        $row = $resultResp->fetch_assoc();
+                        
+                        // Coloca as respostas em um array associativo com o valor correto
+                        $respostas = [
+                            ['texto' => $row['Certa'], 'tipo' => 'Certa'],
+                            ['texto' => $row['Errada1'], 'tipo' => 'Errada'],
+                            ['texto' => $row['Errada2'], 'tipo' => 'Errada'],
+                            ['texto' => $row['Errada3'], 'tipo' => 'Errada']
+                        ];
+                        
+                        // Embaralha o array para randomizar a ordem das respostas
+                        shuffle($respostas);
+                        foreach ($respostas as $resposta) {
+                            echo "
+                            <section>
+                                <input type='radio' id='resp1' name='".$id."' value='".$resposta['tipo']."' class='resposta'> 
+                                <label for='resp1'>".$resposta['texto']."</label>
+                            </section>";
+                        }
+                    }
+                    /*
+                    <section>
+                    <input type='radio' id='resp1' name='".$row['id']."'> 
+                    <label for='resp1'>". $row['Certa']."</label>
+                    </section>
+                    
+                    <section>
+                    <input type='radio' id='resp2' name='".$row['id']."'>
+                    <label for='resp2'>". $row['Errada1']."</label>
+                    </section>
+                    
+                    <section>
+                    <input type='radio' id='resp3' name='".$row['id']."'>
+                    <label for='resp3'>". $row['Errada2']."</label>
+                    </section>
+                    
+                    <section>
+                    <input type='radio' id='resp4' name='".$row['id']."'>
+                    <label for='resp4'>". $row['Errada3']."</label>
+                    </section>
+                    */
+                    echo "
+                                </section>
+                                
+                            </section>
+                        </section>
+                    ";
+                    echo "ID: " . $id . " - Nome: " . $pergunta . "<br>";
+                    $nPergunta = $nPergunta + 1;
+                }
+            } else {
+                echo "Nenhum resultado encontrado.";
+            }
+
+            $conn->close();
+            ?>
+            <!-- <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
                     <span>1 pt</span>
@@ -333,7 +399,7 @@ $conn->close();
                 </section>
             </section>
         </section>
-        <!-- <section class="questionContainer">
+        <section class="questionContainer">
             <section class="questionStatus">
                 <span>#1</span>
                 <span>1 pt</span>

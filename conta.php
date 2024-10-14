@@ -9,10 +9,10 @@
 <body>
     <header>
         <h1>
-            S+ Learn
+            C#Learn
         </h1>
         <div class="conta">
-            <a href="index.php">
+            <a href="home.php">
                 <button>
                     Home
                 </button>

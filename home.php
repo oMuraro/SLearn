@@ -50,7 +50,7 @@ if (isset($_SESSION["usuario"])) {
             </div>
         </div>
 
-        <a href="#" class="profile-link"></a>
+        <a href="conta.php" class="profile-link"></a>
 
 
     </header>
