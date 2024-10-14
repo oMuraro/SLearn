@@ -138,7 +138,7 @@
                             </section>
                         </section>
                     ";
-                    echo "ID: " . $id . " - Nome: " . $pergunta . "<br>";
+                    // echo "ID: " . $id . " - Nome: " . $pergunta . "<br>";
                     $nPergunta = $nPergunta + 1;
                 }
             } else {
