@@ -27,14 +27,15 @@
                 </div>
             </div>
 
-            <button id="playBtn"></button>
+            <a href="./selectQuiz.html">
+                <button id="playBtn"></button>
+            </a>
 
             <div class="dropdown">
-                <button class="dropdown-button" id="dropdownButton2">Dropdown<span id="arrow2" class="arrow2Down"></span></button>
+                <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2" class="arrow2Down"></span></button>
                 <div id="dropdownMenu2" class="dropdown-content">
-                    <a href="#">Item 1</a>
-                    <a href="#">Item 2</a>
-                    <a href="#">Item 3</a>
+                <a href="./shop/shop.php">Loja</a>
+                <a href="./shop/inventory.php">Inventario</a>
                 </div>
             </div>
         </div>
@@ -147,6 +148,8 @@
 
             $conn->close();
             ?>
+
+
             <!-- <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
@@ -418,7 +421,7 @@
     
             </section>
         </section> -->
-        <input type="submit" value="enviar">
+        <input type="submit" value="ENVIAR">
         </form>
     </main>
     

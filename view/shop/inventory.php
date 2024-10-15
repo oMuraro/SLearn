@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipamentos</title>
+    <title>Inventário</title>
     <link rel="stylesheet" href="../../css/inventory.css">
 </head>
 <body>
@@ -38,11 +38,10 @@
             </a>
 
             <div class="dropdown">
-                <button class="dropdown-button" id="dropdownButton2">Dropdown<span id="arrow2" class="arrow2Down"></span></button>
+                <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2" class="arrow2Down"></span></button>
                 <div id="dropdownMenu2" class="dropdown-content">
-                    <a href="#">Item 1</a>
-                    <a href="#">Item 2</a>
-                    <a href="#">Item 3</a>
+                    <a href="./shop.php">Loja</a>
+                    <a href="#here">Inventario</a>
                 </div>
             </div>
         </div>
@@ -53,50 +52,119 @@
     </header>
 
     <main>
-    <!-- <h1>Equipamentos</h1> -->
+    <h1>Inventario</h1>
     <section class="equip-container">
         <section class="avatar">
+            <h1>AVATAR</h1>
+
             <?php
                 $items = $controller->getEquippedItems();
                 
-                foreach($items as $item){
-                    if($item['tipo'] == "Espada"){
-                        echo  "<section class='itemSlot' id='itemCapacete'>
-                        <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
-                        <h1> Capacete </h1>
-                        </section>";
-                    }
-                    if($item['tipo'] == "Escudo"){
-                        echo  "<section class='itemSlot' id='itemArmadura'>
-                        <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
-                        <h1> Peitoral </h1>
-                        </section>";
-                    }
-                    if($item['tipo'] == "Capacete"){
-                        echo  "<section class='itemSlot' id='itemBota'>
-                        <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
-                        <h1> Capacete </h1>
-                        </section>";
-                    }
-                    if($item['tipo'] == "Capa"){
-                        echo  "<section class='itemSlot' id='itemArma'>
-                        <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
-                        <h1> Bota </h1>
-                        </section>";
-                    }
-                    if($item['tipo'] == "Skin"){
-                        echo  "<section class='skinSlot'>
-                        <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
-                        <h1> Personagem </h1>
-                        </section>";
-                    }
-                }
+                // Inicializa as variáveis de controle para verificar se cada tipo de item foi encontrado
+                $temArma = false;
+                $temCapacete = false;
+                $temPeitoral = false;
+                $temBotas = false;
+                $temSkin = false;
+                
+                // Primeiro, verifica quais itens estão equipados
+                foreach ($items as $item) {
+                    if ($item['tipo'] == "Arma") {
+                        $temArma = true;
+                    } elseif ($item['tipo'] == "Capacete") {
+                        $temCapacete = true;
+                    } elseif ($item['tipo'] == "Peitoral") {
+                        $temPeitoral = true;
+                    } elseif ($item['tipo'] == "Botas") {
+                        $temBotas = true;
+    } elseif ($item['tipo'] == "Skin") {
+        $temSkin = true;
+    }
+}
+
+// Agora renderiza os slots
+if ($temSkin) {
+    foreach ($items as $item) {
+        if ($item['tipo'] == "Skin") {
+            echo "<section class='skinSlot'>
+                    <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
+                    <h1>".$item['nome']."</h1>
+                </section>";
+        }
+    }
+} else {
+    echo "<section><section class='emptySlotSkin'></section><h1>Skin</h1></section>";
+}
+
+echo "<section class='itemsRow'>";
+// Slot para Espada
+if ($temArma) {
+    foreach ($items as $item) {
+        if ($item['tipo'] == "Arma") {
+            echo "<section class='itemSlot'>
+            <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
+            <h1>Arma</h1>
+                </section>";
+        }
+    }
+} else {
+    echo "<section><section class='emptySlot'></section><h1>Arma</h1></section>";
+}
+
+// Slot para Escudo
+if ($temCapacete) {
+    foreach ($items as $item) {
+        if ($item['tipo'] == "Capacete") {
+            echo "<section class='itemSlot'>
+                    <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
+                    <h1>Capacete</h1>
+                </section>";
+        }
+    }
+} else {
+    echo "<section><section class='emptySlot'></section><h1>Capacete</h1></section>";
+}
+
+// Slot para Capacete
+if ($temPeitoral) {
+    foreach ($items as $item) {
+        if ($item['tipo'] == "Peitoral") {
+            echo "<section class='itemSlot'>
+                    <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
+                    <h1>Peitoral</h1>
+                </section>";
+        }
+    }
+} else {
+    echo "<section><section class='emptySlot'></section><h1>Peitoral</h1></section>";
+}
+
+// Slot para Capa
+if ($temBotas) {
+    foreach ($items as $item) {
+        if ($item['tipo'] == "Botas") {
+            echo "<section class='itemSlot'>
+                    <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
+                    <h1>Botas</h1>
+                </section>";
+        }
+    }
+} else {
+    echo "<section><section class='emptySlot'></section><h1>Botas</h1></section>";
+}
+
+echo "</section>";
+// Slot para Skin
             ?>
-        </section>
+            </section>
 
         <section class="grid-container">
         <?php
             $controller->getItemsToEquip();
+
+            if($_SESSION['countItemsOnInventory'] == 0){
+                echo "<h1>SEU INVENTARIO ESTÁ VAZIO :(</H1>";
+            }
         ?>
         </section>
     </section>

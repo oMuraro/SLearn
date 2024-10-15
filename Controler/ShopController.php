@@ -17,23 +17,25 @@ class ShopController
 
     public function getItemsToShop(){
         $items = $this->database->getItemsNotInInventoryByUserId($_SESSION['user_id']);
-
         $element = "";
-
+        $cont = 0;
+        
         foreach($items as $item){
-            $element .= "<section class='grid-item'>
-                            <section class='grid-item-title'>
-                            <h1>" . $item["nome"] . "</h1>
-                            </section>
-                            <img src='data:image/jpg;charset=utf-8;base64,".base64_encode($item["foto"])."'</img>
-                            <h2> R$" . $item["preco"] . "</h2>
-                            <form method='POST' action='../../processamento/processItem.php'>
-                            <input type='hidden' name='id' value='" . $item["id"] . "'>
-                            <input type='hidden' name='type' value='buy'>
-                            <input type='submit' value='Comprar'>
-                            </form>
-                        </section>";   
-        }
+            $cont++;
+                $element .= "<section class='grid-item'>
+                                <section class='grid-item-title'>
+                                <h1>" . $item["nome"] . "</h1>
+                                </section>
+                                <img src='data:image/jpg;charset=utf-8;base64,".base64_encode($item["foto"])."'</img>
+                                <h2> R$" . $item["preco"] . "</h2>
+                                <form method='POST' action='../../processamento/processItem.php'>
+                                <input type='hidden' name='id' value='" . $item["id"] . "'>
+                                <input type='hidden' name='type' value='buy'>
+                                <input type='submit' value='Comprar'>
+                                </form>
+                            </section>";
+            }
+            $_SESSION['countItemsOnShop'] = $cont;
         echo $element;
     }
 
@@ -41,8 +43,10 @@ class ShopController
         $items = $this->database->getItemsInInventoryByUserId($_SESSION['user_id']);
 
         $element = "";
+        $cont = 0;
 
         foreach($items as $item) {
+            $cont++;
             $element .= "<section class='grid-item'>
 
                             <img src='data:image/jpg;charset=utf-8;base64,".base64_encode($item["foto"])."'></img>
@@ -62,7 +66,7 @@ class ShopController
         
             $element .= "</form></section>";
         }
-        
+        $_SESSION['countItemsOnInventory'] = $cont;
         echo $element;
     }
 
@@ -90,6 +94,7 @@ class ShopController
     public function buyItem($user_id, $item_id){
         $inventario = new Inventario($user_id, $item_id);
         $this->database->insertInInventory($inventario);
+        $_SESSION['countItemsOnShop']--;
     }
 
     public function equipItem($user_id, $new_item_id) {

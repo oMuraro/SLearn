@@ -161,6 +161,7 @@ header {
         border: none;
         margin-left: 15px;
         margin-right: 15px;
+        cursor: pointer;
     }
 
     .profile-link {
@@ -199,6 +200,22 @@ main {
         height: 100%;
         margin-left: 10vw;
         box-sizing: border-box;
+
+        >input[type='submit']{
+            width: 23vw;
+            height: 6.5vh;
+            color: #26E580;
+            background-color: #450f6b;
+            border: 3px solid #26E580;
+            outline: none;
+            transition: 0.1s ease;
+            font-size: 1.5rem;
+        }
+
+        >input[type='submit']:hover{
+            color: #450f6b;
+            background-color: #26E580;
+        }
         
         #quizTitle{
             width: auto;

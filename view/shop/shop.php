@@ -1,3 +1,10 @@
+<?php
+session_start();
+error_reporting(0);
+require_once __DIR__ . "/../../Controler/ShopController.php";
+
+$controller = new ShopController();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,11 +38,10 @@
             </a>
 
             <div class="dropdown">
-                <button class="dropdown-button" id="dropdownButton2">Dropdown<span id="arrow2" class="arrow2Down"></span></button>
+                <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2" class="arrow2Down"></span></button>
                 <div id="dropdownMenu2" class="dropdown-content">
-                    <a href="#">Item 1</a>
-                    <a href="#">Item 2</a>
-                    <a href="#">Item 3</a>
+                    <a href="#here">Loja</a>
+                    <a href="./inventory.php">Inventario</a>
                 </div>
             </div>
         </div>
@@ -47,16 +53,18 @@
 
     <main>
         <h1>Loja</h1>
+    <?php
+        echo "<section class='grid-container'>";
+        $controller->getItemsToShop();
+        echo "</section>";
 
-        <section class="grid-container">
-            <?php
-                require_once __DIR__ . "/../../Controler/ShopController.php";
-    
-                $controller = new ShopController();
-    
-                echo $controller->getItemsToShop();
-            ?>
-        </section>
+        // echo $_SESSION[  'countItemsOnShop'];
+
+        if($_SESSION['countItemsOnShop'] == 0){
+            echo "<h1 style='font-family: BPdotsBold;'>SUA LOJA ESTA VAZIA :)</h1>";
+        }
+
+    ?>
     </main>
 
     <footer>
