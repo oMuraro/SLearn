@@ -215,5 +215,29 @@ class Banco {
         return $items; // Retorna o array de itens equipados
     }
 
+    public function updateUserById($user, $id)
+{
+    $connection = $this->conectBD();
+    $query = "UPDATE usuarios SET login = '" . $user->getLogin() . "', senha = '" . $user->getSenha() . "' WHERE id = " . $id;
+    $result = mysqli_query($connection, $query);
+
+    if ($result) {
+        // Verifica quantas linhas foram afetadas pela consulta
+        if (mysqli_affected_rows($connection) > 0) {
+            return true;  // Credenciais atualizadas com sucesso
+        } else {
+            return false;  // Nenhuma linha foi alterada (talvez os dados já fossem os mesmos)
+        }
+    } else {
+        return false; // Falha na execução da query
+    }
+}
+
+public function deleteUserById($id)
+    {
+        $connection = $this->conectBD();
+        $query = "DELETE FROM usuarios WHERE id = " . $id;
+        mysqli_query($connection, $query);
+    }
 }
 ?>

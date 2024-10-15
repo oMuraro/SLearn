@@ -17,7 +17,8 @@ if (!empty($_POST['login']) && !empty($_POST['senha'])) {
     $result = $conn->query("SELECT * FROM usuarios WHERE login='$usuario'");
     $user = $result->fetch_assoc();
     $_SESSION['user_id'] = $user['id'];
-
+    $_SESSION['user_login'] = $user['login'];
+    
     $controlador->loginUsuario($usuario, $senhaUsu);
 } else {
     echo "Por favor, preencha todos os campos.";

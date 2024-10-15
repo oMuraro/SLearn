@@ -1,5 +1,6 @@
 <?php
 require_once '../model/Banco.php'; // Inclua o arquivo do modelo
+require_once '../model/User.php'; // Inclua o arquivo do modelo
 
 class Controlador {
     private $bancoDeDados;
@@ -27,6 +28,7 @@ class Controlador {
     
         if ($result) {
             $senhaHash = $result['senha'];
+            $_SESSION['senhaHash'] = $senhaHash;
     
             if (password_verify($senhaUsu, $senhaHash)) {
                 $_SESSION['usuario'] = $usuario;
@@ -38,5 +40,14 @@ class Controlador {
         } else {
             echo "Usuário não encontrado.";
         }
+    }
+
+    public function editUser($login, $senha){
+        $user = new User($login, $senha);
+        $this->bancoDeDados->updateUserById($user, $_SESSION['user_id']);
+    }
+
+    public function deleteUser($id){
+        $this->bancoDeDados->deleteUserById($id);
     }
 }
