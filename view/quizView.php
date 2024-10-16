@@ -57,13 +57,20 @@ session_start();
 
         <section class="columnAnswers">
             <?php
+            $acertos = 0;
             $resultados = $_SESSION['resultados_quiz'];
             $cont = 1;
-            foreach ($resultados as $idPergunta => $resultado): ?>
+            foreach ($resultados as $idPergunta => $resultado): 
+                if($resultado == "Certa"){
+                    $acertos = $acertos + 10;
+                }
+            ?>
                 <section class="answerContainer">
                     <h1>Pergunta <?php echo $cont ?>:</h1> <h2><?= htmlspecialchars($resultado) ?></h2>
                 </section>
-            <?php $cont++; endforeach; ?>
+            <?php $cont++; endforeach; 
+            echo "<input type='hidden' value='".$acertos."' name='pontos'>";
+            ?>
         </section>
                 
         <a href="../home.php">
