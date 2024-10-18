@@ -1,3 +1,9 @@
+<?php
+error_reporting(0);
+require_once __DIR__ . "/../../Controler/ShopController.php";
+
+$controller = new ShopController();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,16 +25,18 @@
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1" class="arrow1Down"></span></button>
                 <div id="dropdownMenu1" class="dropdown-content">
-                    <a href="../TAD/TADGeral.html">Tipo Abstrato de Dados</a>
-                    <a href="../LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
-                    <a href="../LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
-                    <a href="../LIFO/LIFOGeral.html">Pilhas Encadeadas</a>
-                    <a href="../FIFO/FIFOGeral.html">Filas Encadeadas</a>
-                    <a href="../FIFOEncadeado/FIFOEncadeadoGeral.html">Filas de Prioridades Encadeadas</a>
+                    <a href="../TAD/TADGeral.php">Tipo Abstrato de Dados</a>
+                    <a href="../LSE/LSEGeral.php">Lista Simplesmente Encadeada</a>
+                    <a href="../LDE/LDEGeral.php">Lista Duplamente Encadeada</a>
+                    <a href="../LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
+                    <a href="../FIFO/FIFOGeral.php">Filas Encadeadas</a>
+                    <a href="../FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
                 </div>
             </div>
-
-            <button id="playBtn"></button>
+            
+            <a href="../quizQuestions.php">
+                <button id="playBtn"></button>
+            </a>
 
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2" class="arrow2Down"></span></button>
@@ -38,8 +46,10 @@
                 </div>
             </div>
         </div>
-
-        <a href="../../conta.php" class="profile-link"></a>
+        <section class="right-header">
+            <h1>R$ <?php echo $controller->getPoints()?></h1>    
+            <a href="../../conta.php" class="profile-link"></a>
+        </section>
 
 
     </header>

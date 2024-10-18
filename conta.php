@@ -25,16 +25,16 @@
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1" class="arrow1Down"></span></button>
                 <div id="dropdownMenu1" class="dropdown-content">
-                    <a href="view/TAD/TADGeral.html">Tipo Abstrato de Dados</a>
-                    <a href="view/LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
-                    <a href="view/LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
-                    <a href="view/LIFO/LIFOGeral.html">Pilhas Encadeadas</a>
-                    <a href="view/FIFO/FIFOGeral.html">Filas Encadeadas</a>
-                    <a href="view/FIFOEncadeado/FIFOEncadeadoGeral.html">Filas de Prioridades Encadeadas</a>
+                    <a href="view/TAD/TADGeral.php">Tipo Abstrato de Dados</a>
+                    <a href="view/LSE/LSEGeral.php">Lista Simplesmente Encadeada</a>
+                    <a href="view/LDE/LDEGeral.php">Lista Duplamente Encadeada</a>
+                    <a href="view/LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
+                    <a href="view/FIFO/FIFOGeral.php">Filas Encadeadas</a>
+                    <a href="view/FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
                 </div>
             </div>
 
-            <a href="./view/selectQuiz.html">
+            <a href="./view/quizQuestions.php">
                 <button id="playBtn"></button>
             </a>
 
@@ -48,7 +48,10 @@
             </div>
         </div>
 
-        <a href="conta.php" class="profile-link"></a>
+        <section class="right-header">
+            <h1>R$ <?php echo $controller->getPoints()?></h1>    
+            <a href="#here" class="profile-link"></a>
+        </section>
         
         
     </header>
@@ -80,16 +83,16 @@
 
                     <input type="submit" value="Editar" class="entra">
                 </form>
-                <section class="redBtns">
+                <!-- <section class="redBtns"> -->
                     <form action="./processamento/processQuit.php" method="POST">
                         <input type="submit" value="SAIR" class="leaveBtn">
                     </form>
     
                     <form action="./processamento/processUser.php" method="POST">
                         <input type="hidden" name="type" value="delete">
-                        <input type="submit" value="DELETAR CONTA" class="leaveBtn">
+                        <!-- <input type="submit" value="DELETAR CONTA" class="leaveBtn"> -->
                     </form>
-                </section>
+                <!-- </section> -->
                 
             </section>
 

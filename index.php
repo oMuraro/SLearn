@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,9 +30,15 @@
             <input type="password" name="senha" placeholder="Digite sua Senha" class="entrada" id="senha">
             <section class="btns">
                 <input type="submit" value="Entrar" class="entra">
-                 <a href="cadastro.html"><button type="button" class="entra">Cadastrar</button></a>
+                 <a href="cadastro.php"><button type="button" class="entra">Cadastrar</button></a>
             </section>
         </form>
+            <?php
+                if(!empty($_SESSION['msgLogin'])){
+                    echo "<h1 style='font-size: 1.3rem;'>" . $_SESSION['msgLogin'] . "</h1>";
+                    unset($_SESSION['msgLogin']);
+                }
+            ?>
     </main>
     
     <footer>

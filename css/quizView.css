@@ -43,7 +43,7 @@ header {
         position: relative;
         display: inline-block;
     }
-    
+
     .dropdown-button {
         display: flex;
         justify-content: center;
@@ -59,7 +59,7 @@ header {
         background-size: 11vw 5vh;
         background-position: center;
     }
-    
+
     .dropdown-content {
         display: none;
         position: absolute;
@@ -70,11 +70,12 @@ header {
         left: 50%;
         text-align: center;
     }
-    
+
     .dropdown-content a {
         display: block;
         padding: 10px;
-        margin: 11px 0; /* Espaçamento entre as opções */
+        margin: 11px 0;
+        /* Espaçamento entre as opções */
         text-align: center;
         text-decoration: none;
         font-size: 14px;
@@ -85,35 +86,37 @@ header {
         transition: transform 0.3s ease;
 
     }
-    
+
     .dropdown-content a:nth-child(odd) {
-        transform: rotate(-3deg); /* Inclinações alternadas */
+        transform: rotate(-3deg);
+        /* Inclinações alternadas */
     }
-    
+
     .dropdown-content a:nth-child(even) {
         transform: rotate(1deg);
         margin-bottom: 3px;
     }
-    
+
     .dropdown-content a:hover {
         background-color: #672596;
         color: #26E580;
     }
-    
+
     .dropdown-content::before {
-         content: '';
+        content: '';
         position: absolute;
         top: 0;
         left: 50%;
-        transform: translateX(-50%); 
-         width: 3vw;
-        height: 100%; 
+        transform: translateX(-50%);
+        width: 3vw;
+        height: 100%;
         z-index: 0;
         background-image: url("../img/corda.png");
         background-size: contain;
     }
 
-    .arrow1Down, .arrow1Up {
+    .arrow1Down,
+    .arrow1Up {
         display: inline-block;
         width: 20px;
         height: 20px;
@@ -122,17 +125,18 @@ header {
         margin-left: 4px;
         margin-top: 3px;
     }
-    
+
     .arrow1Down {
         transform: rotate(90deg);
     }
-    
+
     .arrow1Up {
         transform: rotate(-90deg);
     }
 
 
-    .arrow2Down, .arrow2Up {
+    .arrow2Down,
+    .arrow2Up {
         display: inline-block;
         width: 20px;
         height: 20px;
@@ -141,16 +145,16 @@ header {
         margin-left: 4px;
         margin-top: 3px;
     }
-    
+
     .arrow2Down {
         transform: rotate(90deg);
     }
-    
+
     .arrow2Up {
         transform: rotate(-90deg);
     }
-    
-    
+
+
 
     #playBtn {
         background-color: transparent;
@@ -164,20 +168,36 @@ header {
         cursor: pointer;
     }
 
-    .profile-link {
-        width: 3vw;
-        height: 3vw;
-        background-image: url("../img/icon2.png");
-        background-size: cover;
+    .right-header{
+        width: 10vw;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+        >h1{
+            font-size: 1.7rem;
+        }
+
+        .profile-link {
+            width: 3vw;
+            height: 3vw;
+            background-image: url("../img/icon2.png");
+            background-size: cover;
+        }
     }
 
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
     text-decoration: none;
 }
 
-h1, h2, button {
+h1,
+h2,
+button {
     font-family: 'BPdotsBold';
     color: #26E580;
 }
@@ -197,35 +217,47 @@ main {
     flex-direction: column;
     justify-content: center;
 
-    >h1{
+    >h1 {
         margin-top: 3vh;
         font-family: 'KarmaticArcade';
         font-size: 2rem;
     }
-    
-    >a{
+
+    .midMenu{
         position: absolute;
-    
-        .returnBtn{
-            /* transform: translate(2%,2%); */
-            position: relative;
-            width: 12vw;
-            height: 7vh;
-            background-color: #272727;
-            border: 3px solid #26E580;
-            outline: none;
-            font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 30vh;
+
+        >h1{
+            font-size: 2.3rem;
         }
-    
-        .returnBtn:hover{
-            color: #672596;
-            background-color: #26E580;
-            border: 3px solid #272727;
-        }
-    
+        
+
+            .returnBtn {
+                /* transform: translate(2%,2%); */
+                position: relative;
+                width: 12vw;
+                height: 7vh;
+                background-color: #272727;
+                border: 3px solid #26E580;
+                outline: none;
+                font-size: 1.2rem;
+            }
+
+            .returnBtn:hover {
+                color: #672596;
+                background-color: #26E580;
+                border: 3px solid #272727;
+            }
+        
+
+
     }
 
-    .columnAnswers{
+    .columnAnswers {
         width: 100%;
         height: 75vh;
         display: flex;
@@ -234,7 +266,7 @@ main {
         align-items: center;
         flex-wrap: wrap;
 
-        .answerContainer{
+        .answerContainer {
             display: flex;
             flex-direction: column;
             justify-content: center;

@@ -239,5 +239,46 @@ public function deleteUserById($id)
         $query = "DELETE FROM usuarios WHERE id = " . $id;
         mysqli_query($connection, $query);
     }
+
+    // public function getPointsOfUserById($id){
+    //     $conn = $this->conectBD();
+    //     $query = "SELECT pontos FROM usuarios WHERE id = '" . $id . "'";
+    //     mysqli_query($conn, $query);
+    // }
+
+    public function getPointsOfUserById($id){
+        $conn = $this->conectBD();
+        $query = "SELECT pontos FROM usuarios WHERE id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $stmt->bind_result($pontos);
+        $stmt->fetch();
+        $stmt->close();
+        return $pontos; // Retorna o valor dos pontos
+    }
+    
+    public function getPriceOfItemById($id){
+        $conn = $this->conectBD();
+        $query = "SELECT preco FROM items WHERE id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $stmt->bind_result($preco);
+        $stmt->fetch();
+        $stmt->close();
+        return $preco; // Retorna o preço do item
+    }
+    
+
+    public function updateRemovePointsOfUser($preco, $id){
+        $conn = $this->conectBD();
+        $query = "UPDATE usuarios SET pontos = pontos - ? WHERE id = ?";
+        $result = $conn->prepare($query);
+        $result->bind_param('ii', $preco, $id); // Aqui deve ser $preco, não $price
+        $result->execute();
+    }
+    
 }
+
 ?>

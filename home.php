@@ -1,5 +1,10 @@
 <?php
 session_start();
+error_reporting(0);
+require_once __DIR__ . "/Controler/ShopController.php";
+
+$controller = new ShopController();
+
 if (isset($_SESSION["usuario"])) {
     if ($_SESSION["usuario"] == "") {
         header('location: index.html');
@@ -27,16 +32,16 @@ if (isset($_SESSION["usuario"])) {
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1" class="arrow1Down"></span></button>
                 <div id="dropdownMenu1" class="dropdown-content">
-                    <a href="view/TAD/TADGeral.html">Tipo Abstrato de Dados</a>
-                    <a href="view/LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
-                    <a href="view/LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
-                    <a href="view/LIFO/LIFOGeral.html">Pilhas Encadeadas</a>
-                    <a href="view/FIFO/FIFOGeral.html">Filas Encadeadas</a>
-                    <a href="view/FIFOEncadeado/FIFOEncadeadoGeral.html">Filas de Prioridades Encadeadas</a>
+                    <a href="view/TAD/TADGeral.php">Tipo Abstrato de Dados</a>
+                    <a href="view/LSE/LSEGeral.php">Lista Simplesmente Encadeada</a>
+                    <a href="view/LDE/LDEGeral.php">Lista Duplamente Encadeada</a>
+                    <a href="view/LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
+                    <a href="view/FIFO/FIFOGeral.php">Filas Encadeadas</a>
+                    <a href="view/FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
                 </div>
             </div>
 
-            <a href="./view/selectQuiz.html">
+            <a href="./view/quizQuestions.php">
                 <button id="playBtn"></button>
             </a>
 
@@ -50,7 +55,10 @@ if (isset($_SESSION["usuario"])) {
             </div>
         </div>
 
-        <a href="conta.php" class="profile-link"></a>
+        <section class="right-header">
+            <h1>R$ <?php echo $controller->getPoints()?></h1>    
+            <a href="conta.php" class="profile-link"></a>
+        </section>
 
 
     </header>
@@ -62,7 +70,7 @@ if (isset($_SESSION["usuario"])) {
     </nav> -->
 
     <main>
-        <a href="view/TAD/TADGeral.html" class="sobre">
+        <a href="view/TAD/TADGeral.php" class="sobre">
             <div id="tads" class="card">
                 <img src="img/tad.png" alt="Imagem representativa de TADs">
                 <h2>O que são Tipos Abstratos de Dados?</h2>
@@ -72,7 +80,7 @@ if (isset($_SESSION["usuario"])) {
             </div>
         </a>
 
-        <a href="view/LSE/LSEGeral.html" class="sobre">
+        <a href="view/LSE/LSEGeral.php" class="sobre">
             <div id="lista-simples" class="card">
                 <img src="img/listaSimplesmenteEncadeada.png"
                     alt="Imagem representativa de Lista Simplesmente Encadeada">
@@ -83,7 +91,7 @@ if (isset($_SESSION["usuario"])) {
             </div>
         </a>
 
-        <a href="view/LDE/LDEGeral.html" class="sobre">
+        <a href="view/LDE/LDEGeral.php" class="sobre">
             <div id="lista-dupla" class="card">
                 <img src="img/listaDuplamenteEncadeada.png" alt="Imagem representativa de Lista Duplamente Encadeada">
                 <h2>Lista Duplamente Encadeada</h2>

@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+error_reporting(0);
+require_once __DIR__ . "/../Controler/ShopController.php";
+
+$controller = new ShopController();
 // if (!isset($_SESSION['resultados_quiz'])) {
 //     echo "Nenhum resultado encontrado.";
 //     exit();
@@ -26,16 +31,16 @@ session_start();
                 <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1"
                         class="arrow1Down"></span></button>
                 <div id="dropdownMenu1" class="dropdown-content">
-                    <a href="./TAD/TADGeral.html">Tipo Abstrato de Dados</a>
-                    <a href="./LSE/LSEGeral.html">Lista Simplesmente Encadeada</a>
-                    <a href="./LDE/LDEGeral.html">Lista Duplamente Encadeada</a>
-                    <a href="./LIFO/LIFOGeral.html">Pilhas Encadeadas</a>
-                    <a href="./FIFO/FIFOGeral.html">Filas Encadeadas</a>
-                    <a href="./FIFOEncadeado/FIFOEncadeadoGeral.html">Filas de Prioridades Encadeadas</a>
+                    <a href="./TAD/TADGeral.php">Tipo Abstrato de Dados</a>
+                    <a href="./LSE/LSEGeral.php">Lista Simplesmente Encadeada</a>
+                    <a href="./LDE/LDEGeral.php">Lista Duplamente Encadeada</a>
+                    <a href="./LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
+                    <a href="./FIFO/FIFOGeral.php">Filas Encadeadas</a>
+                    <a href="./FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
                 </div>
             </div>
 
-            <a href="./selectQuiz.html">
+            <a href="./quizQuestions.php">
                 <button id="playBtn"></button>
             </a>
 
@@ -49,7 +54,10 @@ session_start();
             </div>
         </div>
 
-        <a href="#" class="profile-link"></a>
+        <section class="right-header">
+            <h1>R$ <?php echo $controller->getPoints()?></h1>    
+            <a href="../conta.php" class="profile-link"></a>
+        </section>
     </header>
 
     <main>
@@ -68,15 +76,27 @@ session_start();
                 <section class="answerContainer">
                     <h1>Pergunta <?php echo $cont ?>:</h1> <h2><?= htmlspecialchars($resultado) ?></h2>
                 </section>
-            <?php $cont++; endforeach; 
+            <?php $cont++; endforeach;
+            $conn = new mysqli('localhost', 'root', '', 'slearn');
+            if ($conn->connect_error) {
+                die("Falha na conexão: " . $conn->connect_error);
+            }
+
+            $query = "UPDATE usuarios SET pontos = pontos + ? WHERE id = ?";
+
+            $result = $conn->prepare($query);
+            $result->bind_param('ii', $acertos, $_SESSION['user_id']);
+            $result->execute();
             echo "<input type='hidden' value='".$acertos."' name='pontos'>";
             ?>
         </section>
-                
-        <a href="../home.php">
+        <section class="midMenu">
             
-            <button class="returnBtn">Voltar</button>
-        </a>
+            <h1>Você obteve <?php echo $acertos?> pontos!!!</h1>
+            <a href="../home.php">
+                <button class="returnBtn">Voltar</button>
+            </a>
+        </section>    
 
     </main>
 

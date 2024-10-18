@@ -90,11 +90,24 @@ class ShopController
         return $items;
     }
     
+    public function getPoints(){
+        $userPoints = $this->database->getPointsOfUserById($_SESSION['user_id']);
+        echo $userPoints;
+    }
 
     public function buyItem($user_id, $item_id){
-        $inventario = new Inventario($user_id, $item_id);
-        $this->database->insertInInventory($inventario);
-        $_SESSION['countItemsOnShop']--;
+        
+        $userPoints = $this->database->getPointsOfUserById($user_id);
+        $itemPrice = $this->database->getPriceOfItemById($item_id);
+        
+        if($userPoints >= $itemPrice){
+            $inventario = new Inventario($user_id, $item_id);
+            $this->database->insertInInventory($inventario);
+            $this->database->updateRemovePointsOfUser($itemPrice, $user_id);
+            $_SESSION['countItemsOnShop']--;
+        } else {
+            $_SESSION['needMoney'] = "PONTOS INSUFICIENTES";
+        }
     }
 
     public function equipItem($user_id, $new_item_id) {

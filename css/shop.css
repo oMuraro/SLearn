@@ -173,11 +173,24 @@ header {
         cursor: pointer;
     }
 
-    .profile-link {
-        width: 3vw;
-        height: 3vw;
-        background-image: url("../img/icon2.png");
-        background-size: cover;
+    .right-header{
+        width: 10vw;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+        >h1{
+            font-size: 1.7rem;
+        }
+
+        .profile-link {
+            width: 3vw;
+            height: 3vw;
+            background-image: url("../img/icon2.png");
+            background-size: cover;
+        }
     }
 
 }

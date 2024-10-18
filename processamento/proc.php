@@ -14,10 +14,14 @@ if (!empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['senha2']
         header('Location: ../index.html');
         exit();
     } else {
-        echo "As senhas não coincidem.";
+        $_SESSION['msgCad'] = "As senhas não coincidem!";
+        header("Location: ../cadastro.php");
+        die();
     }
 } else {
-    echo "Por favor, preencha todos os campos.";
+    $_SESSION['msgCad'] = "Preencha todos os campos!";
+    header("Location: ../cadastro.php");
+        die();
 }
 
 

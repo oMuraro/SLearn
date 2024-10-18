@@ -21,6 +21,8 @@ if (!empty($_POST['login']) && !empty($_POST['senha'])) {
     
     $controlador->loginUsuario($usuario, $senhaUsu);
 } else {
-    echo "Por favor, preencha todos os campos.";
+    $_SESSION['msgLogin'] = "Preencha todos os campos!";
+    header("Location: ../index.php");
+    die();
 }
 ?>
