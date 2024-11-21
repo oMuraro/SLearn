@@ -11,7 +11,7 @@ $controller = new ShopController();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/ABB.css">
-    <title>Árvore Binária de Busca</title>
+    <title>Árvore Binária de Busca (ABB)</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@ $controller = new ShopController();
                     <a href="../ABB/ABBGeral.php">Árvore Binária de Busca</a>
                 </div>
             </div>
-            
+
             <a href="../quizQuestions.php">
                 <button id="playBtn"></button>
             </a>
@@ -47,7 +47,7 @@ $controller = new ShopController();
             </div>
         </div>
         <section class="right-header">
-            <h1>R$ <?php echo $controller->getPoints()?></h1>    
+            <h1>R$ <?php echo $controller->getPoints()?></h1>
             <a href="../../conta.php" class="profile-link"></a>
         </section>
     </header>
@@ -58,34 +58,48 @@ $controller = new ShopController();
             <a href="#intro" id="link-conteudo">1. Introdução</a>
             <a href="#ABBimplementacao" id="link-conteudo">2. Implementação</a>
             <a href="#ABBaplicacao" id="link-conteudo">3. Aplicações</a>
-            <a href="#ABBvariacoes" id="link-conteudo">4. Variações</a>
-            <a href="#ABBconclusao" id="link-conteudo">5. Conclusão</a>
+            <a href="#ABBdesafios" id="link-conteudo">4. Desafios</a>
+            <a href="#ABBcuriosidades" id="link-conteudo">5. Curiosidades</a>
+            <a href="#ABBvariacoes" id="link-conteudo">6. Variações</a>
+            <a href="#ABBconclusao" id="link-conteudo">7. Conclusão</a>
         </section>
 
         <section class="information">
             <h1 id="intro">Árvore Binária de Busca (ABB)</h1>
-            <p>Uma Árvore Binária de Busca (ABB) é uma estrutura de dados que organiza elementos em um formato hierárquico para facilitar operações como busca, inserção e remoção.</p>
+            <p>Uma <strong>Árvore Binária de Busca (ABB)</strong> é uma estrutura de dados hierárquica, usada principalmente para organizar e gerenciar dados de forma eficiente. Seu design permite operações como busca, inserção e remoção com alta eficiência, quando balanceada.</p>
+            
+            <h2>Como funciona?</h2>
+            <p>Uma ABB é composta por nós, onde cada nó tem:</p>
             <ul>
-                <li>Os valores no lado esquerdo de um nó são sempre menores que o valor do nó pai.</li>
-                <li>Os valores no lado direito de um nó são sempre maiores que o valor do nó pai.</li>
+                <li>Um <strong>valor</strong> armazenado.</li>
+                <li>Referências para <strong>filhos esquerdo e direito</strong>.</li>
+                <li>Uma <strong>propriedade fundamental</strong>: Todos os valores no subárvore à esquerda são menores que o nó atual, e todos à direita são maiores.</li>
             </ul>
 
-            <h2>Propriedades de uma ABB</h2>
-            <p>As principais propriedades que tornam a ABB eficiente incluem:</p>
+            <h3>Diagrama de uma ABB</h3>
+            <p>Considere a seguinte árvore:</p>
             <ul>
-                <li>Complexidade média de busca, inserção e remoção: O(log n), assumindo que a árvore está balanceada.</li>
-                <li>Garantia de ordenação natural dos elementos, possibilitando travessias em ordem (in-order).</li>
+                <li><strong>Raiz:</strong> 50</li>
+                <li><strong>Filhos:</strong> 30 (à esquerda), 70 (à direita).</li>
+            </ul>
+            <pre>
+                50
+               /  \
+             30    70
+            </pre>
+
+            <p>Nesse exemplo, qualquer valor menor que 30 seria adicionado à subárvore esquerda do nó 30, e assim por diante.</p>
+
+            <h2>Propriedades Importantes</h2>
+            <ul>
+                <li>Travessia em ordem (in-order) resulta em uma lista ordenada.</li>
+                <li>O custo de busca é proporcional à altura da árvore.</li>
             </ul>
 
-            <h2>Casos Especiais</h2>
-            <p>Para obter bom desempenho, a árvore deve ser balanceada. Em casos de inserções em ordem crescente ou decrescente, a árvore pode degenerar para uma lista encadeada, aumentando a complexidade para O(n).</p>
-
-            <h1 id="ABBimplementacao">Implementação em C#</h1>
-            <p>A implementação básica de uma ABB envolve a criação de classes para os nós e para a própria árvore. Abaixo está um exemplo em C#:</p>
+            <h1 id="ABBimplementacao">Implementação</h1>
+            <p>A implementação de uma Árvore Binária de Busca pode ser feita de maneira simples. Veja um exemplo básico em C#:</p>
             <section class="codigo">
                 <textarea disabled>
-using System;
-
 public class Node<T> where T : IComparable<T>
 {
     public T Data { get; set; }
@@ -143,40 +157,43 @@ public class BinarySearchTree<T> where T : IComparable<T>
             return SearchRec(node.Right, value);
     }
 }
-
-public class Program
-{
-    public static void Main()
-    {
-        BinarySearchTree<int> bst = new BinarySearchTree<int>();
-        bst.Insert(50);
-        bst.Insert(30);
-        bst.Insert(70);
-        Console.WriteLine(bst.Search(30)); // Output: True
-        Console.WriteLine(bst.Search(90)); // Output: False
-    }
-}
-    </textarea>
+                </textarea>
             </section>
 
             <h1 id="ABBaplicacao">Aplicações</h1>
-            <p>As Árvores Binárias de Busca são amplamente utilizadas em áreas como:</p>
+            <p>Árvores Binárias de Busca são amplamente usadas para:</p>
             <ul>
-                <li><strong>Banco de Dados:</strong> Organização eficiente de índices e registros.</li>
-                <li><strong>Engines de Busca:</strong> Estruturas balanceadas para facilitar a indexação.</li>
-                <li><strong>Gerenciamento de Hierarquias:</strong> Representação de árvores genealógicas, sistemas de arquivos, etc.</li>
+                <li><strong>Índices em bancos de dados:</strong> Organizando grandes conjuntos de dados para buscas eficientes.</li>
+                <li><strong>Inteligência Artificial:</strong> Representando estados em árvores de decisão.</li>
+                <li><strong>Sistemas de Arquivos:</strong> Estruturando diretórios de arquivos em hierarquia.</li>
+                <li><strong>Algoritmos de Compressão:</strong> Como no algoritmo de Huffman para compressão de dados.</li>
             </ul>
 
-            <h1 id="ABBvariacoes">Variações e Melhorias</h1>
-            <p>Para superar os desafios de balanceamento, existem variações como:</p>
+            <h1 id="ABBdesafios">Desafios</h1>
+            <p>Operações podem se tornar lentas em árvores desequilibradas. Exemplo:</p>
+            <pre>
+                Inserir elementos 1, 2, 3... resulta em:
+                1
+                 \
+                  2
+                   \
+                    3
+            </pre>
+            <p>Essa estrutura degenera para uma lista encadeada, resultando em desempenho O(n) nas operações.</p>
+
+            <h1 id="ABBcuriosidades">Curiosidades</h1>
+            <p>O conceito de árvores remonta ao início da ciência da computação, quando pioneiros buscavam estruturar dados hierárquicos de forma mais eficiente. O uso das árvores binárias de busca evoluiu ao longo do tempo, com a introdução de árvores balanceadas para melhorar a eficiência das operações.</p>
+
+            <h1 id="ABBvariacoes">Variações</h1>
+            <p>Para resolver problemas de balanceamento e otimizar a busca, existem as seguintes variações da Árvore Binária de Busca:</p>
             <ul>
-                <li><strong>Árvore AVL:</strong> Garante balanceamento por rotações após inserções ou remoções.</li>
-                <li><strong>Árvore Red-Black:</strong> Usada em aplicações que exigem inserção rápida, como dicionários.</li>
-                <li><strong>Árvore B:</strong> Comum em bancos de dados, suporta múltiplos filhos por nó.</li>
+                <li><strong>Árvores AVL</strong>: Árvores balanceadas com a diferença de altura entre os filhos esquerdo e direito de qualquer nó não podendo ser superior a 1.</li>
+                <li><strong>Árvores Red-Black</strong>: Árvores balanceadas que utilizam cores (vermelho e preto) para garantir que a árvore permaneça balanceada após inserções e remoções.</li>
+                <li><strong>Árvores B e B+</strong>: Árvores balanceadas usadas para gerenciar grandes volumes de dados em sistemas de arquivos e bancos de dados.</li>
             </ul>
 
             <h1 id="ABBconclusao">Conclusão</h1>
-            <p>As Árvores Binárias de Busca são uma solução eficiente para armazenar e gerenciar dados hierárquicos. Seu uso em áreas como bancos de dados e inteligência artificial demonstra sua importância na computação moderna.</p>
+            <p>As Árvores Binárias de Busca são fundamentais para a organização eficiente de dados. Elas oferecem uma base sólida para diversas áreas da ciência da computação, desde bancos de dados até algoritmos de inteligência artificial, e suas variações são utilizadas para garantir maior eficiência nas operações.</p>
         </section>
     </main>
 
