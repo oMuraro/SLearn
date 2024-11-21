@@ -38,6 +38,7 @@ if (isset($_SESSION["usuario"])) {
                     <a href="view/LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
                     <a href="view/FIFO/FIFOGeral.php">Filas Encadeadas</a>
                     <a href="view/FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
+                    <a href="view/ABB/ABBGeral.php">Árvore Binária de Busca</a>
                 </div>
             </div>
 

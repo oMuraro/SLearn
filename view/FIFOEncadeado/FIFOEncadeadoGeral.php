@@ -31,6 +31,7 @@ $controller = new ShopController();
                     <a href="../LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
                     <a href="../FIFO/FIFOGeral.php">Filas Encadeadas</a>
                     <a href="../FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
+                    <a href="../ABB/ABBGeral.php">Árvore Binária de Busca</a>
                 </div>
             </div>
             
