@@ -1,20 +1,25 @@
 <?php
-    error_reporting(0);
-    require_once __DIR__ . "/../Controler/ShopController.php";
-    
-    $controller = new ShopController();
+session_start();
+
+error_reporting(0);
+require_once __DIR__ . "/../Controler/ShopController.php";
+
+$controller = new ShopController();
+// echo $_SESSION['skin'];
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="../css/quiz.css">
 </head>
+
 <body>
-<header>
+    <header>
         <!-- <img class="logo" src="img/logo.png" alt="Logotipo"> -->
         <a href="../home.php">
             <h1>C#LEARN</h1>
@@ -23,7 +28,8 @@
 
         <div class="headerBtns">
             <div class="dropdown">
-                <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1" class="arrow1Down"></span></button>
+                <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1"
+                        class="arrow1Down"></span></button>
                 <div id="dropdownMenu1" class="dropdown-content">
                     <a href="./TAD/TADGeral.php">Tipo Abstrato de Dados</a>
                     <a href="./LSE/LSEGeral.php">Lista Simplesmente Encadeada</a>
@@ -41,128 +47,161 @@
             </a>
 
             <div class="dropdown">
-                <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2" class="arrow2Down"></span></button>
+                <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2"
+                        class="arrow2Down"></span></button>
                 <div id="dropdownMenu2" class="dropdown-content">
-                <a href="./shop/shop.php">Loja</a>
-                <a href="./shop/inventory.php">Inventario</a>
+                    <a href="./shop/shop.php">Loja</a>
+                    <a href="./shop/inventory.php">Inventario</a>
                 </div>
             </div>
         </div>
 
         <section class="right-header">
-            <h1>R$ <?php echo $controller->getPoints()?></h1>    
+            <h1>R$ <?php echo $controller->getPoints() ?></h1>
             <a href="../conta.php" class="profile-link"></a>
         </section>
     </header>
 
     <main>
-    <form action="../processamento/ProcRespostas.php" method="post">
-        
-        <section class="questionColumn">
-            <section style="width: 70vw; margin-bottom: 5vh;">
-                <h1 id="quizTitle">ESTÁ PREPARADO???</h1>
+        <form action="../processamento/ProcRespostas.php" method="post">
 
-                <p id="quizDescription">ENFRENTE ESTES DESAFIOS E TESTE SUAS HABILIDADES</p>
-            </section>
+            <section class="questionColumn">
+                <section style="width: 70vw; margin-bottom: 5vh;">
+                    <h1 id="quizTitle">ESTÁ PREPARADO???</h1>
 
-            <?php
-            $conn = new mysqli('localhost', 'root', '', 'slearn');
+                    <p id="quizDescription">ENFRENTE ESTES DESAFIOS E TESTE SUAS HABILIDADES</p>
+                    <br>
+                    <?php
+                        if($_SESSION['skin'] == "Paladino"){
+                            echo "<p id='quizDescription'>O Paladino vai te ajudar a economizar tempo, e aumentar os pontos!</p>";
+                        } else if($_SESSION['skin'] == "Berserker"){
+                            echo "<p id='quizDescription'>O Berserker é direto e reto, sem enrolação!</p>";
+                        } else if($_SESSION['skin'] == "Alquimista"){
+                            echo "<p id='quizDescription'>O Alquimista com certeza prefere exatas!</p>";
+                        } else if($_SESSION['skin'] == "Samurai"){
+                            echo "<p id='quizDescription'>O Samurai só corta se for de 2 em 2!</p>";
+                        } else if($_SESSION['skin'] == "Rockeiro"){
+                            echo "<p id='quizDescription'>O Rockeiro não gosta nem de 1, nem de 2, mas de 3!</p>";
+                        } else if($_SESSION['skin'] == "Cavaleiro"){
+                            echo "<p id='quizDescription'>O Cavaleiro sempre vai te passar a certeza do acerto, bom, pelo menos uma vez!</p>";
+                        } else {
+                            echo "<p id='quizDescription'>Sem bônus de personagem equipado!</p>";
+                        }
+                    ?>
+                </section>
 
-            if ($conn->connect_error) {
-                die("Falha na conexão: " . $conn->connect_error);
-            }
+                <?php
+                $conn = new mysqli('localhost', 'root', '', 'slearn');
 
-            $sqlCount = "SELECT COUNT(*) as total FROM perguntas";
-            $resultCount = $conn->query($sqlCount);
-            $rowCount = $resultCount->fetch_assoc();
-            $qtd = $rowCount['total'];  
+                if ($conn->connect_error) {
+                    die("Falha na conexão: " . $conn->connect_error);
+                }
 
-            $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 10";  
-            $result = $conn->query($sql);
-            
-            $nPergunta = 1;
+                $sqlCount = "SELECT COUNT(*) as total FROM perguntas";
+                $resultCount = $conn->query($sqlCount);
+                $rowCount = $resultCount->fetch_assoc();
+                $qtd = $rowCount['total'];
 
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $id = $row['id'];
-                    $pergunta = $row["Pergunta"];
-                    echo "
+                if ($_SESSION['skin'] == "Paladino") {
+                    $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 7";
+                } else {
+                    $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 10";
+                }
+                $result = $conn->query($sql);
+
+                $nPergunta = 1;
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $id = $row['id'];
+                        $pergunta = $row["Pergunta"];
+                        echo "
                         <section class='questionContainer'>
-                            <input type='hidden' value='".$row['id']."' name='pergunta".$nPergunta."'>
+                            <input type='hidden' value='" . $row['id'] . "' name='pergunta" . $nPergunta . "'>
                             <section class='questionStatus'>
-                                <span>#".$nPergunta."</span>
+                                <span>#" . $nPergunta . "</span>
                                 <span>1 pt</span>
                             </section>
                             <section class='questionContext'>
                                 <section class='questionTitle'>
-                                    <h1>".$row['Pergunta']."</h1>
+                                    <h1>" . $row['Pergunta'] . "</h1>
                                 </section>
                                 
                                 <section class='questionAnswers'>
                         ";
-                    $Busca = "SELECT Certa, Errada1, Errada2, Errada3 FROM perguntas WHERE id = $id";  // Substitua 'perguntas' pelo nome da sua tabela e 'id' pelo critério desejado
-                    $resultResp = $conn->query($Busca);
-                    if ($resultResp->num_rows > 0) {
-                        // Recupera a linha com as respostas
-                        $row = $resultResp->fetch_assoc();
-                        
-                        // Coloca as respostas em um array associativo com o valor correto
-                        $respostas = [
-                            ['texto' => $row['Certa'], 'tipo' => 'Certa'],
-                            ['texto' => $row['Errada1'], 'tipo' => 'Errada'],
-                            ['texto' => $row['Errada2'], 'tipo' => 'Errada'],
-                            ['texto' => $row['Errada3'], 'tipo' => 'Errada']
-                        ];
-                        
-                        // Embaralha o array para randomizar a ordem das respostas
-                        shuffle($respostas);
-                        foreach ($respostas as $resposta) {
-                            echo "
+
+                        $Busca = "SELECT Certa, Errada1, Errada2, Errada3 FROM perguntas WHERE id = $id";  // Substitua 'perguntas' pelo nome da sua tabela e 'id' pelo critério desejado
+                
+                        $resultResp = $conn->query($Busca);
+                        if ($resultResp->num_rows > 0) {
+                            // Recupera a linha com as respostas
+                            $row = $resultResp->fetch_assoc();
+
+                            if ($_SESSION['skin'] == "Berserker") {
+                                $respostas = [
+                                    ['texto' => $row['Certa'], 'tipo' => 'Certa'],
+                                    ['texto' => $row['Errada1'], 'tipo' => 'Errada'],
+                                    ['texto' => $row['Errada2'], 'tipo' => 'Errada']
+                                ];
+                            } else {
+                                // Coloca as respostas em um array associativo com o valor correto
+                                $respostas = [
+                                    ['texto' => $row['Certa'], 'tipo' => 'Certa'],
+                                    ['texto' => $row['Errada1'], 'tipo' => 'Errada'],
+                                    ['texto' => $row['Errada2'], 'tipo' => 'Errada'],
+                                    ['texto' => $row['Errada3'], 'tipo' => 'Errada']
+                                ];
+                            }
+
+                            // Embaralha o array para randomizar a ordem das respostas
+                            shuffle($respostas);
+                            foreach ($respostas as $resposta) {
+                                echo "
                             <section>
-                                <input type='radio' id='resp1' name='".$id."' value='".$resposta['tipo']."' class='resposta'> 
-                                <label for='resp1'>".$resposta['texto']."</label>
+                                <input type='radio' id='resp1' name='" . $id . "' value='" . $resposta['tipo'] . "' class='resposta'> 
+                                <label for='resp1'>" . $resposta['texto'] . "</label>
                             </section>";
+                            }
                         }
-                    }
-                    /*
-                    <section>
-                    <input type='radio' id='resp1' name='".$row['id']."'> 
-                    <label for='resp1'>". $row['Certa']."</label>
-                    </section>
-                    
-                    <section>
-                    <input type='radio' id='resp2' name='".$row['id']."'>
-                    <label for='resp2'>". $row['Errada1']."</label>
-                    </section>
-                    
-                    <section>
-                    <input type='radio' id='resp3' name='".$row['id']."'>
-                    <label for='resp3'>". $row['Errada2']."</label>
-                    </section>
-                    
-                    <section>
-                    <input type='radio' id='resp4' name='".$row['id']."'>
-                    <label for='resp4'>". $row['Errada3']."</label>
-                    </section>
-                    */
-                    echo "
+                        /*
+                        <section>
+                        <input type='radio' id='resp1' name='".$row['id']."'> 
+                        <label for='resp1'>". $row['Certa']."</label>
+                        </section>
+                        
+                        <section>
+                        <input type='radio' id='resp2' name='".$row['id']."'>
+                        <label for='resp2'>". $row['Errada1']."</label>
+                        </section>
+                        
+                        <section>
+                        <input type='radio' id='resp3' name='".$row['id']."'>
+                        <label for='resp3'>". $row['Errada2']."</label>
+                        </section>
+                        
+                        <section>
+                        <input type='radio' id='resp4' name='".$row['id']."'>
+                        <label for='resp4'>". $row['Errada3']."</label>
+                        </section>
+                        */
+                        echo "
                                 </section>
                                 
                             </section>
                         </section>
                     ";
-                    // echo "ID: " . $id . " - Nome: " . $pergunta . "<br>";
-                    $nPergunta = $nPergunta + 1;
+                        // echo "ID: " . $id . " - Nome: " . $pergunta . "<br>";
+                        $nPergunta = $nPergunta + 1;
+                    }
+                } else {
+                    echo "Nenhum resultado encontrado.";
                 }
-            } else {
-                echo "Nenhum resultado encontrado.";
-            }
 
-            $conn->close();
-            ?>
+                $conn->close();
+                ?>
 
 
-            <!-- <section class="questionContainer">
+                <!-- <section class="questionContainer">
                 <section class="questionStatus">
                     <span>#1</span>
                     <span>1 pt</span>
@@ -433,10 +472,10 @@
     
             </section>
         </section> -->
-        <input type="submit" value="ENVIAR">
+                <input type="submit" value="ENVIAR">
         </form>
     </main>
-    
+
     <footer>
         <section class="contatos">
             <section class="contato-left">
@@ -453,7 +492,7 @@
                     <li>Telefone: (18)72858-1678</li>
                 </ul>
             </section>
-            
+
             <section class="contato-right">
                 <ul>
                     <li>Nome: Caio Okubara</li>
@@ -468,7 +507,7 @@
                 </ul>
             </section>
         </section>
-        
+
         <section class="footer-parte">
             <h2>Links Úteis:</h2>
             <ul class="links-uteis">
@@ -482,4 +521,5 @@
 
     <script src="../scripts/dropdownBtn.js"></script>
 </body>
+
 </html>

@@ -67,21 +67,56 @@ $controller = new ShopController();
 
         <section class="columnAnswers">
             <?php
+            $correctWrong = 2;
             $acertos = 0;
             $resultados = $_SESSION['resultados_quiz'];
             $cont = 1;
             foreach ($resultados as $idPergunta => $resultado): 
                 if($resultado == "Certa"){
-                    $acertos = $acertos + 10;
+                    if($_SESSION['skin'] == "Rockeiro"){
+                    $acertos = $acertos + 20;
+                    } else if($_SESSION['skin'] == "Paladino"){
+                    $acertos = $acertos + 15;
+                    } else if($_SESSION['skin'] == "Samurai"){
+                        if($cont % 2 == 0){
+                            $acertos = $acertos + 25;
+                        } else {
+                            $acertos = $acertos + 10;
+                        }
+                    } else {
+                        $acertos = $acertos + 10;
+                    }
+                }
+                if($_SESSION['skin'] == "Cavaleiro"){
+                    if($resultado == "Errada" && $correctWrong == 2){
+                        $acertos = $acertos + 10;
+                        $correctWrong--;
+                    }
                 }
             ?>
                 <section class="answerContainer">
-                    <h1>Pergunta <?php echo $cont ?>:</h1> <h2><?= htmlspecialchars($resultado) ?></h2>
+                    <?php
+                        if($_SESSION['skin'] == "Cavaleiro"){
+                            if($correctWrong == 1){ ?>
+                                <h1>Pergunta <?php echo $cont ?>:</h1> <h2><?= htmlspecialchars($resultado) ?></h2><h2>Auto-Acerto</h2>
+                                <?php $correctWrong--; ?>
+                            <?php } else { ?>
+                                <h1>Pergunta <?php echo $cont ?>:</h1> <h2><?= htmlspecialchars($resultado) ?>
+                            <?php }
+                        } else { ?>
+                            <h1>Pergunta <?php echo $cont ?>:</h1> <h2><?= htmlspecialchars($resultado) ?>
+                        <?php }
+                    ?>
                 </section>
             <?php $cont++; endforeach;
             $conn = new mysqli('localhost', 'root', '', 'slearn');
             if ($conn->connect_error) {
                 die("Falha na conexão: " . $conn->connect_error);
+            }
+
+            if($_SESSION['skin'] == "Alquimista"){
+                $valorPorcent =  ($acertos * 50) / 100;
+                $acertos = $acertos + $valorPorcent;
             }
 
             $query = "UPDATE usuarios SET pontos = pontos + ? WHERE id = ?";
@@ -98,7 +133,7 @@ $controller = new ShopController();
             <a href="../home.php">
                 <button class="returnBtn">Voltar</button>
             </a>
-        </section>    
+        </section>
 
     </main>
 
