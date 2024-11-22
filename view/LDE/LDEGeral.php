@@ -29,6 +29,9 @@ $controller = new ShopController();
                     <a href="../FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
                     <a href="../ABB/ABBGeral.php">Árvore Binária de Busca</a>
                     <a href="../AT/ATGeral.php">Árvore Trie</a>
+                    <a href="../AB/ABGeral.php">Árvore B</a>
+                    <a href="../AVL/AVLGeral.php">Árvore AVL</a>
+                    <a href="../ARB/ARBGeral.php">Árvore Rubro-Negra</a>
                 </div>
             </div>
             

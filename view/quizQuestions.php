@@ -31,14 +31,17 @@ $controller = new ShopController();
                 <button class="dropdown-button" id="dropdownButton1">Conteudos<span id="arrow1"
                         class="arrow1Down"></span></button>
                 <div id="dropdownMenu1" class="dropdown-content">
-                    <a href="./TAD/TADGeral.php">Tipo Abstrato de Dados</a>
-                    <a href="./LSE/LSEGeral.php">Lista Simplesmente Encadeada</a>
-                    <a href="./LDE/LDEGeral.php">Lista Duplamente Encadeada</a>
-                    <a href="./LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
-                    <a href="./FIFO/FIFOGeral.php">Filas Encadeadas</a>
-                    <a href="./FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
-                    <a href="./ABB/ABBGeral.php">Árvore Binária de Busca</a>
-                    <a href="../AT/ATGeral.php">Árvore Trie</a>
+                    <a href="TAD/TADGeral.php">Tipo Abstrato de Dados</a>
+                    <a href="LSE/LSEGeral.php">Lista Simplesmente Encadeada</a>
+                    <a href="LDE/LDEGeral.php">Lista Duplamente Encadeada</a>
+                    <a href="LIFO/LIFOGeral.php">Pilhas Encadeadas</a>
+                    <a href="FIFO/FIFOGeral.php">Filas Encadeadas</a>
+                    <a href="FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
+                    <a href="ABB/ABBGeral.php">Árvore Binária de Busca</a>
+                    <a href="AT/ATGeral.php">Árvore Trie</a>
+                    <a href="AB/ABGeral.php">Árvore B</a>
+                    <a href="AVL/AVLGeral.php">Árvore AVL</a>
+                    <a href="ARB/ARBGeral.php">Árvore Rubro-Negra</a>
                 </div>
             </div>
 

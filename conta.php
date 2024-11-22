@@ -32,6 +32,10 @@
                     <a href="view/FIFO/FIFOGeral.php">Filas Encadeadas</a>
                     <a href="view/FIFOEncadeado/FIFOEncadeadoGeral.php">Filas de Prioridades Encadeadas</a>
                     <a href="view/ABB/ABBGeral.php">Árvore Binária de Busca</a>
+                    <a href="view/AT/ATGeral.php">Árvore Trie</a>
+                    <a href="view/AB/ABGeral.php">Árvore B</a>
+                    <a href="view/AVL/AVLGeral.php">Árvore AVL</a>
+                    <a href="view/ARB/ARBGeral.php">Árvore Rubro-Negra</a>
                 </div>
             </div>
 
