@@ -33,9 +33,9 @@ error_reporting(0);
             <input type="password" name="senha2" placeholder="Confirme sua Senha" class="entrada" id="senha2">
 
             <section class="btns">
-                <a href="index.php"><button type="button" class="entra">Entrar</button></a>
                 <input type="submit" value="Cadastrar" class="entra">
             </section>
+            <a href="index.php" class="Login">Já possui login? Entre aqui!</a>
         </form>
             <?php
                 if(!empty($_SESSION['msgCad'])){

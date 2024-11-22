@@ -87,11 +87,24 @@ form {
         border-bottom: 2px solid #672596;
     }
 
+    .Login {
+        font-size: 14px;
+        text-decoration: none;
+        color: #26E580;
+        transition: 0.2s ease-out;
+    }
+
+    .Login:hover {
+        font-size: 14px;
+        text-decoration: none;
+        color: #ffffff;
+    }
+
     .btns {
         display: flex;
         flex-direction: row;
         width: 90%;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
 
         .entra {

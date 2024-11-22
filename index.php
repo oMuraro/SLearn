@@ -30,8 +30,8 @@
             <input type="password" name="senha" placeholder="Digite sua Senha" class="entrada" id="senha">
             <section class="btns">
                 <input type="submit" value="Entrar" class="entra">
-                 <a href="cadastro.php"><button type="button" class="entra">Cadastrar</button></a>
             </section>
+            <a href="cadastro.php" class="Cadastro">Sem cadastro? Cadastre-se!</a>
         </form>
             <?php
                 if(!empty($_SESSION['msgLogin'])){
