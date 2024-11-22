@@ -94,10 +94,12 @@ if ($temSkin) {
                     <img src='data:image/jpg;charset=utf-8;base64," . base64_encode($item["foto"]) . "' alt='" . htmlspecialchars($item["nome"]) . "' />
                     <h1>".$item['nome']."</h1>
                 </section>";
+                $_SESSION['skin'] = $item['nome'];
         }
     }
 } else {
     echo "<section><section class='emptySlotSkin'></section><h1>Skin</h1></section>";
+    $_SESSION['skin'] = "";
 }
 
 echo "<section class='itemsRow'>";

@@ -11,7 +11,7 @@ if (!empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['senha2']
 
         $controlador->cadastrarUsuario($usuario, $senhaUsu);
 
-        header('Location: ../index.html');
+        header('Location: ../index.php');
         exit();
     } else {
         $_SESSION['msgCad'] = "As senhas não coincidem!";
