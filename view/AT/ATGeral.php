@@ -257,6 +257,8 @@ public class Trie
             </section>
         </section>
     </footer>
+
+    <script src="../../scripts/dropdownBtn.js"></script>
 </body>
 
 </html>

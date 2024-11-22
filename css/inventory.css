@@ -463,7 +463,7 @@ main {
             background-color: #272727;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             width: 20vw;
             height: 50vh;

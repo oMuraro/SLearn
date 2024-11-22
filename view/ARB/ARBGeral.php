@@ -334,6 +334,8 @@ public class RedBlackTree<T> where T : IComparable<T>
             </section>
         </section>
     </footer>
+
+    <script src="../../scripts/dropdownBtn.js"></script>
 </body>
 
 </html>
