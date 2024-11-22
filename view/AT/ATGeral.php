@@ -11,7 +11,7 @@ $controller = new ShopController();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/ABB.css">
-    <title>Árvore Binária de Busca (ABB)</title>
+    <title>Árvore Trie (AT)</title>
 </head>
 
 <body>
@@ -57,36 +57,37 @@ $controller = new ShopController();
         <section class="menu-lateral">
             <h1>Conteúdo</h1>
             <a href="#intro" id="link-conteudo">1. Introdução</a>
-            <a href="#ABBimplementacao" id="link-conteudo">2. Implementação</a>
-            <a href="#ABBaplicacao" id="link-conteudo">3. Aplicações</a>
-            <a href="#ABBdesafios" id="link-conteudo">4. Desafios</a>
-            <a href="#ABBcuriosidades" id="link-conteudo">5. Curiosidades</a>
-            <a href="#ABBvariacoes" id="link-conteudo">6. Variações</a>
-            <a href="#ABBconclusao" id="link-conteudo">7. Conclusão</a>
+            <a href="#ATimplementacao" id="link-conteudo">2. Implementação</a>
+            <a href="#ATaplicacao" id="link-conteudo">3. Aplicações</a>
+            <a href="#ATvariacoes" id="link-conteudo">4. Variações</a>
+            <a href="#ATconclusao" id="link-conteudo">5. Conclusão</a>
         </section>
 
         <section class="information">
-            <h1 id="intro">Árvore Binária de Busca (ABB)</h1>
-            <p>Uma <strong>Árvore Binária de Busca (ABB)</strong> é uma estrutura de dados hierárquica, usada principalmente para organizar e gerenciar dados de forma eficiente. Seu design permite operações como busca, inserção e remoção com alta eficiência, quando balanceada.</p>
+            <h1 id="intro">Árvore Trie (AT)</h1>
+            <p>Uma <strong>Árvore Trie (AT)</strong>  É uma estrutura de dados do tipo árvore ordenada, que pode ser usada para armazenar um array associativo em que as chaves são normalmente cadeias de caracteres.</p>
             
             <h2>Como funciona?</h2>
-            <p>Uma ABB é composta por nós, onde cada nó tem:</p>
+            <p>Uma AT é composta por nós, onde cada nó tem:</p>
             <ul>
                 <li>Um <strong>valor</strong> armazenado.</li>
                 <li>Referências para <strong>filhos esquerdo e direito</strong>.</li>
                 <li>Uma <strong>propriedade fundamental</strong>: Todos os valores no subárvore à esquerda são menores que o nó atual, e todos à direita são maiores.</li>
             </ul>
 
-            <h3>Diagrama de uma ABB</h3>
+            <h3>Diagrama de uma At</h3>
             <p>Considere a seguinte árvore:</p>
             <ul>
-                <li><strong>Raiz:</strong> 50</li>
+                <li><strong>Raiz:</strong> a</li>
                 <li><strong>Filhos:</strong> 30 (à esquerda), 70 (à direita).</li>
             </ul>
             <pre>
-                50
+                a
                /  \
-             30    70
+             e |  r
+                v \
+                |  o
+                r
             </pre>
 
             <p>Nesse exemplo, qualquer valor menor que 30 seria adicionado à subárvore esquerda do nó 30, e assim por diante.</p>
@@ -97,72 +98,88 @@ $controller = new ShopController();
                 <li>O custo de busca é proporcional à altura da árvore.</li>
             </ul>
 
-            <h1 id="ABBimplementacao">Implementação</h1>
-            <p>A implementação de uma Árvore Binária de Busca pode ser feita de maneira simples. Veja um exemplo básico em C#:</p>
+            <h1 id="ATimplementacao">Implementação</h1>
+            <p>A implementação de uma Árvore Trie pode ser feita de maneira simples. Veja um exemplo básico em C#:</p>
             <section class="codigo">
                 <textarea disabled>
-public class Node<T> where T : IComparable<T>
+                public class TrieNode
 {
-    public T Data { get; set; }
-    public Node<T> Left { get; set; }
-    public Node<T> Right { get; set; }
+    public Dictionary<char, TrieNode> Children { get; set; }
+    public bool IsEndOfWord { get; set; }
 
-    public Node(T data)
+    public TrieNode()
     {
-        Data = data;
-        Left = null;
-        Right = null;
+        Children = new Dictionary<char, TrieNode>();
+        IsEndOfWord = false;
     }
 }
 
-public class BinarySearchTree<T> where T : IComparable<T>
+public class Trie
 {
-    private Node<T> root;
+    private readonly TrieNode root;
 
-    public BinarySearchTree()
+    public Trie()
     {
-        root = null;
+        root = new TrieNode();
     }
 
-    public void Insert(T value)
+    // Inserir uma palavra na Trie
+    public void Insert(string word)
     {
-        root = InsertRec(root, value);
+        var currentNode = root;
+
+        foreach (var ch in word)
+        {
+            if (!currentNode.Children.ContainsKey(ch))
+            {
+                currentNode.Children[ch] = new TrieNode();
+            }
+            currentNode = currentNode.Children[ch];
+        }
+
+        currentNode.IsEndOfWord = true;
     }
 
-    private Node<T> InsertRec(Node<T> node, T value)
+    // Verificar se uma palavra existe na Trie
+    public bool Search(string word)
     {
-        if (node == null)
-            return new Node<T>(value);
+        var currentNode = root;
 
-        if (value.CompareTo(node.Data) < 0)
-            node.Left = InsertRec(node.Left, value);
-        else if (value.CompareTo(node.Data) > 0)
-            node.Right = InsertRec(node.Right, value);
+        foreach (var ch in word)
+        {
+            if (!currentNode.Children.ContainsKey(ch))
+            {
+                return false;
+            }
+            currentNode = currentNode.Children[ch];
+        }
 
-        return node;
+        return currentNode.IsEndOfWord;
     }
 
-    public bool Search(T value)
+    // Verificar se há alguma palavra que começa com o prefixo dado
+    public bool StartsWith(string prefix)
     {
-        return SearchRec(root, value) != null;
-    }
+        var currentNode = root;
 
-    private Node<T> SearchRec(Node<T> node, T value)
-    {
-        if (node == null || node.Data.Equals(value))
-            return node;
+        foreach (var ch in prefix)
+        {
+            if (!currentNode.Children.ContainsKey(ch))
+            {
+                return false;
+            }
+            currentNode = currentNode.Children[ch];
+        }
 
-        if (value.CompareTo(node.Data) < 0)
-            return SearchRec(node.Left, value);
-        else
-            return SearchRec(node.Right, value);
+        return true;
     }
 }
+
                 </textarea>
             </section>
 
-            <h1 id="ABBaplicacao">Aplicações</h1>
-            <p>Árvores Binárias de Busca são amplamente usadas para:</p>
+            <h1 id="ATaplicacao">Aplicações</h1>
+            <p>Árvores Trie são amplamente usadas para:</p>
             <ul>
                 <li><strong>Índices em bancos de dados:</strong> Organizando grandes conjuntos de dados para buscas eficientes.</li>
                 <li><strong>Inteligência Artificial:</strong> Representando estados em árvores de decisão.</li>
@@ -170,15 +187,16 @@ public class BinarySearchTree<T> where T : IComparable<T>
                 <li><strong>Algoritmos de Compressão:</strong> Como no algoritmo de Huffman para compressão de dados.</li>
             </ul>
 
-            <h1 id="ABBdesafios">Desafios</h1>
+            <h1 id="ATdesafios">Desafios</h1>
             <p>Operações podem se tornar lentas em árvores desequilibradas. Exemplo:</p>
             <pre>
-                Inserir elementos 1, 2, 3... resulta em:
-                1
-                 \
-                  2
-                   \
-                    3
+                Inserir elementos c, a, i,o... resulta em:
+                c    o
+                 \    \
+                  a   o
+                   \ /
+                   / i
+                  a
             </pre>
             <p>Essa estrutura degenera para uma lista encadeada, resultando em desempenho O(n) nas operações.</p>
 
@@ -186,15 +204,14 @@ public class BinarySearchTree<T> where T : IComparable<T>
             <p>O conceito de árvores remonta ao início da ciência da computação, quando pioneiros buscavam estruturar dados hierárquicos de forma mais eficiente. O uso das árvores binárias de busca evoluiu ao longo do tempo, com a introdução de árvores balanceadas para melhorar a eficiência das operações.</p>
 
             <h1 id="ATvariacoes">Variações</h1>
-            <p>Para resolver problemas de balanceamento e otimizar a busca, existem as seguintes variações da Árvore Binária de Busca:</p>
+            <p>Para resolver problemas de balanceamento e otimizar a busca, existem as seguintes variações da Árvore Trie:</p>
             <ul>
-                <li><strong>Árvores AVL</strong>: Árvores balanceadas com a diferença de altura entre os filhos esquerdo e direito de qualquer nó não podendo ser superior a 1.</li>
-                <li><strong>Árvores Red-Black</strong>: Árvores balanceadas que utilizam cores (vermelho e preto) para garantir que a árvore permaneça balanceada após inserções e remoções.</li>
-                <li><strong>Árvores B e B+</strong>: Árvores balanceadas usadas para gerenciar grandes volumes de dados em sistemas de arquivos e bancos de dados.</li>
+                <li><strong>Vantagens</strong>: Árvores balanceadas com a diferença de altura entre os filhos esquerdo e direito de qualquer nó não podendo ser superior a 1.</li>
+                <li><strong>Desvantagens</strong>: Árvores balanceadas que utilizam cores (vermelho e preto) para garantir que a árvore permaneça balanceada após inserções e remoções.</li>
             </ul>
 
             <h1 id="ATconclusao">Conclusão</h1>
-            <p>As Árvores Binárias de Busca são fundamentais para a organização eficiente de dados. Elas oferecem uma base sólida para diversas áreas da ciência da computação, desde bancos de dados até algoritmos de inteligência artificial, e suas variações são utilizadas para garantir maior eficiência nas operações.</p>
+            <p>As Árvores Trie  é uma estrutura de dados fundamental em cenários que exigem armazenamento e busca eficiente de strings ou sequências..</p>
         </section>
     </main>
 
