@@ -6,6 +6,7 @@ require_once __DIR__ . "/../Controler/ShopController.php";
 
 $controller = new ShopController();
 // echo $_SESSION['skin'];
+$_SESSION['dificuldade'] = $_POST['dificuldade'];
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +17,7 @@ $controller = new ShopController();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="../css/quiz.css">
+        <link rel="stylesheet" href="../css/dropdowns.css">
 </head>
 
 <body>
@@ -45,9 +47,15 @@ $controller = new ShopController();
                 </div>
             </div>
 
-            <a href="./quizQuestions.php">
-                <button id="playBtn"></button>
-            </a>
+            <div class="dropdown">
+                <button class="dropdown-button" id="playBtn"><span id="arrow3" class="arrow3Down"></span></button>
+                <div id="dropdownMenu3" class="dropdown-content">
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='facil' name='dificuldade'><input type='submit' value="Modo Fácil"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='medio' name='dificuldade'><input type='submit' value="Modo Médio"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='dificil' name='dificuldade'><input type='submit' value="Modo Difícil"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='historia' name='dificuldade'><input type='submit' value="Modo História"></form>
+                </div>
+            </div>
 
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2"
@@ -106,9 +114,25 @@ $controller = new ShopController();
                 $qtd = $rowCount['total'];
 
                 if ($_SESSION['skin'] == "Paladino") {
-                    $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 7";
+                    if($_POST['dificuldade'] == "dificil"){
+                        $sql = "SELECT * FROM perguntas WHERE `dificuldade` LIKE '3' ORDER BY RAND() LIMIT 7";
+                    }elseif($_POST['dificuldade'] == "medio"){
+                        $sql = "SELECT * FROM perguntas WHERE `dificuldade` LIKE '2' ORDER BY RAND() LIMIT 7";
+                    }elseif($_POST['dificuldade'] == "facil"){
+                        $sql = "SELECT * FROM perguntas WHERE `dificuldade` LIKE '1' ORDER BY RAND() LIMIT 7";
+                    }elseif($_POST['dificuldade'] == "historia"){
+                        $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 7";
+                    }
                 } else {
-                    $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 10";
+                    if($_POST['dificuldade'] == "dificil"){
+                        $sql = "SELECT * FROM perguntas WHERE `dificuldade` LIKE '3' ORDER BY RAND() LIMIT 10";
+                    }elseif($_POST['dificuldade'] == "medio"){
+                        $sql = "SELECT * FROM perguntas WHERE `dificuldade` LIKE '2' ORDER BY RAND() LIMIT 10";
+                    }elseif($_POST['dificuldade'] == "facil"){
+                        $sql = "SELECT * FROM perguntas WHERE `dificuldade` LIKE '1' ORDER BY RAND() LIMIT 10";
+                    }elseif($_POST['dificuldade'] == "historia"){
+                        $sql = "SELECT * FROM perguntas ORDER BY RAND() LIMIT 10";
+                    }
                 }
                 $result = $conn->query($sql);
 

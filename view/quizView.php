@@ -18,6 +18,7 @@ $controller = new ShopController();
         <meta charset="UTF-8">
         <title>Resultados do Quiz</title>
         <link rel="stylesheet" href="../css/quizView.css">
+        <link rel="stylesheet" href="../css/dropdowns.css">
     </head>
     <body>
     <header>
@@ -45,9 +46,15 @@ $controller = new ShopController();
                 </div>
             </div>
 
-            <a href="./quizQuestions.php">
-                <button id="playBtn"></button>
-            </a>
+            <div class="dropdown">
+                <button class="dropdown-button" id="playBtn"><span id="arrow3" class="arrow3Down"></span></button>
+                <div id="dropdownMenu3" class="dropdown-content">
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='facil' name='dificuldade'><input type='submit' value="Modo Fácil"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='medio' name='dificuldade'><input type='submit' value="Modo Médio"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='dificil' name='dificuldade'><input type='submit' value="Modo Difícil"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='historia' name='dificuldade'><input type='submit' value="Modo História"></form>
+                </div>
+            </div>
 
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2"
@@ -117,10 +124,21 @@ $controller = new ShopController();
                 die("Falha na conexão: " . $conn->connect_error);
             }
 
+
+            if($_SESSION['dificuldade'] == "facil" || $_SESSION['dificuldade'] == "historia"){
+                $acertos =  $acertos * 1;
+            }elseif($_SESSION['dificuldade'] == "medio"){
+                $acertos =  $acertos * 2;
+            }elseif($_SESSION['dificuldade'] == "dificil"){
+                $acertos =  $acertos * 3;
+            }
+
+
             if($_SESSION['skin'] == "Alquimista"){
                 $valorPorcent =  ($acertos * 50) / 100;
                 $acertos = $acertos + $valorPorcent;
             }
+            
 
             $query = "UPDATE usuarios SET pontos = pontos + ? WHERE id = ?";
 

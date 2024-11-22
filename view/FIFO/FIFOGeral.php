@@ -11,6 +11,7 @@ $controller = new ShopController();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/FIFO.css">
+    <link rel="stylesheet" href="../../css/dropdowns.css">
     <title>Lista Duplamente Encadeada</title>
 </head>
 
@@ -39,9 +40,15 @@ $controller = new ShopController();
                 </div>
             </div>
             
-            <a href="../quizQuestions.php">
-                <button id="playBtn"></button>
-            </a>
+            <div class="dropdown">
+                <button class="dropdown-button" id="playBtn"><span id="arrow3" class="arrow3Down"></span></button>
+                <div id="dropdownMenu3" class="dropdown-content">
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='facil' name='dificuldade'><input type='submit' value="Modo Fácil"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='medio' name='dificuldade'><input type='submit' value="Modo Médio"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='dificil' name='dificuldade'><input type='submit' value="Modo Difícil"></form>
+                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='historia' name='dificuldade'><input type='submit' value="Modo História"></form>
+                </div>
+            </div>
 
             <div class="dropdown">
                 <button class="dropdown-button" id="dropdownButton2">Itens<span id="arrow2" class="arrow2Down"></span></button>

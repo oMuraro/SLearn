@@ -2,10 +2,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const button1 = document.getElementById('dropdownButton1');
     const menu1 = document.getElementById('dropdownMenu1');
     const arrow1 = document.getElementById('arrow1');
-
+    
     const button2 = document.getElementById('dropdownButton2');
     const menu2 = document.getElementById('dropdownMenu2');
     const arrow2 = document.getElementById('arrow2');
+    
+    
+    const button3 = document.getElementById('playBtn');
+    const menu3 = document.getElementById('dropdownMenu3');
+    const arrow3 = document.getElementById('arrow3');
 
 
     button1.addEventListener('click', (event) => {
@@ -53,6 +58,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (menu2.style.display === 'block') {
                 menu2.style.display = 'none';
                 arrow2.className = 'arrow2Down';
+            }
+        }
+    });
+
+    button3.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdown3();
+    });
+
+    arrow3.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdown3();
+    });
+
+    function dropdown3(){
+            menu3.style.display = menu3.style.display === 'block' ? 'none' : 'block';
+            arrow3.className = arrow3.className === 'arrow2Down' ? 'arrow2Up' : 'arrow2Down';
+    };
+
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('#dropdownButton3') && !event.target.matches('#arrow3')) {
+            if (menu3.style.display === 'block') {
+                menu3.style.display = 'none';
+                arrow3.className = 'arrow2Down';
             }
         }
     });
