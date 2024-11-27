@@ -50,10 +50,10 @@ $_SESSION['dificuldade'] = $_POST['dificuldade'];
             <div class="dropdown">
                 <button class="dropdown-button" id="playBtn"><span id="arrow3" class="arrow3Down"></span></button>
                 <div id="dropdownMenu3" class="dropdown-content">
-                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='facil' name='dificuldade'><input type='submit' value="Modo Fácil"></form>
-                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='medio' name='dificuldade'><input type='submit' value="Modo Médio"></form>
-                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='dificil' name='dificuldade'><input type='submit' value="Modo Difícil"></form>
-                    <form method='post' action="view/quizQuestions.php"><input type='hidden' value='historia' name='dificuldade'><input type='submit' value="Modo História"></form>
+                    <form method='post' action="./quizQuestions.php"><input type='hidden' value='facil' name='dificuldade'><input type='submit' value="Modo Fácil"></form>
+                    <form method='post' action="./quizQuestions.php"><input type='hidden' value='medio' name='dificuldade'><input type='submit' value="Modo Médio"></form>
+                    <form method='post' action="./quizQuestions.php"><input type='hidden' value='dificil' name='dificuldade'><input type='submit' value="Modo Difícil"></form>
+                    <form method='post' action="./quizQuestions.php"><input type='hidden' value='historia' name='dificuldade'><input type='submit' value="Modo História"></form>
                 </div>
             </div>
 
