@@ -266,7 +266,6 @@ main {
 
     >h1 {
         margin-top: 4vh;
-        /* margin-bottom: 2vh; */
         font-size: 4rem;
         font-family: KarmaticArcade;
     }
@@ -275,7 +274,7 @@ main {
         margin-top: 4vh;
         margin-bottom: 8vh;
         width: 100%;
-        height: 100vh;
+        height: 73vh;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -283,7 +282,7 @@ main {
 
         .avatar {
             width: 30vw;
-            height: 70vh;
+            height: 73vh;
             border: 3px solid #26E580;
             background-color: #450f6b;
             position: relative;
@@ -377,8 +376,8 @@ main {
             height: 70vh;
             display: grid;
             grid-gap: 1vh;
-            grid-template-columns: 160px 160px 160px 160px;
-            grid-template-rows: 200px 200px 200px 200px;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-rows: 25% 25% 25% 25%;
             justify-content: center;
             border: 3px solid #26E580;
             background-color: #450f6b;
@@ -466,13 +465,17 @@ main {
             justify-content: center;
             align-items: center;
             width: 20vw;
-            height: 50vh;
+            height: 60vh;
             border: 2px #26E580 solid;
             padding-top: 2.5vh;
     
             h1 {
-                margin-top: 0px;
                 font-size: 35px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 2.5vh;
+                text-decoration: underline;
             }
     
     
@@ -497,6 +500,8 @@ main {
                 width: 10vw;
                 height: 6vh;
                 font-size: 2.5vh;
+                margin-top: 2.5vh;
+                margin-bottom: 2.5vh;
                 border: #26E580 solid 2px;
                 background-color: #450f6b;
                 cursor: pointer;
