@@ -1,8 +1,8 @@
-SLearn - Sistema de Aprendizagem
+## SLearn - Sistema de Aprendizagem
 sobre o projeto
 SLearn é um sistema de E-Learning focado em conteúdos educacionais sobre Estrutura de Dados, especificamente "Listas Encadeadas" e "Tipos Abstratos de Dados". O projeto foi desenvolvido como um trabalho acadêmico para a disciplina de Estrutura de Dados do curso de Desenvolvimento de Software Multiplataforma da FATEC de Presidente Prudente.
 
-🚀 Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 O projeto foi construído utilizando as seguintes tecnologias:
 
 Backend: PHP
@@ -13,11 +13,11 @@ Banco de Dados: MySQL (gerenciado com phpMyAdmin)
 
 Servidor: Apache
 
-📂 Estrutura de Arquivos
+## 📂 Estrutura de Arquivos
 O repositório está organizado da seguinte forma:
 
 /
-├── Controler/
+├── Controler/ \n
 ├── css/
 ├── img/
 ├── model/
@@ -30,7 +30,7 @@ O repositório está organizado da seguinte forma:
 ├── cadastro.php
 ├── Jogo.php
 └── ... (outros arquivos PHP)
-⚙️ Instalação e Execução
+## ⚙️ Instalação e Execução
 Para rodar este projeto localmente, siga os passos abaixo:
 
 Pré-requisitos
