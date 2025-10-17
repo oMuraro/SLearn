@@ -1,28 +1,64 @@
-https://www.canva.com/design/DAGOsidEbRQ/AfHwp6rC5cZt5nmx1tweCA/edit?utm_content=DAGOsidEbRQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+SLearn - Sistema de Aprendizagem
+sobre o projeto
+SLearn é um sistema de E-Learning focado em conteúdos educacionais sobre Estrutura de Dados, especificamente "Listas Encadeadas" e "Tipos Abstratos de Dados". O projeto foi desenvolvido como um trabalho acadêmico para a disciplina de Estrutura de Dados do curso de Desenvolvimento de Software Multiplataforma da FATEC de Presidente Prudente.
 
-# O que é o Slearn?
- O SLearn é um sistema feito em grupo para a aquisição de nota parcial na matéria de Estrutura de Dados do curso DS-AMS da Fatec de Presidente Prudente.<br/>
+🚀 Tecnologias Utilizadas
+O projeto foi construído utilizando as seguintes tecnologias:
 
-# Do que se trata?
- O SLearn é um sistema simples com conteúdos educativos sobre: "Listas de Encadeadas", e "Tipos Abstratos de Dados"<br/>
- As listas encadeadas contém duas versões: A simples, e a Dupla<br/>
+Backend: PHP
 
-# Como Instalar e Utilizar?
- A instalação é Super simples, para os que já sabem usar o Git e GitHub, sigam com o passo a passo 1, caso não saiba utilizar, vá para o passo a passo 2.<br/>
+Frontend: HTML, CSS, JavaScript
 
-# 1 - Instalando com o Git
- Bom, se você já sabe como usar o Git, então já deve possuí-lo em sua máquina, logo, pulando o processo de instalação do Git.<br/>
- Passo 1 - Copie o link do repositório.<br/>
- Passo 2 - Dê um Git clone Dentro de sua Máquina dentro da pasta htdocs, ou dentro da sua pasta que emule apache.<br/>
- Passo 3 - Abra o navegador<br/>
- Passo 4 - Insira o Banco de Dados no seu Phpmyadmin.<br/>
- Passo 5 - Abra o caminho: 127.0.0.1/Slearn-Main (complete o caminho de acordo com o seu navegador de arquivos)<br/>
+Banco de Dados: MySQL (gerenciado com phpMyAdmin)
 
-# 2 - Instalando Sem o Git
- Bom, Considerando que você não sabe usar o Git, existe a opção também de baixar o arquivo como pasta zipada e coloca-la no local desejado.<br/>
- Passo 1 - Clique em Code (botão verde acima dos arquivos no github)<br/>
- Passo 2 - Clique em Download ZIP.<br/>
- Passo 3 - Extraia os arquivos da Pasta zipada.<br/>
- Passo 4 - Mova esses arquivos para a pasta do seu emulador apache. (htdocs ou coisa assim)<br/>
- Passo 5 - Insira o Banco de Dados no seu Phpmyadmin.<br/>
- Passo 6 - Abra o caminho: 127.0.0.1/Slearn-Main (complete o caminho de acordo com o seu navegador de arquivos)<br/>
+Servidor: Apache
+
+📂 Estrutura de Arquivos
+O repositório está organizado da seguinte forma:
+
+/
+├── Controler/
+├── css/
+├── img/
+├── model/
+├── processamento/
+├── scripts/
+├── sql/
+├── view/
+├── index.php
+├── home.php
+├── cadastro.php
+├── Jogo.php
+└── ... (outros arquivos PHP)
+⚙️ Instalação e Execução
+Para rodar este projeto localmente, siga os passos abaixo:
+
+Pré-requisitos
+Um ambiente de servidor local como XAMPP ou WAMP.
+
+Git (opcional, mas recomendado).
+
+Passos
+Clone o repositório:
+
+Bash
+
+git clone https://github.com/oMuraro/SLearn.git
+Caso não tenha Git, você pode baixar o projeto como um arquivo ZIP e extraí-lo.
+
+Mova os arquivos do projeto: Mova a pasta SLearn para o diretório htdocs (no XAMPP) ou www (no WAMP) do seu servidor local.
+
+Configure o Banco de Dados:
+
+Inicie os serviços do Apache e MySQL no seu painel de controle (ex: XAMPP Control Panel).
+
+Acesse o phpMyAdmin através do seu navegador (geralmente em http://localhost/phpmyadmin).
+
+Crie um novo banco de dados.
+
+Importe o arquivo .sql localizado na pasta sql do projeto para criar as tabelas e estruturas necessárias.
+
+Acesse a aplicação: Abra o seu navegador e acesse http://localhost/SLearn.
+
+🤝 Contribuições
+Este projeto foi desenvolvido por um grupo de estudantes para fins acadêmicos. Contribuições são bem-vindas! Se você tiver sugestões para melhorar o projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request.
