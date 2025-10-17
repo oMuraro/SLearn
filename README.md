@@ -16,19 +16,30 @@ Servidor: Apache
 ## 📂 Estrutura de Arquivos
 O repositório está organizado da seguinte forma:
 
-/
-├── Controler/ \n
+├── Controler/
+
 ├── css/
+
 ├── img/
+
 ├── model/
+
 ├── processamento/
+
 ├── scripts/
+
 ├── sql/
+
 ├── view/
+
 ├── index.php
+
 ├── home.php
+
 ├── cadastro.php
+
 ├── Jogo.php
+
 └── ... (outros arquivos PHP)
 ## ⚙️ Instalação e Execução
 Para rodar este projeto localmente, siga os passos abaixo:
